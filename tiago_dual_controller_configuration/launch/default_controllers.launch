@@ -1,0 +1,34 @@
+<launch>
+  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/joint_trajectory_controllers.yaml" />
+  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/current_limit_controllers.yaml"/>
+
+  <!-- TODO this may need more joints for the 4 wheel base -->
+  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_state_controller_extra_joints.yaml" ns="joint_state_controller"/>
+  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_state_controller_extra_joints.yaml" ns="joint_torque_sensor_state_controller"/>
+
+  <!-- Set up controllers depending of arm existance -->
+  <arg name="controller_list"
+       value="torso_controller
+              head_controller
+              arm_left_controller
+              arm_left_current_limit_controller
+              arm_right_controller
+              arm_right_current_limit_controller
+              mobile_base_controller
+              wheels_current_limit_controller"/>
+  <!-- Controllers that come up started -->
+  <node name="default_controllers_spawner"
+        pkg="controller_manager" type="spawner" output="screen"
+        args="--timeout 120 $(arg controller_list)" />
+
+  <!-- Point head action -->
+  <group ns="head_controller">
+    <node name="point_head_action" pkg="head_action" type="head_action" output="screen">
+      <rosparam>
+        pan_link:  head_1_link
+        tilt_link: head_2_link
+        success_angle_threshold: 0.01
+      </rosparam>
+    </node>
+  </group>
+</launch>

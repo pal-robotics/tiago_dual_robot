@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="end_effector_left"  default="pal-hey5"/>
+  <arg name="end_effector_right"  default="pal-hey5"/>
+  <arg name="ft_sensor_left"  default="schunk-ft"/>
+  <arg name="ft_sensor_right"  default="schunk-ft"/>
+  <arg name="laser_model"  default="sick-571"/>
+  <arg name="camera_model"  default="orbbec-astra"/>
+  <arg name="tf_prefix" default=""/>
+
+  <!-- Load default controllers -->
+  <include file="$(find tiago_dual_controller_configuration)/launch/tiago_dual_controllers.launch">
+    <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
+    <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
+    <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>
+    <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
+    <arg name="laser_model"  value="$(arg laser_model)"/>
+    <arg name="camera_model"  value="$(arg camera_model)"/>
+  </include>
+
+  <!-- Robot state publisher -->
+  <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0"/>
+    <param name="tf_prefix" type="string" value="$(arg tf_prefix)"/>
+    <param name="use_tf_static" type="bool" value="true"/>
+  </node>
+
+  <!-- Robot pose publisher -->
+  <node pkg="robot_pose" type="robot_pose_node" name="robot_pose_publisher" output="screen"/>
+
+  <!-- TF lookup -->
+  <node pkg="tf_lookup" type="tf_lookup" name="tf_lookup" output="screen"/>
+
+  <!-- Twist mux -->
+  <include file="$(find tiago_bringup)/launch/twist_mux.launch"/>
+
+  <!-- Dynamic footprint -->
+  <!--  TODO Disabled for now because it's not used, needs to take into account both arms and type of mobile base
+
+  <include file="$(find tiago_bringup)/launch/dynamic_footprint.launch">
+    <arg name="arm" value="$(arg arm)"/>
+  </include>-->
+
+  <!-- Speed limit -->
+  <include file="$(find speed_limit)/launch/speed_limit.launch">
+    <arg name="config"    value="$(find tiago_bringup)/config/speed_limit.yaml"/>
+    <arg name="footprint" value="$(find pmb2_description)/urdf/base/footprint.yaml"/>
+  </include>
+
+  <!-- Joystick controller -->
+  <include file="$(find tiago_dual_bringup)/launch/joystick_teleop.launch">
+    <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
+    <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
+    <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>
+    <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
+  </include>
+
+  <include file="$(find sensor_to_cloud)/launch/sonar_to_cloud.launch"/>
+    <!--arg name="config" value="$(find tiago_bringup)/config/sensor_to_cloud/sonar_to_cloud.yaml"/>
+  </include-->
+
+</launch>

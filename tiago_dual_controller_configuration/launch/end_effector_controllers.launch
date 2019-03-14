@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="end_effector"/>
+    <arg name="side"/>
+    <arg name="config_path" value="$(find tiago_dual_controller_configuration)/config/joint_trajectory" />
+    <group if="$(eval end_effector == 'pal-gripper')">
+        <rosparam command="load" file="$(arg config_path)/pal-gripper_$(arg side)_joint_trajectory_controllers.yaml" />
+        <include file="$(find pal_gripper_controller_configuration)/launch/gripper_controller.launch">
+          <arg name="side" value="$(arg side)"/>
+        </include>
+    </group>
+
+    <group if="$(eval end_effector == 'schunk-wsg')">
+        <rosparam command="load" file="$(arg config_path)/schunk-wsg_$(arg side)_joint_trajectory_controllers.yaml" />
+        <include file="$(find pal_wsg_gripper_controller_configuration)/launch/gripper_controller.launch">
+          <arg name="side" value="$(arg side)"/>
+        </include>
+        <include file="$(find pal_wsg_gripper_controller_configuration)/launch/gripper_fingertip_sensor_controller.launch">
+          <arg name="side" value="$(arg side)"/>
+          <arg name="finger" value="left"/>
+        </include>
+        <include file="$(find pal_wsg_gripper_controller_configuration)/launch/gripper_fingertip_sensor_controller.launch">
+          <arg name="side" value="$(arg side)"/>
+          <arg name="finger" value="right"/>
+        </include>
+    </group>
+    <group if="$(eval end_effector == 'pal-hey5')">
+        <rosparam command="load" file="$(arg config_path)/pal-hey5_$(arg side)_joint_trajectory_controllers.yaml" />
+        <include file="$(find tiago_dual_controller_configuration)/launch/hey5_controller.launch">
+          <arg name="side" value="$(arg side)"/>
+        </include>
+    </group>
+</launch>
