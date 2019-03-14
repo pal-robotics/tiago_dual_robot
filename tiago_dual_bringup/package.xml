@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>tiago_dual_bringup</name>
+  <version>0.0.1</version>
+  <description>Launch files to upload the TIAGo Dual robot description and start the controllers</description>
+  <maintainer email="victor.lopez@pal-robotics.com">Victor Lopez</maintainer>
+  <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>pmb2_bringup</run_depend>
+  <run_depend>tf_lookup</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>tiago_dual_controller_configuration</run_depend>
+  <run_depend>joy</run_depend>
+  <run_depend>joy_teleop</run_depend>
+  <run_depend>dynamic_footprint</run_depend>
+  <run_depend>head_action</run_depend>
+  <run_depend>tiago_dual_moveit_config</run_depend>
+  <run_depend>dynamixel_cpp</run_depend>
+  <run_depend>openni2_launch</run_depend>
+  <run_depend>speed_limit</run_depend>
+  <run_depend>sensor_to_cloud</run_depend>
+  <run_depend>camera_calibration_files</run_depend>
+  <run_depend>libuvc_camera</run_depend>
+  <run_depend>robot_pose</run_depend>
+</package>
