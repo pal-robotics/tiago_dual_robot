@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="end_effector_left"/>
+  <arg name="end_effector_right"/>
+  <arg name="ft_sensor_left"/>
+  <arg name="ft_sensor_right"/>
+  <arg name="file_suffix" value="$(eval (end_effector_left + ('' if not ft_sensor_left else '_'+ft_sensor_left) + '_' + end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
+  <!-- execute pre-recorded motions -->
+  <rosparam file="$(find tiago_bringup)/config/motions/tiago_motions_$(arg file_suffix).yaml" command="load" />
+  <node pkg="play_motion" type="play_motion" name="play_motion">
+    <rosparam file="$(find tiago_bringup)/config/approach_planner/approach_planner_$(arg file_suffix).yaml" command="load" />
+  </node>
+  <!-- I don't think this is being used -->
+  <!--<node pkg="play_motion" type="is_already_there.py" name="is_already_there" />-->
+</launch>
