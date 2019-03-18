@@ -10,7 +10,7 @@
   <!-- Robot description -->
   <param name="robot_description"
     command="$(find xacro)/xacro --inorder
-    '$(find tiago_description)/robots/tiago_dual.urdf.xacro'
+    '$(find tiago_dual_description)/robots/tiago_dual.urdf.xacro'
     end_effector_left:=$(arg end_effector_left)
     end_effector_right:=$(arg end_effector_right)
     ft_sensor_left:=$(arg ft_sensor_left)
