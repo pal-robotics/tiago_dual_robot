@@ -45,16 +45,16 @@
     <xacro:wrong_camera_model/>
   </xacro:if>
 
-   <property name="has_schunk_ft"           value="${ft_sensor == 'schunk-ft'}"/>
-   <property name="has_ft_sensor_left"      value="${ft_sensor_left == 'schunk-ft'}"/> <!-- This should be OR'ed with other FT sensors-->
-   <property name="has_ft_sensor_right"     value="${ft_sensor_right == 'schunk-ft'}"/> <!-- This should be OR'ed with other FT sensors-->
-   <property name="end_effector_left_link"       value="${'wrist_left_ft_tg ool_link' if has_ft_sensor_left else 'arm_left_tool_link'}"/>
-   <property name="end_effector_left_name"       value="${'hand_left' if end_effector_left == 'pal-hey5' else 'gripper_left'}"/>
-   <property name="end_effector_right_link"       value="${'wrist_right_ft_tool_link' if has_ft_sensor_right else 'arm_right_tool_link'}"/>
-   <property name="end_effector_right_name"       value="${'hand_right' if end_effector_right == 'pal-hey5' else 'gripper_right'}"/>
-   <property name="wrist_left_6_range"      value="${ 81 if has_ft_sensor_left else 90 }"/>
-   <property name="wrist_right_6_range"     value="${ 81 if has_ft_sensor_right else 90 }"/>
-   <property name="head_link_name"          value="head_2_link"/>
+   <xacro:property name="has_schunk_ft"           value="${ft_sensor == 'schunk-ft'}"/>
+   <xacro:property name="has_ft_sensor_left"      value="${ft_sensor_left == 'schunk-ft'}"/> <!-- This should be OR'ed with other FT sensors-->
+   <xacro:property name="has_ft_sensor_right"     value="${ft_sensor_right == 'schunk-ft'}"/> <!-- This should be OR'ed with other FT sensors-->
+   <xacro:property name="end_effector_left_link"       value="${'wrist_left_ft_tg ool_link' if has_ft_sensor_left else 'arm_left_tool_link'}"/>
+   <xacro:property name="end_effector_left_name"       value="${'hand_left' if end_effector_left == 'pal-hey5' else 'gripper_left'}"/>
+   <xacro:property name="end_effector_right_link"       value="${'wrist_right_ft_tool_link' if has_ft_sensor_right else 'arm_right_tool_link'}"/>
+   <xacro:property name="end_effector_right_name"       value="${'hand_right' if end_effector_right == 'pal-hey5' else 'gripper_right'}"/>
+   <xacro:property name="wrist_left_6_range"      value="${ 81 if has_ft_sensor_left else 90 }"/>
+   <xacro:property name="wrist_right_6_range"     value="${ 81 if has_ft_sensor_right else 90 }"/>
+   <xacro:property name="head_link_name"          value="head_2_link"/>
 
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- Base -->
