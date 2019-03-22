@@ -61,7 +61,7 @@
   <xacro:include filename="$(find pmb2_description)/urdf/base/base_sensors.urdf.xacro" />
 
   <!-- Torso -->
-  <xacro:include filename="$(find tiago_description)/urdf/torso/torso.urdf.xacro" />
+  <xacro:include filename="$(find tiago_dual_description)/urdf/torso/torso_dual.urdf.xacro" />
 
   <!-- Arm -->
   <xacro:include filename="$(find tiago_description)/urdf/arm/arm.urdf.xacro" />
@@ -86,26 +86,18 @@
   <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"/>
 
   <!-- Left -->
-  <joint name="torso_left_lift_joint" type="fixed">
-    <origin xyz="0 0.5 0" rpy="0 0 0"/>
-    <parent link="torso_lift_link" />
-    <child link="torso_left_lift_link"/>
-  </joint>
-  <link name="torso_left_lift_link"/>
-  <xacro:tiago_arm name="arm_left" parent="torso_left_lift_link" wrist_6_range="${wrist_left_6_range}"/>
+  <xacro:tiago_arm name="arm_left" parent="torso_lift_link" wrist_6_range="${wrist_left_6_range}">
+    <origin xyz="0.02556 0.2565 -0.171" rpy="0 0 ${0 * deg_to_rad}"/>
+  </xacro:tiago_arm>
   <xacro:if value="${has_ft_sensor_left}">
       <xacro:ft_sensor name="wrist_left" parent="arm_left_tool_link" />
   </xacro:if>
   <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1"/>
 
   <!-- Right -->
-  <joint name="torso_left_right_joint" type="fixed">
-    <origin xyz="0 -0.5 0" rpy="0 0 0"/>
-    <parent link="torso_lift_link" />
-    <child link="torso_right_lift_link"/>
-  </joint>
-  <link name="torso_right_lift_link"/>
-  <xacro:tiago_arm name="arm_right" parent="torso_right_lift_link" wrist_6_range="${wrist_right_6_range}"/>
+  <xacro:tiago_arm name="arm_right" parent="torso_lift_link" wrist_6_range="${wrist_right_6_range}">
+    <origin xyz="0.02556 -0.2565 -0.171" rpy="0 0 ${180 * deg_to_rad}"/>
+  </xacro:tiago_arm>
   <xacro:if value="${has_ft_sensor_right}">
       <xacro:ft_sensor name="wrist_right" parent="arm_right_tool_link" />
   </xacro:if>
