@@ -29,13 +29,12 @@
       <arg name="side" value="right"/>
     </include>
 
-    <!-- TODO need to do moveit stuff, need URDF for that -->
     <!-- Motion planning -->
-    <!--<include file="$(find tiago_moveit_config)/launch/move_group.launch">-->
-      <!--<arg name="arm" value="$(arg arm)"/>-->
-      <!--<arg name="end_effector" value="$(arg end_effector)"/>-->
-      <!--<arg name="ft_sensor" value="$(arg ft_sensor)"/>-->
-      <!--<arg name="laser_model" value="$(arg laser_model)"/>-->
-      <!--<arg name="camera_model" value="$(arg camera_model)"/>-->
-    <!--</include>-->
+    <include file="$(find tiago_moveit_config)/launch/move_group.launch">
+      <arg name="arm" value="$(arg arm)"/>
+      <arg name="end_effector" value="$(arg end_effector)"/>
+      <arg name="ft_sensor" value="$(arg ft_sensor)"/>
+      <arg name="laser_model" value="$(arg laser_model)"/>
+      <arg name="camera_model" value="$(arg camera_model)"/>
+    </include>
 </launch>

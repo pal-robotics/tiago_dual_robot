@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/joint_trajectory_controllers.yaml" />
   <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/current_limit_controllers.yaml"/>
