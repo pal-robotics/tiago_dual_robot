@@ -14,16 +14,15 @@
   <!-- Diff drive controller parameters -->
   <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/mobile_base_controller.yaml"/>
 
-    <!-- TODO -->
   <!-- Robot model -->
-  <!--<include file="$(find tiago_dual_description)/robots/upload.launch">-->
-    <!--<arg name="end_effector_left"  value="$(arg end_effector_left)"/>-->
-    <!--<arg name="end_effector_right"  value="$(arg end_effector_right)"/>-->
-    <!--<arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>-->
-    <!--<arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>-->
-    <!--<arg name="laser_model"  value="$(arg laser_model)"/>-->
-    <!--<arg name="camera_model"  value="$(arg camera_model)"/>-->
-  <!--</include>-->
+  <include file="$(find tiago_dual_description)/robots/upload.launch">
+    <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
+    <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
+    <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>
+    <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
+    <arg name="laser_model"  value="$(arg laser_model)"/>
+    <arg name="camera_model"  value="$(arg camera_model)"/>
+  </include>
 
   <!-- tiago_hardware parameters -->
   <arg name="file_suffix" value="$(eval (end_effector_left + ('' if not ft_sensor_left else '_'+ft_sensor_left) + '_' + end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
