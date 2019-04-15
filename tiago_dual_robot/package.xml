@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>tiago_dual_robot</name>
+  <version>2.0.5</version>
+  <description>Description and controller configuration of TIAGo</description>
+  <maintainer email="victor.lopez@pal-robotics.com">Victor Lopez</maintainer>
+  <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>tiago_dual_description</run_depend>
+  <run_depend>tiago_dual_controller_configuration</run_depend>
+  <run_depend>tiago_dual_bringup</run_depend>
+
+  <export>
+     <metapackage/>
+  </export>
+</package>

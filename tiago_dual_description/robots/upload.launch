@@ -1,0 +1,22 @@
+<launch>
+  <arg name="multi" default=""/>
+  <arg name="end_effector_left"  default="pal-hey5"/>
+  <arg name="end_effector_right"  default="pal-hey5"/>
+  <arg name="ft_sensor_left"  default="schunk-ft"/>
+  <arg name="ft_sensor_right"  default="schunk-ft"/>
+  <arg name="laser_model"  default="sick-571"/>
+  <arg name="camera_model"  default="orbbec-astra"/>
+
+  <!-- Robot description -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder
+    '$(find tiago_dual_description)/robots/tiago_dual.urdf.xacro'
+    end_effector_left:=$(arg end_effector_left)
+    end_effector_right:=$(arg end_effector_right)
+    ft_sensor_left:=$(arg ft_sensor_left)
+    ft_sensor_right:=$(arg ft_sensor_right)
+    laser_model:=$(arg laser_model)
+    camera_model:=$(arg camera_model)
+    $(arg multi)" />
+ <rosparam command="load" file="$(find tiago_dual_description)/config/collision/collision_parameters.yaml" />
+</launch>

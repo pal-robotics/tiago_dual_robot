@@ -1,0 +1,15 @@
+<launch>
+  <arg name="side" default=""/>
+  <arg name="suffix" value="$(eval ('' if side == '' else '_' + side))"/>
+  <!-- Controllers that come up started -->
+  <node name="hand$(arg suffix)_controller_spawner"
+        pkg="controller_manager" type="spawner" output="screen"
+        args="--timeout 120
+              hand$(arg suffix)_current_limit_controller
+              hand$(arg suffix)_controller" />
+
+  <!-- Simple grasping action -->
+  <node name="hand$(arg suffix)_grasping_action" pkg="simple_grasping_action" type="simple_grasping_action" output="screen">
+    <param name="target_controller" value="hand$(arg suffix)_controller" />
+  </node>
+</launch>
