@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2019-04-15)
+------------------
 * Merge branch 'tiago-dual' into 'master'
   Tiago dual
   See merge request robots/tiago_dual_robot!1

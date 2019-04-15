@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2019-04-15)
+------------------
 * Fix package versions
 * Merge branch 'tiago-dual' into 'master'
   Tiago dual
