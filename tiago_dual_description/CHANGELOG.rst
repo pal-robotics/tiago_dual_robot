@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix wrong robot name in urdf
+* Contributors: Victor Lopez
+
 0.1.0 (2019-04-15)
 ------------------
 * Fix package versions

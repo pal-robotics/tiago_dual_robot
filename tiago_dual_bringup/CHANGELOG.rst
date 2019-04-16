@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix typo in plan group name
+* Contributors: Victor Lopez
+
 0.1.0 (2019-04-15)
 ------------------
 * Merge branch 'tiago-dual' into 'master'
