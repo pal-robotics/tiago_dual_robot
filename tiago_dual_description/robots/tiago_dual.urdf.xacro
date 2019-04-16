@@ -8,7 +8,7 @@
   Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 -->
 <robot  xmlns:xacro="http://ros.org/wiki/xacro"
-        name="tiago" >
+        name="tiago_dual" >
     <xacro:arg name="end_effector_left" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg-->
     <xacro:arg name="end_effector_right" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg-->
     <xacro:arg name="ft_sensor_left" default="schunk-ft"/> <!-- false, schunk-ft -->
