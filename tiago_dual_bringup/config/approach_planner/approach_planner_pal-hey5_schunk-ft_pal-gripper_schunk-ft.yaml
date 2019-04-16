@@ -2,7 +2,7 @@
 disable_motion_planning: false
 approach_planner:
   planning_groups: # Sorted by order of preference
-    - both_arm_torso
+    - both_arms_torso
     - arm_left_torso
     - arm_left
     - arm_right_torso
