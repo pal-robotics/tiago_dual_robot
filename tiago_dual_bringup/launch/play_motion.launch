@@ -6,7 +6,8 @@
   <arg name="ft_sensor_right"/>
   <arg name="file_suffix" value="$(eval (end_effector_left + ('' if not ft_sensor_left else '_'+ft_sensor_left) + '_' + end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
   <!-- execute pre-recorded motions -->
-  <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_$(arg file_suffix).yaml" command="load" />
+  <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_general.yaml" command="load" /> <!-- any end-effector motions -->
+  <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_$(arg file_suffix).yaml" command="load" /> <!-- end-effector specific motions -->
   <node pkg="play_motion" type="play_motion" name="play_motion">
     <rosparam file="$(find tiago_dual_bringup)/config/approach_planner/approach_planner_$(arg file_suffix).yaml" command="load" />
   </node>
