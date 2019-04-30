@@ -32,7 +32,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
-        <mesh filename="package://tiago_description/meshes/torso/torso_fix.stl" scale="1 1 1"/>
+        <mesh filename="package://tiago_dual_description/meshes/torso/torso_fix.stl" scale="1 1 1"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -104,7 +104,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
        <geometry>
-        <mesh filename="package://tiago_description/meshes/torso/torso_lift_with_arm.stl" scale="1 1 1"/>
+        <mesh filename="package://tiago_dual_description/meshes/torso/torso_lift_dual_arm.stl" scale="1 1 1"/>
       </geometry>
       <material name="White"/>
     </visual>
@@ -115,8 +115,17 @@
       </geometry>
       <material name="LightGrey"/>
     </collision>
+    <!-- left shoulder collision-->
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0" />
+      <origin rpy="0 0 0" xyz="-0.131 0.17 -0.02556" />
+       <geometry>
+        <mesh filename="package://tiago_description/meshes/torso/torso_lift_collision_shoulder.dae" scale="1 1 1"/>
+      </geometry>
+      <material name="LightGrey"/>
+    </collision>
+    <!-- right shoulder collision-->
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.131 -0.19 -0.02556" />
        <geometry>
         <mesh filename="package://tiago_description/meshes/torso/torso_lift_collision_shoulder.dae" scale="1 1 1"/>
       </geometry>
