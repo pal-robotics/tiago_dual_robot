@@ -18,7 +18,7 @@
   <xacro:property name="torso_max_vel"  value="0.07" />
   <xacro:property name="torso_eps"      value="0.02" />
 
-  <xacro:macro name="tiago_torso" params="name parent">
+  <xacro:macro name="tiago_dual_torso" params="name parent">
 
   <!-- Bottom fixed part of column -->
   <link name="${name}_fixed_link">
@@ -95,10 +95,10 @@
   <link name="${name}_lift_link">
     <inertial>
       <origin xyz="0.04361 -0.00116 -0.17334" rpy="0.00000 0.00000 0.00000"/>
-      <mass value="8.166474"/>
-      <inertia ixx="0.271900" ixy="-0.001130" ixz="-0.009651"
-               iyy="0.188381" iyz="0.009095"
-               izz="0.135893"/>
+      <mass value="9.594213"/>
+      <inertia ixx="0.326395" ixy="-0.000844" ixz="-0.018905"
+               iyy="0.235332" iyz="0.009042"
+               izz="0.176168"/>
     </inertial>
     <!-- Lifting body -->
     <visual>
