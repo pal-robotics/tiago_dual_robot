@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.2 (2019-05-02)
+------------------
 * Merge branch 'motions' into 'erbium-devel'
   Add generic motions
   See merge request robots/tiago_dual_robot!2
