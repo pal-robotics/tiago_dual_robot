@@ -2,17 +2,62 @@
 play_motion:
   controllers: ['head_controller', 'torso_controller', 'arm_left_controller', 'arm_right_controller', 'gripper_left_controller', 'gripper_right_controller']
   motions:
-    home: #This is completely made up and is only an example
-      joints: [torso_lift_joint, arm_left_1_joint,
-      arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint,
-      arm_left_6_joint, arm_left_7_joint, arm_right_1_joint,
-      arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint,
-      arm_right_6_joint, arm_right_7_joint]
+    close_left:
+      joints: [gripper_left_finger_joint]
       points:
-      - positions: [0.25, 0.20, 0.35, -0.20, 1.94, -1.57, 1.37, 0.0, 0.20,
-      0.35, -0.20, 1.94, -1.57, 1.37, 0.0]
-        time_from_start: 0.5
+        - time_from_start: 0.5
+          positions: [0.0]
       meta:
-        name: Home
-        usage: demo
-        description: 'Go home'
+        name: Close left
+        usage: picking
+        description: Close Left gripper
+    open_left:
+      joints: [gripper_left_finger_joint]
+      points:
+        - time_from_start: 0.5
+          positions: [0.031]
+      meta:
+        name: Open left
+        usage: picking
+        description: Open Left gripper
+
+    close_right:
+      joints: [gripper_right_left_finger_joint, gripper_right_right_finger_joint]
+      points:
+        - time_from_start: 0.5
+          positions: [0.0, 0.0]
+      meta:
+        name: Close right
+        usage: picking
+        description: Close right gripper
+    open_left:
+      joints: [gripper_right_left_finger_joint, gripper_right_right_finger_joint]
+      points:
+        - time_from_start: 0.5
+          positions: [0.044, 0.044]
+      meta:
+        name: Open right
+        usage: picking
+        description: Open right gripper
+
+
+    close_both:
+      joints: ['gripper_left_finger_joint', 'gripper_right_left_finger_joint', 'gripper_right_right_finger_joint']
+      points:
+        - time_from_start: 0.5
+          positions: [0.0, 0.0, 0.0]
+
+      meta:
+        name: Close Both
+        usage: picking
+        description: Close both end effectors
+    open_both:
+      joints: ['gripper_left_finger_joint', 'gripper_right_left_finger_joint', 'gripper_right_right_finger_joint']
+      points:
+        - time_from_start: 0.5
+          positions: [0.031, 0.044, 0.044]
+
+      meta:
+        name: Open Both
+        usage: picking
+        description: Open both end effectors
