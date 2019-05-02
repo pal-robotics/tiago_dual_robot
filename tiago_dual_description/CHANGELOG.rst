@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'urdf-update' into 'erbium-devel'
+  New torso inertia and fixed arm_1 "Y"
+  See merge request robots/tiago_dual_robot!3
+* Update meshes for tiago dual arm
+* New torso inertia and fixed arm_1 "Y"
+* Contributors: Victor Lopez
+
 0.1.1 (2019-04-16)
 ------------------
 * Fix wrong robot name in urdf

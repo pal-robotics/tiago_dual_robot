@@ -2,6 +2,17 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'motions' into 'erbium-devel'
+  Add generic motions
+  See merge request robots/tiago_dual_robot!2
+* Add Reach Max and Floor
+* Open and Close end-effectors
+* Remove dummy home from generated files
+* Add generic motions
+* Contributors: Victor Lopez, davidfernandez
+
 0.1.1 (2019-04-16)
 ------------------
 * Fix typo in plan group name
