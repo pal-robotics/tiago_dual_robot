@@ -4,9 +4,9 @@ play_motion:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [-1.1, -0.48, 2.714, 1.7095, -1.7012, 1.3898, 0, -1.1, -0.48, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.25]
+          positions: [-1.1, -0.48, 2.714, 1.7095, -1.2012, 1.3898, 0, -1.1, -0.48, 2.714, 1.7095, -1.2012, 1.3898, 0, 0.25]
         - time_from_start: 3
-          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, -1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.25]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.3898, 0, -1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.3898, 0, 0.25]
         - time_from_start: 4.5
           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, -1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.15]
       meta:
@@ -17,9 +17,9 @@ play_motion:
       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [-1.1, -0.48, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.25]
+          positions: [-1.1, -0.48, 2.714, 1.7095, -1.2012, 1.3898, 0, 0.25]
         - time_from_start: 3
-          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.25]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.3898, 0, 0.25]
         - time_from_start: 4.5
           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.15]
       meta:
@@ -30,9 +30,9 @@ play_motion:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [-1.1, -0.48, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.25]
+          positions: [-1.1, -0.48, 2.714, 1.7095, -1.2012, 1.3898, 0, 0.25]
         - time_from_start: 3
-          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.25]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.3898, 0, 0.25]
         - time_from_start: 4.5
           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.7012, 1.3898, 0, 0.15]
       meta:
@@ -68,9 +68,7 @@ play_motion:
       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [0.2, -1.1989, -0.1999, 1.9372, -1.5704, 1.37, 0.0006, 0.1424]
-        - time_from_start: 5
-          positions: [2.2876, -0.473, -2.0218, 1.581, -1.9085, 0.0278, -0.5394, 0.1222]
+          positions: [1.5, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 0.15]
       meta:
         name: Offer Right
         usage: demo
@@ -79,9 +77,7 @@ play_motion:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [0.2, -1.1989, -0.1999, 1.9372, -1.5704, 1.37, 0.0006, 0.1424]
-        - time_from_start: 5
-          positions: [2.2876, -0.473, -2.0218, 1.581, -1.9085, 0.0278, -0.5394, 0.1222]
+          positions: [1.5, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 0.15]
       meta:
         name: Offer Left
         usage: demo
@@ -90,9 +86,7 @@ play_motion:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [0.2, -1.1971, -0.1999, 1.9372, -1.5701, 1.3699, 0.0005, 0.2, -1.1989, -0.1999, 1.9372, -1.5704, 1.37, 0.0006, 0.1424]
-        - time_from_start: 5
-          positions: [2.2876, -0.4796, -2.0189, 1.5803, -1.9086, 0.028, -0.5391, 2.2876, -0.479, -2.0192, 1.5803, -1.9085, 0.0275, -0.5394, 0.1121]
+          positions: [1.5, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 1.5, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 0.15]
       meta:
         name: Offer Both
         usage: demo
