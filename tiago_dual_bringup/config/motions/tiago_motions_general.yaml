@@ -4,11 +4,11 @@ play_motion:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [0.2, 0.35, -0.2, 1.94, -1.57, 1.37, 0, 0.2, 0.35, -0.2, 1.94, -1.57, 1.37, 0, 0.25]
+          positions: [-1.1, -0.48, 2.714, 1.7095, 1.7012, -1.3898, 0, -1.1, -0.48, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.25]
         - time_from_start: 3
-          positions: [0.2, -1.1971, -0.2, 1.9372, -1.5707, 1.37, 0.0003, 0.2001, -1.1988, -0.1998, 1.9371, -1.5702, 1.37, 0.0002, 0.24]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, -1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.25]
         - time_from_start: 4.5
-          positions: [0.2, -1.1971, -0.1999, 1.9372, -1.5701, 1.3699, 0.0005, 0.2, -1.1989, -0.1999, 1.9372, -1.5704, 1.37, 0.0006, 0.1424]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, -1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.15]
       meta:
         name: Home
         usage: demo
@@ -17,11 +17,11 @@ play_motion:
       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [0.2, 0.35, -0.2, 1.94, -1.57, 1.37, 0, 0.25]
+          positions: [-1.1, -0.48, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.25]
         - time_from_start: 3
-          positions: [0.2001, -1.1988, -0.1998, 1.9371, -1.5702, 1.37, 0.0002, 0.24]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.25]
         - time_from_start: 4.5
-          positions: [0.2, -1.1989, -0.1999, 1.9372, -1.5704, 1.37, 0.0006, 0.1424]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.15]
       meta:
         name: Home Right
         usage: demo
@@ -30,11 +30,11 @@ play_motion:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
       points:
         - time_from_start: 0
-          positions: [0.2, 0.35, -0.2, 1.94, -1.57, 1.37, 0, 0.25]
+          positions: [-1.1, -0.48, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.25]
         - time_from_start: 3
-          positions: [0.2001, -1.1988, -0.1998, 1.9371, -1.5702, 1.37, 0.0002, 0.24]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.25]
         - time_from_start: 4.5
-          positions: [0.2, -1.1989, -0.1999, 1.9372, -1.5704, 1.37, 0.0006, 0.1424]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, 1.7012, -1.3898, 0, 0.15]
       meta:
         name: Home Left
         usage: demo
