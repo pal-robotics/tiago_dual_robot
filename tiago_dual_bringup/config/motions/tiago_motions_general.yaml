@@ -92,83 +92,103 @@ play_motion:
         usage: demo
         description: Offer both hands
     reach_floor_left:
-      joints: [torso_lift_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
       points:
-        - positions: [0.19, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0]
-          time_from_start: 1.0
-        - positions: [0.19, 1.6, -0.55, -1.35, 1.40, -1.57, -0.07, 0.0]
-          time_from_start: 3.0
-        - positions: [0.16, 1.6, -0.55, 0, 1.03, -1.57, -0.07, 0.0]
-          time_from_start: 7.0
+        - time_from_start: 0
+          positions: [0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.3899, 0, 0.15]
+        - time_from_start: 2.5
+          positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.15]
+        - time_from_start: 4
+          positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.1]
       meta:
         name: Reach Floor Left
         usage: demo
-        description: 'Reach floor'
+        description: Reach floor
     reach_max_left:
-      joints: [torso_lift_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
       points:
-        - positions: [0.19, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0]
-          time_from_start: 1.0
-        - positions: [0.35, 0.9, 0.68, -3.16, 1.10, 2.05, 1.0, 0.0]
-          time_from_start: 4.0
-        - positions: [0.35, 0.9, 1.05, -3.45, 0.45, 2.05, 1.0, 0.0]
-          time_from_start: 7.0
+        - time_from_start: 0
+          positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.23]
+        - time_from_start: 2.5
+          positions: [0.9008, -1.3485, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.35]
       meta:
         name: Reach Max Left
         usage: demo
-        description: 'Reach max'
+        description: Reach max
     reach_floor_right:
-      joints: [torso_lift_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+      joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
-        - positions: [0.19, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0]
-          time_from_start: 1.0
-        - positions: [0.19, 1.6, -0.55, -1.35, 1.40, -1.57, -0.07, 0.0]
-          time_from_start: 3.0
-        - positions: [0.16, 1.6, -0.55, 0, 1.03, -1.57, -0.07, 0.0]
-          time_from_start: 7.0
+        - time_from_start: 0
+          positions: [0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.3899, 0, 0.15]
+        - time_from_start: 2.5
+          positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.15]
+        - time_from_start: 4
+          positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.1]
       meta:
         name: Reach Floor Right
         usage: demo
-        description: 'Reach floor'
+        description: Reach floor
     reach_max_right:
-      joints: [torso_lift_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+      joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
-        - positions: [0.19, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0]
-          time_from_start: 1.0
-        - positions: [0.35, 0.9, 0.68, -3.16, 1.10, 2.05, 1.0, 0.0]
-          time_from_start: 4.0
-        - positions: [0.35, 0.9, 1.05, -3.45, 0.45, 2.05, 1.0, 0.0]
-          time_from_start: 7.0
+        - time_from_start: 0
+          positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.23]
+        - time_from_start: 2.5
+          positions: [0.9008, -1.3485, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.35]
       meta:
         name: Reach Max Right
         usage: demo
-        description: 'Reach max'
+        description: Reach max
     reach_floor:
-      joints: [torso_lift_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
-        - positions: [0.19, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0]
-          time_from_start: 1.0
-        - positions: [0.19, 1.6, -0.55, -1.35, 1.40, -1.57, -0.07, 0.0, 1.6, -0.55, -1.35, 1.40, -1.57, -0.07, 0.0]
-          time_from_start: 3.0
-        - positions: [0.16, 1.6, -0.55, 0, 1.03, -1.57, -0.07, 0.0, 1.6, -0.55, 0, 1.03, -1.57, -0.07, 0.0]
-          time_from_start: 7.0
+        - time_from_start: 0
+          positions: [0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.3899, 0, 0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.3899, 0, 0.15]
+        - time_from_start: 2.5
+          positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.15]
+        - time_from_start: 4
+          positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.1]
       meta:
-        name: Reach Floor Right
+        name: Reach Floor Both
         usage: demo
         description: 'Reach floor'
     reach_max:
-      joints: [torso_lift_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
       points:
-        - positions: [0.19, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0, 1.6, -1.18, -3.16, 2.0, -1.57, -0.07, 0.0]
-          time_from_start: 1.0
-        - positions: [0.35, 0.9, 0.68, -3.16, 1.10, 2.05, 1.0, 0.0, 0.9, 0.68, -3.16, 1.10, 2.05, 1.0, 0.0]
-          time_from_start: 4.0
-        - positions: [0.35, 0.9, 1.05, -3.45, 0.45, 2.05, 1.0, 0.0, 0.9, 1.05, -3.45, 0.45, 2.05, 1.0, 0.0]
-          time_from_start: 7.0
+        - time_from_start: 0
+          positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.23]
+        - time_from_start: 2.5
+          positions: [0.9008, -1.3485, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.9008, -1.3485, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.35]
       meta:
-        name: Reach Max Right
+        name: Reach Max Both
         usage: demo
         description: 'Reach max'
+    vertical_reach:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+      points:
+        - time_from_start: 0
+          positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 0.6945, 0, 0.15]
+        - time_from_start: 2.5
+          positions: [0.9008, -1.3467, 1.1102, 0.2265, -1.7005, 0.6165, 0, 0.77, 1.4121, 1.43, -0.0095, -1.3278, 0.531, 0, 0.35]
+        - time_from_start: 3
+          positions: [0.9008, -1.3467, 1.1102, 0.2265, -1.7005, 0.6165, 0, 0.77, 1.4121, 1.43, -0.0095, -1.3278, 0.531, 0, 0.35]
+        - time_from_start: 5.5
+          positions: [0.9008, -1.3468, 1.1102, 0.2265, -1.7005, 0.6164, 0, 0.77, 1.3816, 1.43, -0.01, -1.3303, 0.9131, 0, 0.1335]
+      meta:
+        name: Vertical Reach
+        usage: demo
+        description: Reach Max and Min
+    horizontal_reach:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+      points:
+        - time_from_start: 0
+          positions: [-0.5, 1.0027, 1.5016, 1.9977, -1.6999, -0.0018, 0, -0.5, 1.0028, 1.5016, 1.9978, -1.6999, -0.0015, 0, 0.2]
+        - time_from_start: 3
+          positions: [0, 0.0093, 1.4999, -0.0001, -1.6999, 0.0002, 0.0001, 0, 0.0094, 1.4999, 0.0009, -1.6999, 0.0003, 0.0001, 0.25]
+      meta:
+        name: Horizontal Reach
+        usage: demo
+        description: Reach Left and Right
 
 # Alive motions
     alive_1:
