@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.3 (2019-05-22)
+------------------
 * Merge branch 'arm-update' into 'erbium-devel'
   Arm update
   See merge request robots/tiago_dual_robot!4
