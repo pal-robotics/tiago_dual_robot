@@ -7,8 +7,8 @@
   <arg name="controller_pkg_name" default="tiago_dual_controller_configuration"/>
   <arg name="ns" default="gravity_compensation"/>
 
-  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/gravity_compensation/$(arg end_effector_left)_left_gravity_compensation_with_controller_wrist_controller.yaml" />
-  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/gravity_compensation/$(arg end_effector_right)_right_gravity_compensation_with_controller_wrist_controller.yaml" />
+  <arg name="file_suffix" value="$(eval (end_effector_left + '_' + end_effector_right))"/>
+  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/gravity_compensation/gravity_compensation_with_controller_wrist_controller_$(arg file_suffix).yaml" />
 
   <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
     <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
