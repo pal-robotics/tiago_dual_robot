@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'arm-update' into 'erbium-devel'
+  Arm update
+  See merge request robots/tiago_dual_robot!4
+* Update description to match hardware changes
+* Contributors: Victor Lopez
+
 0.1.2 (2019-05-02)
 ------------------
 * Merge branch 'urdf-update' into 'erbium-devel'

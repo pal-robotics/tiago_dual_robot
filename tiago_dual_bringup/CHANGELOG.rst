@@ -2,6 +2,19 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'arm-update' into 'erbium-devel'
+  Arm update
+  See merge request robots/tiago_dual_robot!4
+* Minor fixes to tiago motions
+* Updated reach motions
+* Made home a little bit safer
+* Fix alive motions
+* Fix last wrist in home and update wave
+* Update home motions
+* Contributors: Victor Lopez, davidfernandez
+
 0.1.2 (2019-05-02)
 ------------------
 * Merge branch 'motions' into 'erbium-devel'

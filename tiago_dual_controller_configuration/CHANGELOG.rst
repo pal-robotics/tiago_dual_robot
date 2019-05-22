@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix gravity compensation with 2 arms
+* Merge branch 'arm-update' into 'erbium-devel'
+  Arm update
+  See merge request robots/tiago_dual_robot!4
+* Fix gravity compensation reduction ratios
+* Contributors: Victor Lopez
+
 0.1.2 (2019-05-02)
 ------------------
 
