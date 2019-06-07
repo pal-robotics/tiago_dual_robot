@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'torso_controller_tol' into 'erbium-devel'
+  Fix bug in torso controller tolerances
+  See merge request robots/tiago_dual_robot!5
+* Fix bug in torso controller tolerances
+* Contributors: Adria Roig, Victor Lopez
+
 0.1.3 (2019-05-22)
 ------------------
 * Fix gravity compensation with 2 arms
