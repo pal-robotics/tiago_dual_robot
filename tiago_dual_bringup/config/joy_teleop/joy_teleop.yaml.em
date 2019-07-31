@@ -106,14 +106,14 @@ teleop:
 @[if end_effector == "pal-gripper"]@
   close_gripper:
     type: action
-    action_name: /right_gripper_controller/increment
+    action_name: /gripper_right_controller/increment
     action_goal:
       increment_by: [-0.01, -0.01]
     buttons: [7] # R2
 
   open_gripper:
     type: action
-    action_name: /right_gripper_controller/increment
+    action_name: /gripper_right_controller/increment
     action_goal:
       increment_by: [0.01, 0.01]
     buttons: [5] # R1
@@ -122,14 +122,14 @@ teleop:
 @[if end_effector == "schunk-wsg"]@
   close_gripper:
     type: action
-    action_name: /right_gripper_controller/increment
+    action_name: /gripper_right_controller/increment
     action_goal:
       increment_by: [-0.01]
     buttons: [7] # R2
 
   open_gripper:
     type: action
-    action_name: /right_gripper_controller/increment
+    action_name: /gripper_right_controller/increment
     action_goal:
       increment_by: [0.01]
     buttons: [5] # R1
