@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.5 (2019-09-05)
+------------------
 * Merge branch 'fix_gripper_controller_name' into 'erbium-devel'
   Fixed the name open_right for the motions
   See merge request robots/tiago_dual_robot!8
