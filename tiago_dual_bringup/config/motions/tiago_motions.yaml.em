@@ -87,7 +87,7 @@ print(controllers)
         name: Close right
         usage: picking
         description: Close right gripper
-    open_left:
+    open_right:
       joints: [gripper_right_left_finger_joint, gripper_right_right_finger_joint]
       points:
         - time_from_start: 0.5
