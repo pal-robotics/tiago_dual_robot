@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ferrum-fixes' into 'erbium-devel'
+  Fix urdf False parsing
+  See merge request robots/tiago_dual_robot!9
+* Fix urdf False parsing
+* Contributors: Victor Lopez
+
 0.1.5 (2019-09-05)
 ------------------
 
