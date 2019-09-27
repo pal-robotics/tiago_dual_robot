@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'speed-limit' into 'erbium-devel'
+  changed dep to speed limit node
+  See merge request robots/tiago_dual_robot!10
+* changed dep to speed limit node
+* Contributors: Procópio Stein, Victor Lopez
+
 0.1.6 (2019-09-26)
 ------------------
 
