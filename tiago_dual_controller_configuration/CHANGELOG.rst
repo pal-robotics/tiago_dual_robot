@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.9 (2019-10-03)
+------------------
 * Merge branch 'wbc' into 'erbium-devel'
   Add local joint control launch file for WBC
   See merge request robots/tiago_dual_robot!11
