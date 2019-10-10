@@ -50,8 +50,4 @@
     <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
   </include>
 
-  <include file="$(find sensor_to_cloud)/launch/sonar_to_cloud.launch"/>
-    <!--arg name="config" value="$(find tiago_bringup)/config/sensor_to_cloud/sonar_to_cloud.yaml"/>
-  </include-->
-
 </launch>
