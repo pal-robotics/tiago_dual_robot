@@ -64,6 +64,7 @@
   <xacro:include filename="$(find tiago_dual_description)/urdf/torso/torso_dual.urdf.xacro" />
 
   <!-- Arm -->
+  <xacro:include filename="$(find tiago_dual_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
   <xacro:include filename="$(find tiago_description)/urdf/arm/arm.urdf.xacro" />
 
   <!-- End Effector -->
@@ -86,7 +87,7 @@
   <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"/>
 
   <!-- Left -->
-  <xacro:tiago_arm name="arm_left" parent="torso_lift_link" wrist_6_range="${wrist_left_6_range}" reflect="-1" tiago_dual="1">
+  <xacro:tiago_arm name="arm_left" parent="torso_lift_link" wrist_6_range="${wrist_left_6_range}" reflect="-1" tiago_dual="1" arm_1_offset="${arm_left_1_joint_offset}" arm_2_offset="${arm_left_2_joint_offset}" arm_3_offset="${arm_left_3_joint_offset}" arm_4_offset="${arm_left_4_joint_offset}" arm_5_offset="${arm_left_5_joint_offset}" arm_6_offset="${arm_left_6_joint_offset}" arm_7_offset="${arm_left_7_joint_offset}">
     <origin xyz="0.02556 0.19 -0.171" rpy="${180 * deg_to_rad} 0 ${90 * deg_to_rad}"/>
   </xacro:tiago_arm>
   <xacro:if value="${has_ft_sensor_left}">
@@ -95,7 +96,7 @@
   <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1"/>
 
   <!-- Right -->
-  <xacro:tiago_arm name="arm_right" parent="torso_lift_link" wrist_6_range="${wrist_right_6_range}" reflect="1" tiago_dual="1">
+  <xacro:tiago_arm name="arm_right" parent="torso_lift_link" wrist_6_range="${wrist_right_6_range}" reflect="1" tiago_dual="1" arm_1_offset="${arm_right_1_joint_offset}" arm_2_offset="${arm_right_2_joint_offset}" arm_3_offset="${arm_right_3_joint_offset}" arm_4_offset="${arm_right_4_joint_offset}" arm_5_offset="${arm_right_5_joint_offset}" arm_6_offset="${arm_right_6_joint_offset}" arm_7_offset="${arm_right_7_joint_offset}">
     <origin xyz="0.02556 -0.19 -0.171" rpy="0 0 ${-90 * deg_to_rad}"/>
   </xacro:tiago_arm>
   <xacro:if value="${has_ft_sensor_right}">
