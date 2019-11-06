@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.10 (2019-11-06)
+-------------------
 * Merge branch 'remove-sonar-cloud' into 'erbium-devel'
   removed sonar cloud
   See merge request robots/tiago_dual_robot!12
