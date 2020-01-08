@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.11 (2020-01-08)
+-------------------
 * Fixed right/left wrist ft name
 * Contributors: Jordan Palacios
 
