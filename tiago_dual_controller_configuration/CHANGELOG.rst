@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Added wbc_controllers launch file
+* Contributors: Jordan Palacios
+
 0.1.10 (2019-11-06)
 -------------------
 

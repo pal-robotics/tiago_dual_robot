@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.10 (2019-11-06)
 -------------------
 * Merge branch 'arm_offset_fix' into 'erbium-devel'
