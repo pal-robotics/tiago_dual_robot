@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'specifics_file' into 'erbium-devel'
+  added missing actuator specifics file
+  See merge request robots/tiago_dual_robot!14
+* added missing actuator specifics file
+* Contributors: Sai Kishor Kothakota, Victor Lopez
+
 0.1.11 (2020-01-08)
 -------------------
 * Added wbc_controllers launch file
