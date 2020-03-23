@@ -1,4 +1,5 @@
 play_motion:
+@[if has_arm]@
   controllers: @{
 # This executed and printed, and this is written to the resulting yaml file
 controllers = ["head_controller", "torso_controller", "arm_left_controller", "arm_right_controller"]
@@ -13,6 +14,10 @@ elif end_effector_right == "pal-hey5":
 
 print(controllers)
 }@
+@[else]@
+  controllers: [head_controller, torso_controller]
+@[end if]@
+@[if has_arm]@
   motions:
 @[if end_effector_left == "pal-gripper"]@
     close_left:
@@ -220,3 +225,7 @@ elif end_effector_right == "schunk-wsg":
         name: Open Both
         usage: picking
         description: Open both end effectors
+@[else]@
+  motions: {}
+@[end if]@
+

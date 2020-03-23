@@ -69,3 +69,4 @@ play_motion:
         name: Open Both
         usage: picking
         description: Open both end effectors
+
