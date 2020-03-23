@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.13 (2020-03-23)
+-------------------
 * Update regen script for no file.
   Fixes #3
 * regen motions without arm as well
