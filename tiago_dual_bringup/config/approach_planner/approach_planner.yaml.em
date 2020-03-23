@@ -1,15 +1,18 @@
 disable_motion_planning: false
 approach_planner:
   planning_groups: # Sorted by order of preference
+@[if has_arm]@
     - both_arms_torso
     - arm_left_torso
     - arm_left
     - arm_right_torso
     - arm_right
+@[end if]@
     - torso
   exclude_from_planning_joints:
     - head_1_joint
     - head_2_joint
+@[if has_arm]@
 @[if end_effector_left == "pal-hey5"]@
     - hand_left_thumb_joint
     - hand_left_mrl_joint
@@ -43,6 +46,7 @@ approach_planner:
 @[end if]@
 @[if end_effector_right == "schunk-wsg"]@
     - gripper_right_finger_joint
+@[end if]@
 @[end if]@
   joint_tolerance: 0.01
   skip_planning_approach_vel: 0.5
