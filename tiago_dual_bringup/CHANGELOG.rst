@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update regen script for no file.
+  Fixes #3
+* regen motions without arm as well
+* Merge branch 'fix-play-motion' into 'erbium-devel'
+  fixed play motion for no-arm arg
+  Closes #2
+  See merge request robots/tiago_dual_robot!15
+* fixed play motion for no-arm arg
+* Contributors: Procópio Stein, Victor Lopez, victor
+
 0.1.12 (2020-01-28)
 -------------------
 
