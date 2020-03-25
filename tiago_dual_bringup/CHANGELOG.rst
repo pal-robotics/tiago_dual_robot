@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix-arm-bug' into 'erbium-devel'
+  Set Arm existance default to true
+  See merge request robots/tiago_dual_robot!16
+* Set Arm existance default to true
+* Contributors: davidfernandez, victor
+
 0.1.13 (2020-03-23)
 -------------------
 * Update regen script for no file.
