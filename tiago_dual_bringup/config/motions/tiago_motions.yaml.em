@@ -1,9 +1,13 @@
 play_motion:
-@[if has_arm]@
+@[if has_arm_left or has_arm_right]@
   controllers: @{
 # This executed and printed, and this is written to the resulting yaml file
-controllers = ["head_controller", "torso_controller", "arm_left_controller", "arm_right_controller"]
-if end_effector_left  in ["schunk-wsg", "pal-gripper"]:
+controllers = ["head_controller", "torso_controller"]
+if has_arm_left:
+  controllers.append("arm_left_controller")
+if has_arm_right:
+  controllers.append("arm_right_controller")
+if end_effector_left in ["schunk-wsg", "pal-gripper"]:
   controllers.append("gripper_left_controller")
 elif end_effector_left == "pal-hey5":
   controllers.append("hand_left_controller")
@@ -17,7 +21,7 @@ print(controllers)
 @[else]@
   controllers: [head_controller, torso_controller]
 @[end if]@
-@[if has_arm]@
+@[if has_arm_left or has_arm_right]@
   motions:
 @[if end_effector_left == "pal-gripper"]@
     close_left:
