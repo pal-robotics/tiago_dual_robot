@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.15 (2020-04-08)
+-------------------
 * Merge branch 'add-arm-sides' into 'erbium-devel'
   Add arm sides
   See merge request robots/tiago_dual_robot!17
