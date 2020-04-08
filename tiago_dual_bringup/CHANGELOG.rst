@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add-arm-sides' into 'erbium-devel'
+  Add arm sides
+  See merge request robots/tiago_dual_robot!17
+* Split has_arm into has_arm_left and has_arm_right
+* Add arm_left and arm_right params
+* Contributors: Victor Lopez, victor
+
 0.1.14 (2020-03-25)
 -------------------
 * Merge branch 'fix-arm-bug' into 'erbium-devel'

@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add-arm-sides' into 'erbium-devel'
+  Add arm sides
+  See merge request robots/tiago_dual_robot!17
+* Add arm_left and arm_right params
+* Contributors: Victor Lopez, victor
+
 0.1.14 (2020-03-25)
 -------------------
 
