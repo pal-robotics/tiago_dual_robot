@@ -1,5 +1,7 @@
 <launch>
   <arg name="multi" default=""/>
+  <arg name="arm_left"  default="True"/>
+  <arg name="arm_right"  default="True"/>
   <arg name="end_effector_left"  default="pal-hey5"/>
   <arg name="end_effector_right"  default="pal-hey5"/>
   <arg name="ft_sensor_left"  default="schunk-ft"/>
@@ -11,6 +13,8 @@
   <param name="robot_description"
     command="$(find xacro)/xacro --inorder
     '$(find tiago_dual_description)/robots/tiago_dual.urdf.xacro'
+    arm_left:=$(arg arm_left)
+    arm_right:=$(arg arm_right)
     end_effector_left:=$(arg end_effector_left)
     end_effector_right:=$(arg end_effector_right)
     ft_sensor_left:=$(arg ft_sensor_left)
