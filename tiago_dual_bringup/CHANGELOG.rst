@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.16 (2020-04-16)
+-------------------
 * Fixd wrist ft topic names
 * Contributors: Victor Lopez
 
