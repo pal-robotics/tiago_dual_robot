@@ -30,10 +30,10 @@
     <xacro:property name="is_multiple" value="$(arg multiple)" />
     <xacro:property name="nsp" value="$(arg namespace)" />
 
-  <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'schunk-wsg']}">
+  <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'false', False]}">
     <xacro:wrong_end_effector_left/>
   </xacro:if>
-  <xacro:if value="${end_effector_right not in ['pal-gripper', 'pal-hey5', 'schunk-wsg']}">
+  <xacro:if value="${end_effector_right not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'false', False]}">
     <xacro:wrong_end_effector_right/>
   </xacro:if>
   <xacro:if value="${ft_sensor_left not in ['false', False, 'schunk-ft']}">
