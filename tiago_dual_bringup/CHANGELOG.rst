@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fixd wrist ft topic names
+* Contributors: Victor Lopez
+
 0.1.15 (2020-04-08)
 -------------------
 * Merge branch 'add-arm-sides' into 'erbium-devel'
