@@ -14,7 +14,7 @@ actuators:
 joint_mode_black_list: ['head_controller', 'torso_controller']
 
 force_torque:
-  right_wrist_ft:
+  wrist_right_ft:
     frame: wrist_right_ft_link
     transformation:
       force: [-y,x,z]

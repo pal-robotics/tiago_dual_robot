@@ -16,7 +16,7 @@ joint_mode_black_list: ['head_controller', 'torso_controller']
 force_torque:
 @[end if]@
 @[if ft_sensor_left == "schunk-ft"]@
-  left_wrist_ft:
+  wrist_left_ft:
     frame: wrist_left_ft_link
     transformation:
       force: [-y,x,z]
@@ -26,7 +26,7 @@ force_torque:
       torque_port: torque_wrist_left
 @[end if]@
 @[if ft_sensor_right == "schunk-ft"]@
-  right_wrist_ft:
+  wrist_right_ft:
     frame: wrist_right_ft_link
     transformation:
       force: [-y,x,z]
