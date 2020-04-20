@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.17 (2020-04-20)
+-------------------
 * Merge branch 'wrist_2019_fix' into 'erbium-devel'
   Update arm\_*_6 range based on the wrist type
   See merge request robots/tiago_dual_robot!18
