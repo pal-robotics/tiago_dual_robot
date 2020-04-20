@@ -11,6 +11,8 @@
         name="tiago_dual" >
     <xacro:arg name="arm_left" default="true"/> <!-- true, false -->
     <xacro:arg name="arm_right" default="true"/> <!-- true, false -->
+    <xacro:arg name="wrist_left_model" default="wrist-2010"/>
+    <xacro:arg name="wrist_right_model" default="wrist-2010"/>
     <xacro:arg name="end_effector_left" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg-->
     <xacro:arg name="end_effector_right" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg-->
     <xacro:arg name="ft_sensor_left" default="schunk-ft"/> <!-- false, schunk-ft -->
@@ -56,8 +58,18 @@
    <xacro:property name="end_effector_left_name"       value="${'hand_left' if end_effector_left == 'pal-hey5' else 'gripper_left'}"/>
    <xacro:property name="end_effector_right_link"       value="${'wrist_right_ft_tool_link' if has_ft_sensor_right else 'arm_right_tool_link'}"/>
    <xacro:property name="end_effector_right_name"       value="${'hand_right' if end_effector_right == 'pal-hey5' else 'gripper_right'}"/>
-   <xacro:property name="wrist_left_6_range"      value="${ 81 if has_ft_sensor_left else 90 }"/>
-   <xacro:property name="wrist_right_6_range"     value="${ 81 if has_ft_sensor_right else 90 }"/>
+   <xacro:if value="${wrist_left_model == 'wrist-2010'}">
+     <xacro:property name="wrist_left_6_range"           value="${ 81 if has_ft_sensor_left else 90 }"/>
+   </xacro:if>
+   <xacro:if value="${wrist_left_model == 'wrist-2017'}">
+     <xacro:property name="wrist_left_6_range"           value="81"/>
+   </xacro:if>
+   <xacro:if value="${wrist_right_model == 'wrist-2010'}">
+     <xacro:property name="wrist_right_6_range"           value="${ 81 if has_ft_sensor_right else 90 }"/>
+   </xacro:if>
+   <xacro:if value="${wrist_right_model == 'wrist-2017'}">
+     <xacro:property name="wrist_right_6_range"           value="81"/>
+   </xacro:if>
    <xacro:property name="head_link_name"          value="head_2_link"/>
 
   <!-- The following included files set up definitions of parts of the robot body -->
