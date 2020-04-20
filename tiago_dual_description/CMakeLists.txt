@@ -36,4 +36,12 @@ if(CATKIN_ENABLE_TESTING)
                       add_rostest(test/test_tiago_dual.test ARGS
                           camera_model:=${camera_model})
   endforeach(camera_model)
+  # Test for different wrist models
+  foreach(wrist_right_model wrist-2010 wrist-2017)
+    foreach(wrist_left_model wrist-2010 wrist-2017)
+                      add_rostest(test/test_tiago_dual.test ARGS
+                          wrist_left_model:=${wrist_left_model}
+                          wrist_right_model:=${wrist_right_model})
+    endforeach(wrist_left_model)
+  endforeach(wrist_right_model)
 endif()
