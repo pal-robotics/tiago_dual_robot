@@ -21,6 +21,8 @@
     <xacro:arg name="camera_model" default="orbbec-astra"/> <!-- false, orbbec-astra, orbbec-astra-pro, asus-xtion -->
     <xacro:arg name="multiple" default="false"/>
     <xacro:arg name="namespace" default=""/>
+    <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
+    <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
     <xacro:property name="has_arm_left" value="$(arg arm_left)" />
     <xacro:property name="has_arm_right" value="$(arg arm_right)" />
     <xacro:property name="end_effector_left" value="$(arg end_effector_left)" />
