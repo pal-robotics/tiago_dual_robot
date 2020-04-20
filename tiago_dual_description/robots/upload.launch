@@ -2,8 +2,8 @@
   <arg name="multi" default=""/>
   <arg name="arm_left"  default="True"/>
   <arg name="arm_right"  default="True"/>
-  <arg name="wrist_left_model"  default="wrist-2010"/>
-  <arg name="wrist_right_model"  default="wrist-2010"/>
+  <arg name="wrist_left_model"  default="wrist-2017"/>
+  <arg name="wrist_right_model"  default="wrist-2017"/>
   <arg name="end_effector_left"  default="pal-hey5"/>
   <arg name="end_effector_right"  default="pal-hey5"/>
   <arg name="ft_sensor_left"  default="schunk-ft"/>
