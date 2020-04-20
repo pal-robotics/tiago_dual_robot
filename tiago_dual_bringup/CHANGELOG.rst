@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_wave' into 'erbium-devel'
+  Fix wrist orient for wave
+  See merge request robots/tiago_dual_robot!20
+* Fix wrist orient for wave
+* Contributors: davidfernandez, victor
+
 0.1.17 (2020-04-20)
 -------------------
 * Merge branch 'wrist_2019_fix' into 'erbium-devel'

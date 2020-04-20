@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.17 (2020-04-20)
 -------------------
 * Merge branch 'wrist_2019_fix' into 'erbium-devel'
