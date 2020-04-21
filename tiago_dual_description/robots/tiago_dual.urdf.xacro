@@ -21,6 +21,8 @@
     <xacro:arg name="camera_model" default="orbbec-astra"/> <!-- false, orbbec-astra, orbbec-astra-pro, asus-xtion -->
     <xacro:arg name="multiple" default="false"/>
     <xacro:arg name="namespace" default=""/>
+    <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
+    <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
     <xacro:property name="has_arm_left" value="$(arg arm_left)" />
     <xacro:property name="has_arm_right" value="$(arg arm_right)" />
     <xacro:property name="end_effector_left" value="$(arg end_effector_left)" />
@@ -32,6 +34,12 @@
     <xacro:property name="is_multiple" value="$(arg multiple)" />
     <xacro:property name="nsp" value="$(arg namespace)" />
 
+  <xacro:if value="${wrist_left_model not in ['wrist-2010', 'wrist-2017']}">
+    <xacro:wrong_wrist_model/>
+  </xacro:if>
+  <xacro:if value="${wrist_right_model not in ['wrist-2010', 'wrist-2017']}">
+    <xacro:wrong_wrist_model/>
+  </xacro:if>
   <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'false', False]}">
     <xacro:wrong_end_effector_left/>
   </xacro:if>
