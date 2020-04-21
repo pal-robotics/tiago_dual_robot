@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'more_wrist_2019_fixes' into 'erbium-devel'
+  More wrist 2019 fixes
+  See merge request robots/tiago_dual_robot!19
+* Add wrist-2017 as default wrist model
+* Added check for proper wrist model
+* Added tests for different wrists
+* added missing xacro properties
+* added missing arg in upload.launch
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.18 (2020-04-20)
 -------------------
 

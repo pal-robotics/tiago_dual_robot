@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'more_wrist_2019_fixes' into 'erbium-devel'
+  More wrist 2019 fixes
+  See merge request robots/tiago_dual_robot!19
+* Add wrist-2017 as default wrist model
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.18 (2020-04-20)
 -------------------
 * Merge branch 'fix_wave' into 'erbium-devel'
