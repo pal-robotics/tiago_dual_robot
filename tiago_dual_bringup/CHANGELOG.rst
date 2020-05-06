@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.19 (2020-04-21)
 -------------------
 * Merge branch 'more_wrist_2019_fixes' into 'erbium-devel'
