@@ -96,7 +96,7 @@
   <!-- Now we can start using the macros included above to define the actual robot -->
   <xacro:base_sensors name="base" laser_model="$(arg laser_model)" sonars="true" microphone="true"/>
   <xacro:tiago_dual_torso name="torso" parent="base_link"/>
-  <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"/>
+  <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)" description_calibration_package="tiago_dual_description_calibration"/>
 
   <!-- Left -->
   <xacro:if value="${has_arm_left}">
