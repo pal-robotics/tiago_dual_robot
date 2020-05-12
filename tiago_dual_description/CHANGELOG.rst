@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'description-calibration-fixes' into 'erbium-devel'
+  Description calibration fixes
+  See merge request robots/tiago_dual_robot!22
+* parse package name instead of individual elements and load files respective to package
+* pass the camera origin as an argument to head
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.20 (2020-05-06)
 -------------------
 * Merge branch 'fix-tiago-wrist-offset' into 'erbium-devel'
