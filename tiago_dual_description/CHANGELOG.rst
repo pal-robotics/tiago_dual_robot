@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.22 (2020-05-27)
+-------------------
 * Merge branch 'tiago_dual_screen' into 'erbium-devel'
   added changes to support tiago_dual with and without screen
   See merge request robots/tiago_dual_robot!24
