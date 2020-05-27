@@ -10,6 +10,7 @@
   <arg name="ft_sensor_right"  default="schunk-ft"/>
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
+  <arg name="has_screen"  default="False"/>
 
   <!-- Robot description -->
   <param name="robot_description"
@@ -25,6 +26,7 @@
     ft_sensor_right:=$(arg ft_sensor_right)
     laser_model:=$(arg laser_model)
     camera_model:=$(arg camera_model)
+    has_screen:=$(arg has_screen)
     $(arg multi)" />
  <rosparam command="load" file="$(find tiago_dual_description)/config/collision/collision_parameters.yaml" />
 </launch>
