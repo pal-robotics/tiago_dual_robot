@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'tiago_dual_screen' into 'erbium-devel'
+  added changes to support tiago_dual with and without screen
+  See merge request robots/tiago_dual_robot!24
+* added changes to support tiago_dual with and without screen
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.21 (2020-05-12)
 -------------------
 * Merge branch 'description-calibration-fixes' into 'erbium-devel'
