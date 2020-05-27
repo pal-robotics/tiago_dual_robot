@@ -8,6 +8,7 @@
   <arg name="ft_sensor_right"  default="schunk-ft"/>
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
+  <arg name="has_screen"  default="False"/>
   <arg name="tf_prefix" default=""/>
 
   <!-- Load default controllers -->
@@ -18,6 +19,7 @@
     <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
     <arg name="laser_model"  value="$(arg laser_model)"/>
     <arg name="camera_model"  value="$(arg camera_model)"/>
+    <arg name="has_screen"  value="$(arg has_screen)"/>
   </include>
 
   <!-- Robot state publisher -->
