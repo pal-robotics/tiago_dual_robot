@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'has_screen_fix' into 'erbium-devel'
+  removed unused argument of has_screen
+  See merge request robots/tiago_dual_robot!25
+* removed unused argument of has_screen
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.22 (2020-05-27)
 -------------------
 * Merge branch 'tiago_dual_screen' into 'erbium-devel'

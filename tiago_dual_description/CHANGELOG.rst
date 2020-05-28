@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.22 (2020-05-27)
 -------------------
 * Merge branch 'tiago_dual_screen' into 'erbium-devel'
