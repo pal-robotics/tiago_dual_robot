@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_home_for_screen' into 'erbium-devel'
+  fix home motion to avoid collision with screen
+  See merge request robots/tiago_dual_robot!26
+* fix home motion to avoid collision with screen
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.23 (2020-05-28)
 -------------------
 * Merge branch 'has_screen_fix' into 'erbium-devel'
