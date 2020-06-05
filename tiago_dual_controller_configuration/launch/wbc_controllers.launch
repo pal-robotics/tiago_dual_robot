@@ -4,13 +4,25 @@
     <arg name="ft_sensor_right"  default="schunk-ft"/>
 
     <!-- load wbc controller -->
-    <group if="$(eval ft_sensor_left == 'schunk-ft' or ft_sensor_right == 'schunk-ft')">
+    <group if="$(eval ft_sensor_left == 'schunk-ft' and ft_sensor_right == 'schunk-ft')">
         <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
             <arg name="spawn" value="false"/>
             <arg name="stack" value="tiago_dual_wbc_ft"/>
         </include>
     </group>
-    <group unless="$(eval ft_sensor_left == 'schunk-ft' or ft_sensor_right == 'schunk-ft')"> 
+    <group if="$(eval ft_sensor_left == 'schunk-ft' and ft_sensor_right != 'schunk-ft')">
+        <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
+            <arg name="spawn" value="false"/>
+            <arg name="stack" value="tiago_dual_wbc_left_ft"/>
+        </include>
+    </group>
+    <group if="$(eval ft_sensor_left != 'schunk-ft' and ft_sensor_right == 'schunk-ft')">
+        <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
+            <arg name="spawn" value="false"/>
+            <arg name="stack" value="tiago_dual_wbc_right_ft"/>
+        </include>
+    </group>
+    <group if="$(eval ft_sensor_left != 'schunk-ft' and ft_sensor_right != 'schunk-ft')"> 
         <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
             <arg name="spawn" value="false"/>
         </include>
