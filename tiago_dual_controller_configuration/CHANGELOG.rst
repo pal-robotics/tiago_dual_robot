@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix-dual-ft' into 'erbium-devel'
+  Fix dual ft
+  See merge request robots/tiago_dual_robot!27
+* fix dual stuff
+* fix arguments for dual related to ft left and right
+* Contributors: daniellopez, victor
+
 0.1.24 (2020-06-02)
 -------------------
 

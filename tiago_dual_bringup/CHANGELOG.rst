@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.24 (2020-06-02)
 -------------------
 * Merge branch 'fix_home_for_screen' into 'erbium-devel'
