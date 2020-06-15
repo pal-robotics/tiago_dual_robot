@@ -21,6 +21,7 @@
     <xacro:arg name="camera_model" default="orbbec-astra"/> <!-- false, orbbec-astra, orbbec-astra-pro, asus-xtion -->
     <xacro:arg name="has_screen" default="false"/> <!-- true, false -->
     <xacro:arg name="multiple" default="false"/>
+    <xacro:arg name="description_calibration_file" default="$(find tiago_dual_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro"/>
     <xacro:arg name="namespace" default=""/>
     <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
     <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
@@ -69,6 +70,7 @@
    <xacro:property name="end_effector_right_link"       value="${'wrist_right_ft_tool_link' if has_ft_sensor_right else 'arm_right_tool_link'}"/>
    <xacro:property name="end_effector_right_name"       value="${'hand_right' if end_effector_right == 'pal-hey5' else 'gripper_right'}"/>
    <xacro:property name="head_link_name"          value="head_2_link"/>
+   <xacro:property name="description_calibration_file"       value="${'$(find tiago_dual_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro' if description_calibration_file == '' else description_calibration_file}"/>
 
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- Base -->
@@ -78,7 +80,7 @@
   <xacro:include filename="$(find tiago_dual_description)/urdf/torso/torso_dual.urdf.xacro" />
 
   <!-- Arm -->
-  <xacro:include filename="$(find tiago_dual_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
+  <xacro:include filename="$(arg description_calibration_file)" />
   <xacro:include filename="$(find tiago_description)/urdf/arm/arm.urdf.xacro" />
 
   <!-- End Effector -->
