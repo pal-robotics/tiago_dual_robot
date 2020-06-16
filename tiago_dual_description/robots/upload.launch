@@ -11,7 +11,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
-  <arg name="description_calibration_file"  default=""/>
+  <arg name="description_calibration_dir" value="$(optenv tiago_dual_description_calibration_calibration_path)" />
 
   <!-- Robot description -->
   <param name="robot_description"
@@ -28,7 +28,7 @@
     laser_model:=$(arg laser_model)
     camera_model:=$(arg camera_model)
     has_screen:=$(arg has_screen)
-    description_calibration_file:=$(arg description_calibration_file)
+    description_calibration_dir:=$(arg description_calibration_dir)
     $(arg multi)" />
  <rosparam command="load" file="$(find tiago_dual_description)/config/collision/collision_parameters.yaml" />
 </launch>
