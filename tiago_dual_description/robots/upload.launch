@@ -11,7 +11,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
-  <arg name="description_calibration_dir" value="$(optenv tiago_dual_description_calibration_calibration_path)" />
+  <arg name="description_calibration_dir" value="$(optenv pal_eye_hand_calibration_tiago_dual_calibration_path)" />
 
   <!-- Robot description -->
   <param name="robot_description"
