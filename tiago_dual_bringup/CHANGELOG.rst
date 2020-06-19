@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.26 (2020-06-19)
+-------------------
 * Merge branch 'motions' into 'erbium-devel'
   fix home left/right and wave to avoid collision with elo
   See merge request robots/tiago_dual_robot!29
