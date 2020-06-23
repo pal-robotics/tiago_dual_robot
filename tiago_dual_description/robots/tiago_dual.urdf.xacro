@@ -22,6 +22,7 @@
     <xacro:arg name="has_screen" default="false"/> <!-- true, false -->
     <xacro:arg name="multiple" default="false"/>
     <xacro:arg name="description_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
+    <xacro:arg name="extrinsic_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="namespace" default=""/>
     <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
     <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
@@ -100,7 +101,9 @@
   <!-- Now we can start using the macros included above to define the actual robot -->
   <xacro:base_sensors name="base" laser_model="$(arg laser_model)" sonars="true" microphone="true"/>
   <xacro:tiago_dual_torso name="torso" parent="base_link" has_screen="$(arg has_screen)"/>
-  <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)" description_calibration_package="tiago_dual_description_calibration"/>
+  <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"
+	  description_calibration_dir="$(arg description_calibration_dir)"
+	  extrinsic_calibration_dir="$(arg extrinsic_calibration_dir)"/>
 
   <!-- Left -->
   <xacro:if value="${has_arm_left}">
