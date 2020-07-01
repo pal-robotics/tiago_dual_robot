@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.27 (2020-07-01)
+-------------------
 * Merge branch 'add-master-calibration' into 'erbium-devel'
   Add master calibration to tiago dual
   See merge request robots/tiago_dual_robot!28
