@@ -11,6 +11,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
+  <arg name="no_safety_eps" default="False"/>
   <arg name="description_calibration_dir" value="$(optenv pal_eye_hand_calibration_tiago_dual_calibration_path)" />
   <arg name="extrinsic_calibration_dir" value="$(optenv pal_camera_calibration_calibration_path)"/>
 
@@ -29,6 +30,7 @@
     laser_model:=$(arg laser_model)
     camera_model:=$(arg camera_model)
     has_screen:=$(arg has_screen)
+    no_safety_eps:=$(arg no_safety_eps)
     description_calibration_dir:=$(arg description_calibration_dir)
     $(arg multi)" />
  <rosparam command="load" file="$(find tiago_dual_description)/config/collision/collision_parameters.yaml" />
