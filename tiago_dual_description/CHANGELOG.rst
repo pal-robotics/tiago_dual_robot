@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add-no-safety-eps' into 'erbium-devel'
+  Add no_safety_eps param
+  See merge request robots/tiago_dual_robot!30
+* Add no_safety_eps param
+* Contributors: Victor Lopez, victor
+
 0.1.27 (2020-07-01)
 -------------------
 * Merge branch 'add-master-calibration' into 'erbium-devel'
