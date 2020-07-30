@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'rename_tf_prefix' into 'erbium-devel'
+  Rename tf_prefix param
+  See merge request robots/tiago_dual_robot!23
+* Rename tf_prefix param
+* Contributors: davidfernandez, victor
+
 0.1.29 (2020-07-27)
 -------------------
 
