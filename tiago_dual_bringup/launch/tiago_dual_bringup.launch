@@ -9,7 +9,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
-  <arg name="tf_prefix" default=""/>
+  <arg name="robot_namespace" default=""/>
 
   <!-- Load default controllers -->
   <include file="$(find tiago_dual_controller_configuration)/launch/tiago_dual_controllers.launch">
