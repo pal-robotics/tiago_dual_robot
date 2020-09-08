@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.31 (2020-08-03)
 -------------------
 * Merge branch 'fix_tf_prefix' into 'erbium-devel'
