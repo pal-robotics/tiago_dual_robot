@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix-camera-extrinsics-path' into 'erbium-devel'
+  Fix camera extrinsics calibration env variable name
+  See merge request robots/tiago_dual_robot!34
+* Fix camera extrinsics calibration env variable name
+* Contributors: Victor Lopez, victor
+
 0.1.32 (2020-09-08)
 -------------------
 
