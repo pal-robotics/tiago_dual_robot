@@ -104,7 +104,8 @@
   <xacro:tiago_dual_torso name="torso" parent="base_link" has_screen="$(arg has_screen)"/>
   <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"
 	  description_calibration_dir="$(arg description_calibration_dir)"
-	  extrinsic_calibration_dir="$(arg extrinsic_calibration_dir)"/>
+	  extrinsic_calibration_dir="$(arg extrinsic_calibration_dir)"
+    no_safety_eps="${no_safety_eps}"/>
 
   <!-- Left -->
   <xacro:if value="${has_arm_left}">
