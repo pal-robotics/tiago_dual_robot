@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'no_safety_eps_head' into 'erbium-devel'
+  added no safety eps to head
+  See merge request robots/tiago_dual_robot!33
+* added no safety eps to head
+* Contributors: Sai Kishor Kothakota, victor
+
 0.1.33 (2020-10-21)
 -------------------
 * Merge branch 'fix-camera-extrinsics-path' into 'erbium-devel'
