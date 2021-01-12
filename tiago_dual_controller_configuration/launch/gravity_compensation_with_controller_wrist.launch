@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
+  <arg name="wrist_left_model"  default="wrist-2017"/>
+  <arg name="wrist_right_model"  default="wrist-2017"/>
   <arg name="end_effector_left"/>
   <arg name="end_effector_right"/>
   <arg name="local_joint_control" default="direct_effort_control"/>
@@ -34,29 +36,54 @@
     <arg name="joint_name" value="arm_left_4_joint"/>
   </include>
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_left_5_joint"/>
-  </include>
+<group if="$(eval wrist_left_model == 'wrist-2010')">
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_left_6_joint"/>
-  </include>
+     <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+        <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+        <arg name="ns" value="$(arg ns)"/>
+       <arg name="joint_name" value="arm_left_5_joint"/>
+      </include>
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_left_7_joint"/>
-  </include>
+    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_left_6_joint"/>
+    </include>
 
-  <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_right_1_joint"/>
+    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_left_7_joint"/>
+    </include>
+</group>
+
+<group if="$(eval wrist_left_model == 'wrist-2017')">
+
+     <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
+        <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+        <arg name="ns" value="$(arg ns)"/>
+       <arg name="joint_name" value="arm_left_5_joint"/>
+      </include>
+
+    <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch"  >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_left_6_joint"/>
+    </include>
+
+    <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_left_7_joint"/>
+    </include>
+</group>
+
+ <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
+   <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+   <arg name="ns" value="$(arg ns)"/>
+   <arg name="joint_name" value="arm_right_1_joint"/>
   </include>
+  
 
  <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
     <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
@@ -76,28 +103,51 @@
     <arg name="joint_name" value="arm_right_4_joint"/>
   </include>
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_right_5_joint"/>
-  </include>
+<group if="$(eval wrist_left_model == 'wrist-2010')">
+   <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_right_5_joint"/>
+    </include>
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_right_6_joint"/>
-  </include>
+    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_right_6_joint"/>
+    </include>
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="arm_right_7_joint"/>
-  </include>
+   <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_right_7_joint"/>
+   </include>
+</group>
 
- <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-    <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-    <arg name="ns" value="$(arg ns)"/>
-    <arg name="joint_name" value="torso_lift_joint"/>
-  </include>
+<group if="$(eval wrist_left_model == 'wrist-2017')">
+   <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_right_5_joint"/>
+    </include>
+
+    <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_right_6_joint"/>
+    </include>
+
+   <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="arm_right_7_joint"/>
+   </include>
+</group>
+
+   <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+     <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="torso_lift_joint"/>
+    </include>
+
 
 </launch>
