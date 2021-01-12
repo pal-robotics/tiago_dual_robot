@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.36 (2021-01-12)
+-------------------
 * Merge branch 'missing_safety_files' into 'erbium-devel'
   added missing safety files for the wrist and torso joints
   See merge request robots/tiago_dual_robot!36
