@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.1.34 (2020-11-25)
 -------------------
 * Merge branch 'no_safety_eps_head' into 'erbium-devel'
