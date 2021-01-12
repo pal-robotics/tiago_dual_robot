@@ -2,6 +2,17 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'missing_safety_files' into 'erbium-devel'
+  added missing safety files for the wrist and torso joints
+  See merge request robots/tiago_dual_robot!36
+* Merge branch 'gravityfix' into 'missing_safety_files'
+  Add gravity mode for new wrist model on tiagodual
+  See merge request robots/tiago_dual_robot!35
+* Add gravity mode for new wrist model on tiagodual
+* Contributors: Irina Cocolos, victor
+
 0.1.35 (2021-01-12)
 -------------------
 

@@ -2,6 +2,19 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'missing_safety_files' into 'erbium-devel'
+  added missing safety files for the wrist and torso joints
+  See merge request robots/tiago_dual_robot!36
+* Merge branch 'gravityfix' into 'missing_safety_files'
+  Add gravity mode for new wrist model on tiagodual
+  See merge request robots/tiago_dual_robot!35
+* fix left/right wrist
+* Add gravity mode for new wrist model on tiagodual
+* added missing safety files for the wrist and torso joints
+* Contributors: Irina Cocolos, Sai Kishor Kothakota, victor
+
 0.1.35 (2021-01-12)
 -------------------
 
