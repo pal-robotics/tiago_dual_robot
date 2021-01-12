@@ -103,7 +103,7 @@
     <arg name="joint_name" value="arm_right_4_joint"/>
   </include>
 
-<group if="$(eval wrist_left_model == 'wrist-2010')">
+<group if="$(eval wrist_right_model == 'wrist-2010')">
    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
       <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
       <arg name="ns" value="$(arg ns)"/>
@@ -123,7 +123,7 @@
    </include>
 </group>
 
-<group if="$(eval wrist_left_model == 'wrist-2017')">
+<group if="$(eval wrist_right_model == 'wrist-2017')">
    <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
       <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
       <arg name="ns" value="$(arg ns)"/>
