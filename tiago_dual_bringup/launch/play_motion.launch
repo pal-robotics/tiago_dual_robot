@@ -9,10 +9,15 @@
   <arg name="file_suffix" value="$(eval ('no-arm-left' if not arm_left else end_effector_left + ('' if not ft_sensor_left else '_'+ft_sensor_left)) + '_' + ('no-arm-right' if not arm_right else end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
   <!-- execute pre-recorded motions -->
   <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_general.yaml" command="load" /> <!-- any end-effector motions -->
-  <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_$(arg file_suffix).yaml" command="load" /> <!-- end-effector specific motions -->
+  <rosparam if="$(eval end_effector_left != 'custom' and end_effector_right != 'custom')" file="$(find tiago_dual_bringup)/config/motions/tiago_motions_$(arg file_suffix).yaml" command="load" />
+  <rosparam if="$(eval end_effector_left == 'custom' or end_effector_right == 'custom')" file="$(find custom_dual_ee_configuration)/config/motions/tiago_dual_motions.yaml" command="load" />
+
   <node pkg="play_motion" type="play_motion" name="play_motion">
     <rosparam file="$(find tiago_dual_bringup)/config/approach_planner/approach_planner_$(arg file_suffix).yaml" command="load" />
   </node>
+  <rosparam if="$(eval end_effector_left != 'custom' and end_effector_right != 'custom')" file="$(find tiago_dual_bringup)/config/approach_planner/approach_planner_$(arg file_suffix).yaml" command="load" />
+  <rosparam if="$(eval end_effector_left == 'custom' or end_effector_right == 'custom')" file="$(find custom_dual_ee_configuration)/config/approach_planner/approach_planner.yaml" command="load" />
+
   <!-- I don't think this is being used -->
   <!--<node pkg="play_motion" type="is_already_there.py" name="is_already_there" />-->
 </launch>
