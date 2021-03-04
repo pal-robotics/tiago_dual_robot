@@ -2,8 +2,8 @@
 gravity_compensation:
   type: "force_control/GravityCompensation"
   robot_model_chains:
-    - gripper_left_link
-    - hand_right_palm_link
+    - arm_left_tool_link
+    - arm_right_tool_link
 
   dt: 0.01
 

@@ -4,6 +4,7 @@ gravity_compensation:
   robot_model_chains:
     - hand_right_palm_link
     - gripper_left_link
+
   dt: 0.01
 
 
