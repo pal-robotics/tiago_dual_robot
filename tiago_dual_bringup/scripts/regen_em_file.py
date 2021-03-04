@@ -10,7 +10,7 @@ no_em_extension_path = os.path.splitext(em_file_path)[0]
 no_extension_path = os.path.splitext(no_em_extension_path)[0]
 extension = os.path.splitext(no_em_extension_path)[1]
 
-end_effectors = ["pal-hey5", "pal-gripper", "schunk-wsg"]
+end_effectors = ["pal-hey5", "pal-gripper", "schunk-wsg", "custom"]
 ft_sensors = ["schunk-ft", None]
 arm_config = [True, False] #For validation of pmb2 only
 
