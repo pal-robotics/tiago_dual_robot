@@ -13,8 +13,8 @@
     <xacro:arg name="arm_right" default="true"/> <!-- true, false -->
     <xacro:arg name="wrist_left_model" default="wrist-2010"/>
     <xacro:arg name="wrist_right_model" default="wrist-2010"/>
-    <xacro:arg name="end_effector_left" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg-->
-    <xacro:arg name="end_effector_right" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg-->
+    <xacro:arg name="end_effector_left" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg, custom-->
+    <xacro:arg name="end_effector_right" default="pal-hey5"/> <!-- pal-gripper, pal-hey5, schunk-wsg, custom-->
     <xacro:arg name="ft_sensor_left" default="schunk-ft"/> <!-- false, schunk-ft -->
     <xacro:arg name="ft_sensor_right" default="schunk-ft"/> <!-- false, schunk-ft -->
     <xacro:arg name="laser_model" default="sick-571"/> <!-- false, hokuyo, sick-551, sick-561, sick-571-->
@@ -115,7 +115,7 @@
 	  <xacro:if value="${has_ft_sensor_left}">
 	      <xacro:ft_sensor name="wrist_left" parent="arm_left_tool_link" />
 	  </xacro:if>
-  <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1"/>
+  <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1" is_dual="true"/>
   </xacro:if>
 
   <!-- Right -->
@@ -126,7 +126,7 @@
 	  <xacro:if value="${has_ft_sensor_right}">
 	      <xacro:ft_sensor name="wrist_right" parent="arm_right_tool_link" />
 	  </xacro:if>
-	  <xacro:tiago_end_effector name="${end_effector_right_name}" parent="${end_effector_right_link}" type="${end_effector_right}" reflect="1"/>
+	  <xacro:tiago_end_effector name="${end_effector_right_name}" parent="${end_effector_right_link}" type="${end_effector_right}" reflect="1" is_dual="true"/>
   </xacro:if>
 
 
