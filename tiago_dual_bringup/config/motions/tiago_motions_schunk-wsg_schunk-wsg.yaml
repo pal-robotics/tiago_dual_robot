@@ -20,7 +20,6 @@ play_motion:
         name: Open left
         usage: picking
         description: Open Left gripper
-
     close_right:
       joints: [gripper_right_finger_joint]
       points:
@@ -39,14 +38,11 @@ play_motion:
         name: Open right
         usage: picking
         description: Open right gripper
-
-
     close_both:
       joints: ['gripper_left_finger_joint', 'gripper_right_finger_joint']
       points:
         - time_from_start: 0.5
           positions: [0.0, 0.0]
-
       meta:
         name: Close Both
         usage: picking
@@ -56,9 +52,7 @@ play_motion:
       points:
         - time_from_start: 0.5
           positions: [0.031, 0.031]
-
       meta:
         name: Open Both
         usage: picking
         description: Open both end effectors
-

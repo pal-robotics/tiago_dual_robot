@@ -2,15 +2,11 @@
 play_motion:
   controllers: ['head_controller', 'torso_controller', 'arm_left_controller', 'arm_right_controller']
   motions:
-
-
-
     close_both:
       joints: []
       points:
         - time_from_start: 0.5
           positions: []
-
       meta:
         name: Close Both
         usage: picking
@@ -20,9 +16,7 @@ play_motion:
       points:
         - time_from_start: 0.5
           positions: []
-
       meta:
         name: Open Both
         usage: picking
         description: Open both end effectors
-
