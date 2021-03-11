@@ -25,7 +25,6 @@ gravity_compensation:
 @[if end_effector_right == "custom"]@
     - arm_right_tool_link
 @[end if]@
-
   dt: 0.01
 
 

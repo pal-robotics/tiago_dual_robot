@@ -4,7 +4,6 @@ gravity_compensation:
   robot_model_chains:
     - arm_left_tool_link
     - arm_right_tool_link
-
   dt: 0.01
 
 
