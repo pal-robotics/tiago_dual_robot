@@ -2,6 +2,21 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'cutom-end-effector' into 'erbium-devel'
+  Cutom end effector
+  See merge request robots/tiago_dual_robot!38
+* fix: delete unused motions and adapt contions to it
+* motions only need to add custom ones
+* chore: extra spaces
+* fix: lauch file logic for play motion
+* docs: not todo task for customer
+* chore: play_motion launch
+* chore: package and CMakeLists
+* feat: combinations with custom ee
+* Contributors: daniellopez, davidfernandez
+
 0.1.36 (2021-01-12)
 -------------------
 * Merge branch 'missing_safety_files' into 'erbium-devel'

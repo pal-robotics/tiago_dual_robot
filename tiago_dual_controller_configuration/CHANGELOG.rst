@@ -2,6 +2,17 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'cutom-end-effector' into 'erbium-devel'
+  Cutom end effector
+  See merge request robots/tiago_dual_robot!38
+* chore: delete spaces
+* chore: adapt em file for custom
+* chore: add combinations for custom
+* feat: create regen_em_file
+* Contributors: daniellopez, davidfernandez
+
 0.1.36 (2021-01-12)
 -------------------
 * Merge branch 'missing_safety_files' into 'erbium-devel'

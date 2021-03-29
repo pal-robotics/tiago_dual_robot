@@ -2,6 +2,16 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'cutom-end-effector' into 'erbium-devel'
+  Cutom end effector
+  See merge request robots/tiago_dual_robot!38
+* fix: adapt to dual when importing tiago_end_effector from single
+* chore: urdf xacro
+* chore: package and CMakeLists
+* Contributors: daniellopez, davidfernandez
+
 0.1.36 (2021-01-12)
 -------------------
 
