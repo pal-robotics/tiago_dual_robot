@@ -2,4 +2,3 @@
 play_motion:
   controllers: [head_controller, torso_controller]
   motions: {}
-

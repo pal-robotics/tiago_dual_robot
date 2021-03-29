@@ -15,7 +15,6 @@ if end_effector_right  in ["schunk-wsg", "pal-gripper"]:
   controllers.append("gripper_right_controller")
 elif end_effector_right == "pal-hey5":
   controllers.append("hand_right_controller")
-
 print(controllers)
 }@
 @[else]@
@@ -85,7 +84,6 @@ print(controllers)
         usage: picking
         description: Open Left gripper
 @[end if]@
-
 @[if end_effector_right == "pal-gripper"]@
     close_right:
       joints: [gripper_right_left_finger_joint, gripper_right_right_finger_joint]
@@ -148,18 +146,15 @@ print(controllers)
         usage: picking
         description: Open right gripper
 @[end if]@
-
 @{
 has_hand = False
 if end_effector_right == "pal-hey5" or end_effector_left == "pal-hey5":
   has_hand = True
-
 joints = []
 positions_one_open = []
 positions_one_close = []
 positions_two_open = []
 positions_two_close = []
-
 if end_effector_left == "pal-gripper":
   joints.extend(["gripper_left_left_finger_joint", "gripper_left_right_finger_joint"])
   positions_one_open.extend([0.044, 0.044])
@@ -180,7 +175,6 @@ elif end_effector_left == "schunk-wsg":
   if has_hand:
     positions_two_open.extend([0.031])
     positions_two_close.extend([0.0])
-
 if end_effector_right == "pal-gripper":
   joints.extend(["gripper_right_left_finger_joint", "gripper_right_right_finger_joint"])
   positions_one_open.extend([0.044, 0.044])
@@ -202,7 +196,6 @@ elif end_effector_right == "schunk-wsg":
     positions_two_open.extend([0.031])
     positions_two_close.extend([0.0])
 }@
-
     close_both:
       joints: @{print(joints)}@
       points:
@@ -211,7 +204,7 @@ elif end_effector_right == "schunk-wsg":
 @[if has_hand]@
         - time_from_start: 2.5
           positions: @{print(positions_two_close)}@
-@[end if]
+@[end if]@
       meta:
         name: Close Both
         usage: picking
@@ -224,7 +217,7 @@ elif end_effector_right == "schunk-wsg":
 @[if has_hand]@
         - time_from_start: 2.5
           positions: @{print(positions_two_open)}@
-@[end if]
+@[end if]@
       meta:
         name: Open Both
         usage: picking
@@ -232,4 +225,3 @@ elif end_effector_right == "schunk-wsg":
 @[else]@
   motions: {}
 @[end if]@
-
