@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.37 (2021-03-29)
+-------------------
 * Merge branch 'cutom-end-effector' into 'erbium-devel'
   Cutom end effector
   See merge request robots/tiago_dual_robot!38
