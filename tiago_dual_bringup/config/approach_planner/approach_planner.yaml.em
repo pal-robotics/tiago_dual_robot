@@ -30,7 +30,7 @@ approach_planner:
     - gripper_left_left_finger_joint
     - gripper_left_right_finger_joint
 @[end if]@
-@[if end_effector_left == "schunk-wsg"]@
+@[if end_effector_left in ["schunk-wsg", "robotiq-2f-85", "robotiq-2f-140"]]@
     - gripper_left_finger_joint
 @[end if]@
 @[if end_effector_right == "pal-hey5"]@
@@ -47,7 +47,7 @@ approach_planner:
     - gripper_right_left_finger_joint
     - gripper_right_right_finger_joint
 @[end if]@
-@[if end_effector_right == "schunk-wsg"]@
+@[if end_effector_right in ["schunk-wsg", "robotiq-2f-85", "robotiq-2f-140"]]@
     - gripper_right_finger_joint
 @[end if]@
   joint_tolerance: 0.01
