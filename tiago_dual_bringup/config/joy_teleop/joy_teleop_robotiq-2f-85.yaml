@@ -86,18 +86,16 @@ teleop:
       increment_by: [0, -0.1]
     buttons: [1] # right pad, right button
 
-  close_hand:
+  close_gripper:
     type: action
-    action_name: /play_motion
+    action_name: /gripper_right_controller/increment
     action_goal:
-      motion_name: 'close_right'
-      skip_planning: True
-    buttons: [7]
+      increment_by: [0.01]
+    buttons: [7] # R2
 
-  open_hand:
+  open_gripper:
     type: action
-    action_name: /play_motion
+    action_name: /gripper_right_controller/increment
     action_goal:
-      motion_name: 'open_right'
-      skip_planning: True
-    buttons: [5]
+      increment_by: [-0.01]
+    buttons: [5] # R1
