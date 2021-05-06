@@ -2,6 +2,20 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'robotiq_gripper' into 'erbium-devel'
+  Robotiq gripper
+  See merge request robots/tiago_dual_robot!39
+* run incremental action server for robotiq grippers
+* Update joy teleop configurations
+* generate tiago hardware configuration
+* generate the joy teleop configurations
+* generated play motion configuration for robotiq 2F-85 and 2F-140
+* generated approach planner configuration
+* add changes to generate configuration for new robotiq 2F-85 and 2F-140 grippers
+* Contributors: Sai Kishor Kothakota, saikishor
+
 0.1.37 (2021-03-29)
 -------------------
 * Merge branch 'cutom-end-effector' into 'erbium-devel'

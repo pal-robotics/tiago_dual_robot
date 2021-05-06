@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'robotiq_gripper' into 'erbium-devel'
+  Robotiq gripper
+  See merge request robots/tiago_dual_robot!39
+* add the robotiq grippers to the tests and added dependencies
+* generate gravity compensation configuration
+* load the joint trajectory controller for robotiq grippers
+* added joint trajectory controller configurations for robotiq 2F-85 and robotiq-140
+* remove redundant regen_em_file script
+* Contributors: Sai Kishor Kothakota, saikishor
+
 0.1.37 (2021-03-29)
 -------------------
 * Merge branch 'cutom-end-effector' into 'erbium-devel'

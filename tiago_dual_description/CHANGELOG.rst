@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'robotiq_gripper' into 'erbium-devel'
+  Robotiq gripper
+  See merge request robots/tiago_dual_robot!39
+* add the robotiq grippers to the tests and added dependencies
+* add robotiq grippers to valid end effectors list
+* Contributors: Sai Kishor Kothakota, saikishor
+
 0.1.37 (2021-03-29)
 -------------------
 * Merge branch 'cutom-end-effector' into 'erbium-devel'
