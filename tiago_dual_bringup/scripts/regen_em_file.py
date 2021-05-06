@@ -10,7 +10,7 @@ no_em_extension_path = os.path.splitext(em_file_path)[0]
 no_extension_path = os.path.splitext(no_em_extension_path)[0]
 extension = os.path.splitext(no_em_extension_path)[1]
 
-end_effectors = ["pal-hey5", "pal-gripper", "schunk-wsg", "custom"]
+end_effectors = ["pal-hey5", "pal-gripper", "schunk-wsg", "robotiq-2f-85", "robotiq-2f-140", "custom"]
 ft_sensors = ["schunk-ft", None]
 arm_config = [True, False] #For validation of pmb2 only
 
@@ -26,7 +26,7 @@ for left_end_effector in end_effectors:
                            "end_effector_left": left_end_effector,
                            "end_effector_right": right_end_effector,
                            "ft_sensor_left": left_ft_sensor,
-                            "ft_sensor_right": right_ft_sensor,
+                           "ft_sensor_right": right_ft_sensor,
                         }
                         if not has_arm_left:
                             cfg["end_effector_left"] = None

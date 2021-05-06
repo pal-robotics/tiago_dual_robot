@@ -30,4 +30,18 @@
           <arg name="side" value="$(arg side)"/>
         </include>
     </group>
+    <group if="$(eval end_effector == 'robotiq-2f-85')">
+        <rosparam command="load" file="$(arg config_path)/robotiq-2f-85_$(arg side)_joint_trajectory_controllers.yaml" />
+        <include file="$(find pal_robotiq_controller_configuration)/launch/gripper_controller.launch">
+          <arg name="model" value="$(arg end_effector)" />
+          <arg name="side" value="$(arg side)"/>
+        </include>
+    </group>
+    <group if="$(eval end_effector == 'robotiq-2f-140')">
+        <rosparam command="load" file="$(arg config_path)/robotiq-2f-140_$(arg side)_joint_trajectory_controllers.yaml" />
+        <include file="$(find pal_robotiq_controller_configuration)/launch/gripper_controller.launch">
+          <arg name="model" value="$(arg end_effector)" />
+          <arg name="side" value="$(arg side)"/>
+        </include>
+    </group>
 </launch>
