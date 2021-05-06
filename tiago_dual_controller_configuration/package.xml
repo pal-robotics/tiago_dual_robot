@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>tiago_dual_controller_configuration</name>
-  <version>0.1.37</version>
+  <version>0.2.0</version>
   <description>Configuration and launch files of TIAGo Dual 's controllers</description>
   <maintainer email="victor.lopez@pal-robotics.com">Victor Lopez</maintainer>
   <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
