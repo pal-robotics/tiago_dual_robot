@@ -14,8 +14,9 @@
   <arg name="no_safety_eps" default="False"/>
   <arg name="description_calibration_dir" value="$(optenv pal_eye_hand_calibration_tiago_dual_calibration_path)" />
   <arg name="extrinsic_calibration_dir" value="$(optenv pal_camera_calibration_extrinsics_calibration_path)"/>
+  <arg name="robot_description" default="robot_description"/>
   <!-- Robot description -->
-  <param name="robot_description"
+  <param name="$(arg robot_description)"
     command="$(find xacro)/xacro --inorder
     '$(find tiago_dual_description)/robots/tiago_dual.urdf.xacro'
     arm_left:=$(arg arm_left)
