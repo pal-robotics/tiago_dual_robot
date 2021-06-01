@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.2.0 (2021-05-06)
 ------------------
 * Merge branch 'robotiq_gripper' into 'erbium-devel'

@@ -2,6 +2,20 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'impedance_controllers' into 'erbium-devel'
+  Impedance controllers
+  See merge request robots/tiago_dual_robot!37
+* fix the model chains naming
+* fix: endless loop in joint 6
+* added the missing motor_torque_constant for arm_1 joints
+* Fix the actuator names in the config files
+* added joint_impedance_trajectory_controller dependency
+* added impedance controllers launch and only loading of controllers at startup
+* added impedance trajectory controllers configuration file
+* Contributors: Sai Kishor Kothakota, daniellopez, victor
+
 0.2.0 (2021-05-06)
 ------------------
 * Merge branch 'robotiq_gripper' into 'erbium-devel'
