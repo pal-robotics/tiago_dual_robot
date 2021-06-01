@@ -24,6 +24,14 @@
       <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
     </include>
 
+    <!-- Only loads the impedance controllers -->
+    <include file="$(find tiago_dual_controller_configuration)/launch/impedance_controllers.launch">
+      <arg name="end_effector_left" value="$(arg end_effector_left)"/>
+      <arg name="end_effector_right" value="$(arg end_effector_right)"/>
+      <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>
+      <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
+    </include>
+
     <include file="$(find tiago_dual_controller_configuration)/launch/end_effector_controllers.launch">
       <arg name="end_effector" value="$(arg end_effector_left)"/>
       <arg name="side" value="left"/>
