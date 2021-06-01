@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.1 (2021-06-01)
+------------------
 * Merge branch 'impedance_controllers' into 'erbium-devel'
   Impedance controllers
   See merge request robots/tiago_dual_robot!37
