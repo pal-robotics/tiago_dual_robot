@@ -9,13 +9,13 @@
   <group if="$(eval wrist_left_model == 'wrist-2017' and wrist_right_model == 'wrist-2017')">
     <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/joint_impedance_trajectory_controllers.yaml" />
 
-    <arg name="left_mode_chains" value="['gripper_left_link']" if="$(eval end_effector_left == 'pal-gripper')"/>
-    <arg name="right_mode_chains" value="['gripper_right_link']" if="$(eval end_effector_right == 'pal-gripper')"/>
-    <arg name="left_mode_chains" value="['hand_left_palm_link']" if="$(eval end_effector_left == 'pal-hey5')"/>
-    <arg name="right_mode_chains" value="['hand_right_palm_link']" if="$(eval end_effector_right == 'pal-hey5')"/>
+    <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval end_effector_left == 'pal-gripper')"/>
+    <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval end_effector_right == 'pal-gripper')"/>
+    <arg name="left_model_chains" value="['hand_left_palm_link']" if="$(eval end_effector_left == 'pal-hey5')"/>
+    <arg name="right_model_chains" value="['hand_right_palm_link']" if="$(eval end_effector_right == 'pal-hey5')"/>
 
-    <rosparam param="/arm_left_impedance_controller/robot_model_chains" subst_value="True">$(arg left_mode_chains)</rosparam>
-    <rosparam param="/arm_right_impedance_controller/robot_model_chains" subst_value="True">$(arg right_mode_chains)</rosparam>
+    <rosparam param="/arm_left_impedance_controller/robot_model_chains" subst_value="True">$(arg left_model_chains)</rosparam>
+    <rosparam param="/arm_right_impedance_controller/robot_model_chains" subst_value="True">$(arg right_model_chains)</rosparam>
 
     <!-- Set up controllers depending of arm existance -->
     <arg name="controller_list"
