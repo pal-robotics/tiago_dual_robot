@@ -152,16 +152,16 @@
     </include>
 </group>
 
-    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-      <arg name="ns" value="$(arg right_arm_ns)"/>
-      <arg name="joint_name" value="torso_lift_joint"/>
-    </include>
+<include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+  <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+  <arg name="ns" value="$(arg right_arm_ns)"/>
+  <arg name="joint_name" value="torso_lift_joint"/>
+</include>
 
-    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
-      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
-      <arg name="ns" value="$(arg left_arm_ns)"/>
-      <arg name="joint_name" value="torso_lift_joint"/>
-    </include>
+<include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+  <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+  <arg name="ns" value="$(arg left_arm_ns)"/>
+  <arg name="joint_name" value="torso_lift_joint"/>
+</include>
 
 </launch>
