@@ -1,0 +1,5 @@
+cartesian_impedance_right_arm:
+  type: "impedance_control/CartesianImpedance"
+  robot_model_chains:
+    - gripper_right_link
+  dt: 0.01
