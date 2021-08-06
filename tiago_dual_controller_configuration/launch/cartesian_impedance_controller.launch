@@ -164,4 +164,16 @@
   <arg name="joint_name" value="torso_lift_joint"/>
 </include>
 
+<!-- Launch the action server for left arm -->
+<include file="$(find cartesian_impedance)/launch/cartesian_impedance.launch" >
+  <arg name="robot" value="tiago_dual"/>
+  <arg name="arm_suffix" value="left_arm"/>
+</include>
+
+<!-- Launch the action server for right arm -->
+<include file="$(find cartesian_impedance)/launch/cartesian_impedance.launch" >
+  <arg name="robot" value="tiago_dual"/>
+  <arg name="arm_suffix" value="right_arm"/>
+</include>
+
 </launch>
