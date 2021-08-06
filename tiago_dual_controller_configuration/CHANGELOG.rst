@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'robotiq-impedance-issues' into 'erbium-devel'
+  fix: missing chain definition for robotiq gripper
+  See merge request robots/tiago_dual_robot!41
+* refact: unify condition
+* fix: missing chain definition for robotiq gripper
+* Contributors: daniellopez, saikishor
+
 0.2.1 (2021-06-01)
 ------------------
 * Merge branch 'impedance_controllers' into 'erbium-devel'
