@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>tiago_dual_bringup</name>
-  <version>0.2.2</version>
+  <version>0.2.3</version>
   <description>Launch files to upload the TIAGo Dual robot description and start the controllers</description>
   <maintainer email="victor.lopez@pal-robotics.com">Victor Lopez</maintainer>
   <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
