@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'kangaroo_wbc' into 'erbium-devel'
+  Add BS pararameters for local joint control
+  See merge request robots/tiago_dual_robot!43
+* Add BS pararameters for local joint control
+* Contributors: Adria Roig, victor
+
 0.2.2 (2021-08-06)
 ------------------
 * Merge branch 'robotiq-impedance-issues' into 'erbium-devel'
