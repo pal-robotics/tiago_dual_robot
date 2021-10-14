@@ -13,8 +13,8 @@
   <arg name="has_screen"  default="False"/>
   <arg name="no_safety_eps" default="False"/>
   <arg name="base_type" default="pmb2"/>
-  <arg name="base_type_suffix" value="" unless="$(eval arg('base_type') == 'omni')"/>
-  <arg name="base_type_suffix" value="_omni" if="$(eval arg('base_type') == 'omni')"/>
+  <arg name="base_type_suffix" value="" unless="$(eval arg('base_type') == 'omni_base')"/>
+  <arg name="base_type_suffix" value="_omni" if="$(eval arg('base_type') == 'omni_base')"/>
 
     <!-- TODO: parametrize for other mobile base-->
   <!-- Diff drive controller multipliers -->
