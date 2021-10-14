@@ -8,13 +8,16 @@
     <arg name="camera_model"  default="orbbec-astra"/>
     <arg name="wrist_left_model"  default="wrist-2017"/>
     <arg name="wrist_right_model"  default="wrist-2017"/>
+    <arg name="base_type_suffix" default=""/>
 
     <!-- Using original tiago launch -->
     <include file="$(find tiago_controller_configuration)/launch/joint_state_controller.launch"/>
     <group if="$(eval ft_sensor_left != 'false' or ft_sensor_right != 'false')">
       <include file="$(find tiago_controller_configuration)/launch/force_torque_controller.launch"/>
     </group>
-    <include file="$(find tiago_dual_controller_configuration)/launch/default_controllers.launch"/>
+    <include file="$(find tiago_dual_controller_configuration)/launch/default_controllers.launch">
+      <arg name="base_type_suffix"  value="$(arg base_type_suffix)"/>
+    </include>
 
     <!-- load gravity compensation controller with controllable wrist -->
     <include file="$(find tiago_dual_controller_configuration)/launch/gravity_compensation_with_controller_wrist.launch">

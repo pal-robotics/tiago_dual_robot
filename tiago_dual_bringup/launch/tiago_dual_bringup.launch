@@ -11,6 +11,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
+  <arg name="base_type_suffix" default=""/>
   <arg name="robot_namespace" default=""/>
    
   <!-- Load default controllers -->
@@ -23,6 +24,7 @@
     <arg name="camera_model"  value="$(arg camera_model)"/>
     <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>   
     <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
+    <arg name="base_type_suffix"  value="$(arg base_type_suffix)"/>
   </include>
 
   <!-- Robot state publisher -->
@@ -55,6 +57,7 @@
     <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
     <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>
     <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
+    <arg name="base_type_suffix"  value="$(arg base_type_suffix)"/>
   </include>
 
 </launch>
