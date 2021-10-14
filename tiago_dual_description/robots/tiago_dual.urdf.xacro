@@ -21,6 +21,7 @@
     <xacro:arg name="camera_model" default="orbbec-astra"/> <!-- false, orbbec-astra, orbbec-astra-pro, asus-xtion -->
     <xacro:arg name="has_screen" default="false"/> <!-- true, false -->
     <xacro:arg name="multiple" default="false"/>
+    <xacro:arg name="base_type" default="pmb2"/> <!-- pmb2, omni_base -->
     <xacro:arg name="description_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="extrinsic_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="namespace" default=""/>
@@ -35,6 +36,7 @@
     <xacro:property name="laser_model" value="$(arg laser_model)" />
     <xacro:property name="camera_model" value="$(arg camera_model)" />
     <xacro:property name="has_screen" value="$(arg has_screen)" />
+    <xacro:property name="base_type" value="$(arg base_type)" />
     <xacro:property name="is_multiple" value="$(arg multiple)" />
     <xacro:property name="nsp" value="$(arg namespace)" />
     <xacro:property name="no_safety_eps" value="$(arg no_safety_eps)" />
@@ -63,6 +65,9 @@
   <xacro:if value="${camera_model not in ['false', False, 'orbbec-astra', 'orbbec-astra-pro', 'asus-xtion']}">
     <xacro:wrong_camera_model/>
   </xacro:if>
+  <xacro:if value="${base_type not in ['pmb2', 'omni_base']}">
+    <xacro:wrong_base_type/>
+  </xacro:if>
 
    <xacro:property name="has_schunk_ft"           value="${ft_sensor == 'schunk-ft'}"/>
    <xacro:property name="has_ft_sensor_left"      value="${ft_sensor_left == 'schunk-ft'}"/> <!-- This should be OR'ed with other FT sensors-->
@@ -76,7 +81,7 @@
 
   <!-- The following included files set up definitions of parts of the robot body -->
   <!-- Base -->
-  <xacro:include filename="$(find pmb2_description)/urdf/base/base_sensors.urdf.xacro" />
+  <xacro:include filename="$(find ${base_type}_description)/urdf/base/base_sensors.urdf.xacro" />
 
   <!-- Torso -->
   <xacro:include filename="$(find tiago_dual_description)/urdf/torso/torso_dual.urdf.xacro" />
@@ -100,7 +105,12 @@
   <xacro:include filename="$(find tiago_description)/urdf/materials.urdf.xacro" />
 
   <!-- Now we can start using the macros included above to define the actual robot -->
-  <xacro:base_sensors name="base" laser_model="$(arg laser_model)" sonars="true" microphone="true"/>
+  <xacro:if value="${base_type == 'pmb2'}">
+    <xacro:base_sensors name="base" laser_model="$(arg laser_model)" sonars="true" microphone="true"/>
+  </xacro:if>
+  <xacro:if value="${base_type == 'omni_base'}">
+    <xacro:base_sensors name="base" front_laser_model="$(arg laser_model)" rear_laser_model="$(arg laser_model)"/>
+  </xacro:if>
   <xacro:tiago_dual_torso name="torso" parent="base_link" has_screen="$(arg has_screen)"/>
   <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"
 	  description_calibration_dir="$(arg description_calibration_dir)"
@@ -145,5 +155,3 @@
   </link>
 
 </robot>
-
-
