@@ -2,6 +2,17 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'omni_base_robot' into 'erbium-devel'
+  Creating tiago dual with omni base robot
+  See merge request robots/tiago_dual_robot!44
+* modified .em file in order to generate the joy config file
+* added speed limit for the lateral mouvements of the robot with joystick
+* Clening the code for the joy controller and calling the proper gazebo file
+* bringup of the tiago dual with omni base
+* Contributors: antoniobrandi, saikishor
+
 0.2.3 (2021-08-31)
 ------------------
 

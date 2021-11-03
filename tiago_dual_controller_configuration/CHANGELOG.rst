@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'omni_base_robot' into 'erbium-devel'
+  Creating tiago dual with omni base robot
+  See merge request robots/tiago_dual_robot!44
+* updated configuration for tiago with omni base
+* bringup of the tiago dual with omni base
+* Contributors: antoniobrandi, saikishor
+
 0.2.3 (2021-08-31)
 ------------------
 * Merge branch 'kangaroo_wbc' into 'erbium-devel'
