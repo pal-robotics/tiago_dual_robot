@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.0 (2021-11-03)
+------------------
 * Merge branch 'omni_base_robot' into 'erbium-devel'
   Creating tiago dual with omni base robot
   See merge request robots/tiago_dual_robot!44
