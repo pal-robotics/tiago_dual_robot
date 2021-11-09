@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'cartesian_impedance' into 'erbium-devel'
+  Cartesian impedance
+  See merge request robots/tiago_dual_robot!42
+* added joint 5 motor torque constant and increased the gain
+* added gain parameters
+* minor fixes
+* added the cartesian_impedance_controller to tiago_dual_controllers launch
+* added files for the setup of the cartesian impedance controller
+* Contributors: Sai Kishor Kothakota, saikishor
+
 0.3.0 (2021-11-03)
 ------------------
 * Merge branch 'omni_base_robot' into 'erbium-devel'
