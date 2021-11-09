@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.1 (2021-11-09)
+------------------
 * Merge branch 'cartesian_impedance' into 'erbium-devel'
   Cartesian impedance
   See merge request robots/tiago_dual_robot!42
