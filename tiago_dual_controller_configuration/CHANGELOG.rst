@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.2 (2021-11-10)
+------------------
 * Merge branch 'omni_base_fix' into 'erbium-devel'
   reduced velocity in order to avoid a wheel blocking due to current limits
   See merge request robots/tiago_dual_robot!46
