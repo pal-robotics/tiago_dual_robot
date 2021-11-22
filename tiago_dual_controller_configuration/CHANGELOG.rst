@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.4 (2021-11-22)
+------------------
 * Merge branch 'fix-omnibase' into 'erbium-devel'
   Added speed limits for the space velocity filter
   See merge request robots/tiago_dual_robot!48

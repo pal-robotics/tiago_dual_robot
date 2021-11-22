@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.4 (2021-11-22)
+------------------
 * Merge branch 'conditional_dependencies' into 'erbium-devel'
   Conditional dependencies
   See merge request robots/tiago_dual_robot!47
