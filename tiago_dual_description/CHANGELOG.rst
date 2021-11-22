@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'conditional_dependencies' into 'erbium-devel'
+  Conditional dependencies
+  See merge request robots/tiago_dual_robot!47
+* added PAL_DISTRO conditioning for PAL dependencies
+* change to package version 3
+* Contributors: Sai Kishor Kothakota, victor
+
 0.3.3 (2021-11-10)
 ------------------
 

@@ -2,6 +2,19 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix-omnibase' into 'erbium-devel'
+  Added speed limits for the space velocity filter
+  See merge request robots/tiago_dual_robot!48
+* Added speed limits for the space velocity filter
+* Merge branch 'conditional_dependencies' into 'erbium-devel'
+  Conditional dependencies
+  See merge request robots/tiago_dual_robot!47
+* added PAL_DISTRO conditioning for PAL dependencies
+* change to package version 3
+* Contributors: Sai Kishor Kothakota, antoniobrandi, saikishor, victor
+
 0.3.3 (2021-11-10)
 ------------------
 * added cartesian_impedance_controller controller as dependency

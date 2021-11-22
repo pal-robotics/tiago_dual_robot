@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'conditional_dependencies' into 'erbium-devel'
+  Conditional dependencies
+  See merge request robots/tiago_dual_robot!47
+* change to package version 3
+* Contributors: Sai Kishor Kothakota, victor
+
 0.3.3 (2021-11-10)
 ------------------
 
