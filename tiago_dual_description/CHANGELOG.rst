@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix-omni' into 'erbium-devel'
+  removed call to gazebo_omni
+  See merge request robots/tiago_dual_robot!49
+* removed call to gazebo_omni
+* Contributors: antoniobrandi, davidfernandez
+
 0.3.4 (2021-11-22)
 ------------------
 * Merge branch 'conditional_dependencies' into 'erbium-devel'
