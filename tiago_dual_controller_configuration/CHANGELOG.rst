@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'reduced_wbc' into 'erbium-devel'
+  Add argument to set torso, left_arm, right_arm to no control
+  See merge request robots/tiago_dual_robot!50
+* Add argument to set torso, left_arm, right_arm to no control
+* Contributors: Adria Roig, narcismiguel
+
 0.3.5 (2021-11-26)
 ------------------
 
