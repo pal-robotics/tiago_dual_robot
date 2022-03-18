@@ -2,6 +2,16 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add_robotiq_epick_gripper' into 'erbium-devel'
+  Add robotiq-epick gripper to tiago dual
+  See merge request robots/tiago_dual_robot!51
+* Remove open/close both buttons for epick + add cartesian impedance cotroller support for epick + add effort package
+* Change controller and joint name and adapt the joystick and the motions for the epick gripper
+* Add robotiq-epick config files
+* Contributors: davidfernandez, thomaspeyrucain
+
 0.3.6 (2021-12-22)
 ------------------
 

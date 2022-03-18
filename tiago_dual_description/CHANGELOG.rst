@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add_robotiq_epick_gripper' into 'erbium-devel'
+  Add robotiq-epick gripper to tiago dual
+  See merge request robots/tiago_dual_robot!51
+* Add robotiq-epick config files
+* Add robotiq-epick gripper to tiago dual
+* Contributors: davidfernandez, thomaspeyrucain
+
 0.3.6 (2021-12-22)
 ------------------
 
