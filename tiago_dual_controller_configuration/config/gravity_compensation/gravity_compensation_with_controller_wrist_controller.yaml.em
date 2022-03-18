@@ -19,10 +19,10 @@ gravity_compensation:
 @[if end_effector_right == "schunk-wsg"]@
     - gripper_right_link
 @[end if]@
-@[if end_effector_left in ["robotiq-2f-85", "robotiq-2f-140"]]@
+@[if end_effector_left in ["robotiq-2f-85", "robotiq-2f-140", "robotiq-epick"]]@
     - gripper_left_base_link
 @[end if]@
-@[if end_effector_right in ["robotiq-2f-85", "robotiq-2f-140"]]@
+@[if end_effector_right in ["robotiq-2f-85", "robotiq-2f-140", "robotiq-epick"]]@
     - gripper_right_base_link
 @[end if]@
 @[if end_effector_left == "custom"]@
