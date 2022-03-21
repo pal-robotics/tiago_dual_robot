@@ -10,16 +10,21 @@
   <arg name="left_arm_ns" default="cartesian_impedance_left_arm"/>
   <arg name="right_arm_ns" default="cartesian_impedance_right_arm"/>
 
+  <arg name="ee_suffix_left" value="$(eval (end_effector_left if end_effector_left else 'no-ee'))"/>
+  <arg name="ee_suffix_right" value="$(eval (end_effector_right if end_effector_right else 'no-ee'))"/>
+
   <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/cartesian_impedance_left_arm.yaml" />
   <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/cartesian_impedance_right_arm.yaml" />
 
   <!-- check what should be the model chains in the respective cartesian impedance control -->
-  <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval end_effector_left == 'pal-gripper')"/>
-  <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval end_effector_right == 'pal-gripper')"/>
-  <arg name="left_model_chains" value="['hand_left_palm_link']" if="$(eval end_effector_left == 'pal-hey5')"/>
-  <arg name="right_model_chains" value="['hand_right_palm_link']" if="$(eval end_effector_right == 'pal-hey5')"/>
-  <arg name="left_model_chains" value="['gripper_left_base_link']" if="$(eval end_effector_left in ['robotiq-2f-85', 'robotiq-2f-140'])"/>
-  <arg name="right_model_chains" value="['gripper_right_base_link']" if="$(eval end_effector_right in ['robotiq-2f-85', 'robotiq-2f-140'])"/>
+  <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval ee_suffix_left == 'pal-gripper')"/>
+  <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval ee_suffix_right == 'pal-gripper')"/>
+  <arg name="left_model_chains" value="['hand_left_palm_link']" if="$(eval ee_suffix_left == 'pal-hey5')"/>
+  <arg name="right_model_chains" value="['hand_right_palm_link']" if="$(eval ee_suffix_right == 'pal-hey5')"/>
+  <arg name="left_model_chains" value="['gripper_left_base_link']" if="$(eval ee_suffix_left in ['robotiq-2f-85', 'robotiq-2f-140'])"/>
+  <arg name="right_model_chains" value="['gripper_right_base_link']" if="$(eval ee_suffix_right in ['robotiq-2f-85', 'robotiq-2f-140'])"/>
+  <arg name="left_model_chains" value="['arm_tool_left_link']" if="$(eval ee_suffix_left == 'no-ee')"/>
+  <arg name="right_model_chains" value="['arm_tool_right_link']" if="$(eval ee_suffix_right == 'no-ee')"/>
 
   <rosparam param="/$(arg left_arm_ns)/robot_model_chains" subst_value="True">$(arg left_model_chains)</rosparam>
   <rosparam param="/$(arg right_arm_ns)/robot_model_chains" subst_value="True">$(arg right_model_chains)</rosparam>
