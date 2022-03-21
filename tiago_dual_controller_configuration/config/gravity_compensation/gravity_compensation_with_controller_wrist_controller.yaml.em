@@ -31,6 +31,12 @@ gravity_compensation:
 @[if end_effector_right == "custom"]@
     - arm_right_tool_link
 @[end if]@
+@[if end_effector_left == "no-ee"]@
+    - arm_left_tool_link
+@[end if]@
+@[if end_effector_right == "no-ee"]@
+    - arm_right_tool_link
+@[end if]@
   dt: 0.01
 
 
