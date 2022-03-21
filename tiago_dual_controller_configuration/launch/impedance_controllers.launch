@@ -5,16 +5,21 @@
   <arg name="wrist_left_model"  default="wrist-2017"/>
   <arg name="wrist_right_model"  default="wrist-2017"/>
 
+  <arg name="ee_suffix_left" value="$(eval (end_effector_left if end_effector_left else 'no-ee'))"/>
+  <arg name="ee_suffix_right" value="$(eval (end_effector_right if end_effector_right else 'no-ee'))"/>
   <!-- Load controller for left wrist and right wrist if it is 2017 model -->
   <group if="$(eval wrist_left_model == 'wrist-2017' and wrist_right_model == 'wrist-2017')">
     <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/joint_impedance_trajectory_controllers.yaml" />
 
-    <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval end_effector_left == 'pal-gripper')"/>
-    <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval end_effector_right == 'pal-gripper')"/>
-    <arg name="left_model_chains" value="['hand_left_palm_link']" if="$(eval end_effector_left == 'pal-hey5')"/>
-    <arg name="right_model_chains" value="['hand_right_palm_link']" if="$(eval end_effector_right == 'pal-hey5')"/>
-    <arg name="left_model_chains" value="['gripper_left_base_link']" if="$(eval end_effector_left in ['robotiq-2f-85','robotiq-2f-140','robotiq-epick'])"/>
-    <arg name="right_model_chains" value="['gripper_right_base_link']" if="$(eval end_effector_right in ['robotiq-2f-85','robotiq-2f-140','robotiq-epick'])"/>
+
+  <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval ee_suffix_left == 'pal-gripper')"/>
+  <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval ee_suffix_right == 'pal-gripper')"/>
+  <arg name="left_model_chains" value="['hand_left_palm_link']" if="$(eval ee_suffix_left == 'pal-hey5')"/>
+  <arg name="right_model_chains" value="['hand_right_palm_link']" if="$(eval ee_suffix_right == 'pal-hey5')"/>
+  <arg name="left_model_chains" value="['gripper_left_base_link']" if="$(eval ee_suffix_left in ['robotiq-2f-85', 'robotiq-2f-140', 'robotiq-epick'])"/>
+  <arg name="right_model_chains" value="['gripper_right_base_link']" if="$(eval ee_suffix_right in ['robotiq-2f-85', 'robotiq-2f-140', 'robotiq-epick'])"/>
+  <arg name="left_model_chains" value="['arm_tool_left_link']" if="$(eval ee_suffix_left == 'no-ee')"/>
+  <arg name="right_model_chains" value="['arm_tool_right_link']" if="$(eval ee_suffix_right == 'no-ee')"/>
 
     <rosparam param="/arm_left_impedance_controller/robot_model_chains" subst_value="True">$(arg left_model_chains)</rosparam>
     <rosparam param="/arm_right_impedance_controller/robot_model_chains" subst_value="True">$(arg right_model_chains)</rosparam>
