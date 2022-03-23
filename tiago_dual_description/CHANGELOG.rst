@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.3.7 (2022-03-18)
 ------------------
 * Merge branch 'add_robotiq_epick_gripper' into 'erbium-devel'

@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_motions_aborting' into 'erbium-devel'
+  Fixing aborting motions due to joint limit + change slightly home position
+  See merge request robots/tiago_dual_robot!53
+* Fixing aborting motions due to joint limit
+* Contributors: saikishor, thomaspeyrucain
+
 0.3.7 (2022-03-18)
 ------------------
 * Merge branch 'add_robotiq_epick_gripper' into 'erbium-devel'
