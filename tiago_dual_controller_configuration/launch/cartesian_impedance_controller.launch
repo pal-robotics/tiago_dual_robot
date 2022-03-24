@@ -23,8 +23,8 @@
   <arg name="right_model_chains" value="['hand_right_palm_link']" if="$(eval ee_suffix_right == 'pal-hey5')"/>
   <arg name="left_model_chains" value="['gripper_left_base_link']" if="$(eval ee_suffix_left in ['robotiq-2f-85', 'robotiq-2f-140'])"/>
   <arg name="right_model_chains" value="['gripper_right_base_link']" if="$(eval ee_suffix_right in ['robotiq-2f-85', 'robotiq-2f-140'])"/>
-  <arg name="left_model_chains" value="['arm_tool_left_link']" if="$(eval ee_suffix_left == 'no-ee')"/>
-  <arg name="right_model_chains" value="['arm_tool_right_link']" if="$(eval ee_suffix_right == 'no-ee')"/>
+  <arg name="left_model_chains" value="['arm_left_tool_link']" if="$(eval ee_suffix_left == 'no-ee')"/>
+  <arg name="right_model_chains" value="['arm_right_tool_link']" if="$(eval ee_suffix_right == 'no-ee')"/>
 
   <rosparam param="/$(arg left_arm_ns)/robot_model_chains" subst_value="True">$(arg left_model_chains)</rosparam>
   <rosparam param="/$(arg right_arm_ns)/robot_model_chains" subst_value="True">$(arg right_model_chains)</rosparam>
