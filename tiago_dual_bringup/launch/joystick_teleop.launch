@@ -8,7 +8,6 @@
 
   <arg name="cmd_vel" default="input_joy/cmd_vel" />
     <!-- The joystick only controls the right end effector -->
-  <arg name="file_suffix" value="$(eval (end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
 
 
   <arg name="file_suffix" 
