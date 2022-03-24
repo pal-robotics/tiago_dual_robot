@@ -11,7 +11,7 @@
   <group if="$(eval wrist_left_model == 'wrist-2017' and wrist_right_model == 'wrist-2017')">
     <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/joint_impedance_trajectory_controllers.yaml" />
 
-  <!-- check what should be the model chains in the respective cartesian impedance control -->
+
   <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval ee_suffix_left == 'pal-gripper')"/>
   <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval ee_suffix_right == 'pal-gripper')"/>
   <arg name="left_model_chains" value="['hand_left_palm_link']" if="$(eval ee_suffix_left == 'pal-hey5')"/>
