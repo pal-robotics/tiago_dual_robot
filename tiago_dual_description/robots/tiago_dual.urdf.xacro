@@ -25,6 +25,7 @@
     <xacro:arg name="description_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="extrinsic_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="namespace" default=""/>
+s    <xacro:arg name="no_safety_eps" default="false"/>
     <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
     <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
     <xacro:property name="has_arm_left" value="$(arg arm_left)" />
@@ -47,10 +48,10 @@
   <xacro:if value="${wrist_right_model not in ['wrist-2010', 'wrist-2017']}">
     <xacro:wrong_wrist_model/>
   </xacro:if>
-  <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'robotiq-2f-85', 'robotiq-2f-140', 'robotiq-epick', 'false', False, 'custom']}">
+  <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'robotiq-2f-85', 'robotiq-2f-140', 'robotiq-epick', 'false', False, 'custom', 'no-ee']}">
     <xacro:wrong_end_effector_left/>
   </xacro:if>
-  <xacro:if value="${end_effector_right not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'robotiq-2f-85', 'robotiq-2f-140', 'robotiq-epick', 'false', False, 'custom']}">
+  <xacro:if value="${end_effector_right not in ['pal-gripper', 'pal-hey5', 'schunk-wsg', 'robotiq-2f-85', 'robotiq-2f-140', 'robotiq-epick', 'false', False, 'custom', 'no-ee']}">
     <xacro:wrong_end_effector_right/>
   </xacro:if>
   <xacro:if value="${ft_sensor_left not in ['false', False, 'schunk-ft']}">
