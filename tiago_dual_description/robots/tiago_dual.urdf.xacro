@@ -25,7 +25,7 @@
     <xacro:arg name="description_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="extrinsic_calibration_dir" default="$(find tiago_dual_description_calibration)/urdf/calibration"/>
     <xacro:arg name="namespace" default=""/>
-s    <xacro:arg name="no_safety_eps" default="false"/>
+    <xacro:arg name="no_safety_eps" default="false"/>
     <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
     <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
     <xacro:property name="has_arm_left" value="$(arg arm_left)" />
