@@ -192,7 +192,7 @@ print(controllers)
         usage: picking
         description: Open right gripper
 @[end if]@
-@[if end_effector_right != "robotiq-epick" and end_effector_left != "robotiq-epick"]@
+@[if end_effector_right not in ["robotiq-epick", "no-ee"] or end_effector_left not in ["robotiq-epick", "no-ee"]]@
 @{
 has_hand = False
 if end_effector_right == "pal-hey5" or end_effector_left == "pal-hey5":
@@ -297,6 +297,7 @@ elif end_effector_right == "robotiq-2f-140":
         name: Open Both
         usage: picking
         description: Open both end effectors
+@[else]   {}
 @[end if]@
 @[else]@
   motions: {}
