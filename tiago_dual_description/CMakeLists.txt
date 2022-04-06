@@ -16,8 +16,8 @@ endforeach(dir)
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  foreach(end_effector_left pal-gripper pal-hey5 schunk-wsg robotiq-2f-85 robotiq-2f-140 robotiq-epick custom)
-      foreach(end_effector_right pal-gripper pal-hey5 schunk-wsg robotiq-2f-85 robotiq-2f-140 robotiq-epick custom)
+  foreach(end_effector_left pal-gripper pal-hey5 schunk-wsg robotiq-2f-85 robotiq-2f-140 robotiq-epick custom false)
+      foreach(end_effector_right pal-gripper pal-hey5 schunk-wsg robotiq-2f-85 robotiq-2f-140 robotiq-epick custom false)
           foreach(ft_sensor_left false schunk-ft)
               foreach(ft_sensor_right false schunk-ft)
                       add_rostest(test/test_tiago_dual.test ARGS end_effector_left:=${end_effector_left}
