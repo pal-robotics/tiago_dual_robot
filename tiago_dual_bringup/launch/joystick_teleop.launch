@@ -13,9 +13,8 @@
 
 
   <arg name="file_suffix" 
-       value="$(eval ('no-arm' if not arm_right else ((end_effector_right if end_effector_right else 'no-ee') + 
-        ('_' +  ft_sensor_right if ft_sensor_right else ''))))"
-        />  
+       value="$(eval ('no-arm' if not arm_right else ((end_effector_right if end_effector_right else 'no-ee') + ('_' +  ft_sensor_right if ft_sensor_right else ''))))"/>
+         
   <arg name="teleop_config" default="$(find tiago_dual_bringup)/config/joy_teleop/joy_teleop_$(arg file_suffix).yaml" />
   <arg name="teleop_config_move" default="$(find tiago_dual_bringup)/config/joy_teleop/joy_teleop_move$(arg base_type_suffix).yaml" />
 

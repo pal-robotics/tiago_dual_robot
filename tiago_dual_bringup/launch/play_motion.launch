@@ -8,7 +8,7 @@
   <arg name="ft_sensor_right"/>
   
 <arg name="file_suffix" value="$(eval 
-              (('no-arm-left' if not arm_left else (end_effector_left if end_effector_left else 'no-ee')+ ('_' +  ft_sensor_left if ft_sensor_left else '')) + '_'  + ('no-arm-right' if not arm_right else (end_effector_right  if end_effector_right else 'no-ee') + ('_' +  ft_sensor_right if ft_sensor_right else ''))))"/>
+              (('no-arm-left' if not arm_left else (end_effector_left if end_effector_left else 'no-ee') + ('_' +  ft_sensor_left if ft_sensor_left else '')) + '_'  + ('no-arm-right' if not arm_right else (end_effector_right  if end_effector_right else 'no-ee') + ('_' +  ft_sensor_right if ft_sensor_right else ''))))"/>
   <!-- execute pre-recorded motions -->
   <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_general.yaml" command="load" if="$(eval (arm_right and arm_left))"/> 
   <rosparam file="$(find tiago_dual_bringup)/config/motions/tiago_motions_general_arm_right.yaml" command="load" if="$(eval (arm_right and not arm_left))"/> 
