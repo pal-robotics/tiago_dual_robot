@@ -27,6 +27,8 @@
 
   <!-- Robot model -->
   <include file="$(find tiago_dual_description)/robots/upload.launch">
+    <arg name="arm_left" value="$(arg arm_left)"/>
+    <arg name="arm_right" value="$(arg arm_right)"/>
     <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
     <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
     <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>
@@ -41,7 +43,9 @@
   </include>
 
   <!-- tiago_hardware parameters -->
-  <arg name="file_suffix" value="$(eval ('no-arm-left' if not arm_left else end_effector_left + ('' if not ft_sensor_left else '_'+ft_sensor_left)) + '_' + ('no-arm-right' if not arm_right else end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
+<arg name="file_suffix" value="$(eval 
+              (('no-arm-left' if not arm_left else (end_effector_left if end_effector_left else 'no-ee') + ('_' +  ft_sensor_left if ft_sensor_left else '')) + '_'  + ('no-arm-right' if not arm_right else (end_effector_right  if end_effector_right else 'no-ee') + ('_' +  ft_sensor_right if ft_sensor_right else ''))))"/>
+
   <rosparam command="load" file="$(find tiago_dual_bringup)/config/tiago_hardware/tiago_dual_hardware_$(arg file_suffix).yaml"/>
 
   <!-- Node that forwards commands and feedback of dynamixel motors -->
@@ -49,6 +53,8 @@
 
   <!--[> Bring up robot <]-->
   <include file="$(find tiago_dual_bringup)/launch/tiago_dual_bringup.launch">
+    <arg name="arm_left" value="$(arg arm_left)"/>
+    <arg name="arm_right" value="$(arg arm_right)"/>
     <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
     <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
     <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>

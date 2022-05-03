@@ -1,4 +1,6 @@
 <launch>
+  <arg name="arm_left"  default="True"/>
+  <arg name="arm_right"  default="True"/>
   <arg name="end_effector_left"  default="pal-hey5"/>
   <arg name="end_effector_right"  default="pal-hey5"/>
   <arg name="ft_sensor_left"  default="schunk-ft"/>
@@ -8,7 +10,11 @@
 
   <arg name="cmd_vel" default="input_joy/cmd_vel" />
     <!-- The joystick only controls the right end effector -->
-  <arg name="file_suffix" value="$(eval (end_effector_right + ('' if not ft_sensor_right else '_'+ft_sensor_right)))"/>
+
+
+  <arg name="file_suffix" 
+       value="$(eval ('no-arm' if not arm_right else ((end_effector_right if end_effector_right else 'no-ee') + ('_' +  ft_sensor_right if ft_sensor_right else ''))))"/>
+         
   <arg name="teleop_config" default="$(find tiago_dual_bringup)/config/joy_teleop/joy_teleop_$(arg file_suffix).yaml" />
   <arg name="teleop_config_move" default="$(find tiago_dual_bringup)/config/joy_teleop/joy_teleop_move$(arg base_type_suffix).yaml" />
 

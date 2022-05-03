@@ -16,6 +16,8 @@
    
   <!-- Load default controllers -->
   <include file="$(find tiago_dual_controller_configuration)/launch/tiago_dual_controllers.launch">
+    <arg name="arm_left" value="$(arg arm_left)"/>
+    <arg name="arm_right" value="$(arg arm_right)"/>    
     <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
     <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
     <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>
@@ -55,6 +57,8 @@
 
   <!-- Joystick controller -->
   <include file="$(find tiago_dual_bringup)/launch/joystick_teleop.launch">
+    <arg name="arm_left" value="$(arg arm_left)"/>
+    <arg name="arm_right" value="$(arg arm_right)"/>    
     <arg name="end_effector_left"  value="$(arg end_effector_left)"/>
     <arg name="end_effector_right"  value="$(arg end_effector_right)"/>
     <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>

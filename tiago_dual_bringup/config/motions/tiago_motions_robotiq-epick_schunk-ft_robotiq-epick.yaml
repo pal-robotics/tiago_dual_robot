@@ -2,3 +2,4 @@
 play_motion:
   controllers: ['head_controller', 'torso_controller', 'arm_left_controller', 'arm_right_controller']
   motions:
+   {}
