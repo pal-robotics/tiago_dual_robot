@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.0 (2022-05-03)
+------------------
 * Merge branch 'no-end-effector-bugfix' into 'erbium-devel'
   No end effector bugfix
   See merge request robots/tiago_dual_robot!54
