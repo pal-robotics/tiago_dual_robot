@@ -2,6 +2,26 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'no-end-effector-bugfix' into 'erbium-devel'
+  No end effector bugfix
+  See merge request robots/tiago_dual_robot!54
+* file_suffix consistency
+* bools to true
+* update for tiago missing one of the arms
+* Add no-ee to tests in CMAKELIST
+* correctly update tiago_dual.urdf.xacro
+* update
+* Genereate motion and planning appraoch files|
+* generate new config files
+* merge
+* Genereate motion and planning appraoch files|
+* generate new config files
+* Genereate motion and planning appraoch files|
+* generate new config files
+* Contributors: David ter Kuile, saikishor
+
 0.3.8 (2022-03-23)
 ------------------
 

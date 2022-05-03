@@ -2,6 +2,22 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'no-end-effector-bugfix' into 'erbium-devel'
+  No end effector bugfix
+  See merge request robots/tiago_dual_robot!54
+* bools to true
+* update for tiago missing one of the arms
+* minor bugfixes in launch files
+* minor bugfixes in launch files
+* generate new config files
+* minor bugfixes in launch files
+* generate new config files
+* minor bugfixes in launch files
+* generate new config files
+* Contributors: David ter Kuile, saikishor
+
 0.3.8 (2022-03-23)
 ------------------
 

@@ -2,6 +2,28 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'no-end-effector-bugfix' into 'erbium-devel'
+  No end effector bugfix
+  See merge request robots/tiago_dual_robot!54
+* file_suffix consistency
+* bools to true
+* update for tiago missing one of the arms
+* update motion.em
+* update motions
+* minor bugfixes in launch files
+* Genereate motion and planning appraoch files|
+* generate new config files
+* update motions
+* minor bugfixes in launch files
+* Genereate motion and planning appraoch files|
+* generate new config files
+* minor bugfixes in launch files
+* Genereate motion and planning appraoch files|
+* generate new config files
+* Contributors: David ter Kuile, saikishor
+
 0.3.8 (2022-03-23)
 ------------------
 * Merge branch 'fix_motions_aborting' into 'erbium-devel'
