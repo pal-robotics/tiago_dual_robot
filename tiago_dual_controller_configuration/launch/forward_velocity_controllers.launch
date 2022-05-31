@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="arm_left"  default="True"/>
+  <arg name="arm_right"  default="True"/>
+
+  <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/forward_velocity_controllers.yaml"/>
+ 
+  <!-- Set up controllers depending of arm existence -->
+  <group if="$(eval arg('arm_right') or arg('arm_left'))">
+    <!-- Both arms -->
+    <arg name="controller_list"
+         value="arm_left_forward_velocity_controller
+                arm_right_forward_velocity_controller" if="$(eval arm_left and arm_right)"/>
+
+    <!-- Right arm -->
+    <arg name="controller_list"
+         value="arm_right_forward_velocity_controller" if="$(eval arg('arm_right') and not arg('arm_left'))"/>
+
+    <!-- Left arm -->
+    <arg name="controller_list"
+         value="arm_left_forward_velocity_controller" if="$(eval arg('arm_left') and not arg('arm_right'))"/>
+
+    <!-- Controllers that come up started -->
+    <node name="forward_velocity_controllers_spawner"
+          pkg="controller_manager" type="spawner" output="screen"
+          args="--timeout 120 --stopped $(arg controller_list)" />
+  </group>
+</launch>
