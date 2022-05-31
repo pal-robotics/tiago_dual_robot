@@ -30,6 +30,16 @@
       <arg name="base_type_suffix"  value="$(arg base_type_suffix)"/>
     </include>
 
+    <include file="$(find tiago_dual_controller_configuration)/launch/forward_velocity_controllers.launch">
+      <arg name="arm_left"  value="$(arg arm_left)"/>
+      <arg name="arm_right"  value="$(arg arm_right)"/>
+    </include>
+
+    <include file="$(find tiago_dual_controller_configuration)/launch/joint_trajectory_controllers_velocity.launch">
+      <arg name="arm_left"  value="$(arg arm_left)"/>
+      <arg name="arm_right"  value="$(arg arm_right)"/>
+    </include>
+
     <!-- load gravity compensation controller with controllable wrist -->
     <include file="$(find tiago_dual_controller_configuration)/launch/gravity_compensation_with_controller_wrist.launch">
       <arg name="arm_left" value="$(arg arm_left)"/>
