@@ -1,0 +1,94 @@
+arm_left_velocity_controller:
+  type: "velocity_controllers/JointTrajectoryController"
+  joints:
+    - arm_left_1_joint
+    - arm_left_2_joint
+    - arm_left_3_joint
+    - arm_left_4_joint
+    - arm_left_5_joint
+    - arm_left_6_joint
+    - arm_left_7_joint
+
+  gains:
+    arm_left_1_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_2_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_3_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_4_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_5_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_6_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_7_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+
+  velocity_ff:
+    arm_left_1_joint: 1.0 
+    arm_left_2_joint: 1.0 
+    arm_left_3_joint: 1.0 
+    arm_left_4_joint: 1.0 
+    arm_left_5_joint: 1.0 
+    arm_left_6_joint: 1.0 
+    arm_left_7_joint: 1.0 
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 5.0
+    arm_left_1_joint:
+      goal: 0.02
+    arm_left_2_joint:
+      goal: 0.02
+    arm_left_3_joint:
+      goal: 0.02
+    arm_left_4_joint:
+      goal: 0.02
+    arm_left_5_joint:
+      goal: 0.02
+    arm_left_6_joint:
+      goal: 0.02
+    arm_left_7_joint:
+      goal: 0.02
+
+arm_right_velocity_controller:
+  type: "velocity_controllers/JointTrajectoryController"
+  joints:
+    - arm_right_1_joint
+    - arm_right_2_joint
+    - arm_right_3_joint
+    - arm_right_4_joint
+    - arm_right_5_joint
+    - arm_right_6_joint
+    - arm_right_7_joint
+
+  gains:
+    arm_right_1_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_2_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_3_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_4_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_5_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_6_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_7_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+
+  velocity_ff:
+    arm_right_1_joint: 1.0 
+    arm_right_2_joint: 1.0 
+    arm_right_3_joint: 1.0 
+    arm_right_4_joint: 1.0 
+    arm_right_5_joint: 1.0 
+    arm_right_6_joint: 1.0 
+    arm_right_7_joint: 1.0 
+
+  constraints:
+    goal_time: 0.6
+    stopped_velocity_tolerance: 5.0
+    arm_right_1_joint:
+      goal: 0.02
+    arm_right_2_joint:
+      goal: 0.02
+    arm_right_3_joint:
+      goal: 0.02
+    arm_right_4_joint:
+      goal: 0.02
+    arm_right_5_joint:
+      goal: 0.02
+    arm_right_6_joint:
+      goal: 0.02
+    arm_right_7_joint:
+      goal: 0.02
+
