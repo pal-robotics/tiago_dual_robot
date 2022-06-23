@@ -10,13 +10,13 @@ arm_left_velocity_controller:
     - arm_left_7_joint
 
   gains:
-    arm_left_1_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_left_2_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_left_3_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_left_4_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_left_5_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_left_6_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_left_7_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_left_1_joint: {p:  5, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_left_2_joint: {p:  5, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_left_3_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_left_4_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_left_5_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 1}
+    arm_left_6_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 1}
+    arm_left_7_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 1}
 
   velocity_ff:
     arm_left_1_joint: 1.0 
@@ -57,13 +57,13 @@ arm_right_velocity_controller:
     - arm_right_7_joint
 
   gains:
-    arm_right_1_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_right_2_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_right_3_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_right_4_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_right_5_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_right_6_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
-    arm_right_7_joint: {p: 1, d: 0.1, i: 0, i_clamp: 1}
+    arm_right_1_joint: {p:  5, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_right_2_joint: {p:  5, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_right_3_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_right_4_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 2}
+    arm_right_5_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 1}
+    arm_right_6_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 1}
+    arm_right_7_joint: {p: 10, d: 0.1, i: 0.01, i_clamp: 1}
 
   velocity_ff:
     arm_right_1_joint: 1.0 
