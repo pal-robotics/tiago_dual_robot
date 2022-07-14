@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.0 (2022-05-03)
 ------------------
 * Merge branch 'no-end-effector-bugfix' into 'erbium-devel'
