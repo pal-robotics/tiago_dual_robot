@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.1 (2022-07-14)
+------------------
 * Merge branch 'fix_passed_params' into 'erbium-devel'
   Added ft_sensor params
   See merge request robots/tiago_dual_robot!57
