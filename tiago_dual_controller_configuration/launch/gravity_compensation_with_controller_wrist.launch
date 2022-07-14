@@ -4,8 +4,10 @@
   <arg name="arm_right"  default="True"/>
   <arg name="wrist_left_model"  default="wrist-2017"/>
   <arg name="wrist_right_model"  default="wrist-2017"/>
-  <arg name="end_effector_left" default="pal-hey5"/>/>
-  <arg name="end_effector_right" default="pal-hey5"/>/>
+  <arg name="end_effector_left" default="pal-hey5"/>
+  <arg name="end_effector_right" default="pal-hey5"/>
+  <arg name="ft_sensor_left"  default="false"/>
+  <arg name="ft_sensor_right" default="false"/>
   <arg name="local_joint_control" default="direct_effort_control"/>
   <arg name="controller_pkg_name" default="tiago_dual_controller_configuration"/>
   <arg name="ns" default="gravity_compensation"/>
