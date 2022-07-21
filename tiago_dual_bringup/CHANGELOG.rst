@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add_omni_tiago_dual' into 'erbium-devel'
+  Add special motions for Tiago dual omni to not collide with the base
+  See merge request robots/tiago_dual_robot!55
+* Add base_type to the missing launch files
+* Add special motions for Tiago dual omni to not collide with the base
+* Contributors: saikishor, thomaspeyrucain
+
 0.4.1 (2022-07-14)
 ------------------
 
