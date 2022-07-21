@@ -11,6 +11,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
+  <arg name="base_type" default="pmb2"/>
   <arg name="base_type_suffix" default=""/>
   <arg name="robot_namespace" default=""/>
    
@@ -27,6 +28,7 @@
     <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>   
     <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
     <arg name="base_type_suffix"  value="$(arg base_type_suffix)"/>
+    <arg name="base_type" value="$(arg base_type)"/>
   </include>
 
   <!-- Robot state publisher -->
