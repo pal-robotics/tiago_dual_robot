@@ -2,29 +2,34 @@
 <launch>
     <arg name="ft_sensor_left"   default="schunk-ft"/>
     <arg name="ft_sensor_right"  default="schunk-ft"/>
+    <arg name="base_type"        default="pmb2"/>
 
     <!-- load wbc controller -->
     <group if="$(eval ft_sensor_left == 'schunk-ft' and ft_sensor_right == 'schunk-ft')">
         <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
-            <arg name="spawn" value="false"/>
-            <arg name="stack" value="tiago_dual_wbc_ft"/>
+            <arg name="spawn"       value="false"/>
+            <arg name="stack"       value="tiago_dual_wbc_ft"/>
+            <arg name="base_type"   value="$(arg base_type)"/>
         </include>
     </group>
     <group if="$(eval ft_sensor_left == 'schunk-ft' and ft_sensor_right != 'schunk-ft')">
         <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
-            <arg name="spawn" value="false"/>
-            <arg name="stack" value="tiago_dual_wbc_left_ft"/>
+            <arg name="spawn"       value="false"/>
+            <arg name="stack"       value="tiago_dual_wbc_left_ft"/>
+            <arg name="base_type"   value="$(arg base_type)"/>
         </include>
     </group>
     <group if="$(eval ft_sensor_left != 'schunk-ft' and ft_sensor_right == 'schunk-ft')">
         <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
-            <arg name="spawn" value="false"/>
-            <arg name="stack" value="tiago_dual_wbc_right_ft"/>
+            <arg name="spawn"       value="false"/>
+            <arg name="stack"       value="tiago_dual_wbc_right_ft"/>
+            <arg name="base_type"   value="$(arg base_type)"/>
         </include>
     </group>
     <group if="$(eval ft_sensor_left != 'schunk-ft' and ft_sensor_right != 'schunk-ft')"> 
         <include file="$(find tiago_dual_wbc)/launch/tiago_dual_wbc.launch">
-            <arg name="spawn" value="false"/>
+            <arg name="spawn"       value="false"/>
+            <arg name="base_type"   value="$(arg base_type)"/>
         </include>
     </group>
 </launch>
