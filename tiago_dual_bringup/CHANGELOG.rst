@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.2 (2022-07-21)
 ------------------
 * Merge branch 'add_omni_tiago_dual' into 'erbium-devel'
