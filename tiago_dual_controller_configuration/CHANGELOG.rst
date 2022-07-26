@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.3 (2022-07-26)
+------------------
 * Merge branch 'omnibase_wbc' into 'erbium-devel'
   propagate base_type to wbc
   See merge request robots/tiago_dual_robot!58
