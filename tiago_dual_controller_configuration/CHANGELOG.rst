@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_torso_collision' into 'erbium-devel'
+  Fix collision boxes for the torso
+  See merge request robots/tiago_dual_robot!59
+* Reorder param order for making it easier to spot
+* Remove extra joints because were changed to fixed
+* Contributors: saikishor, thomaspeyrucain
+
 0.4.3 (2022-07-26)
 ------------------
 * Merge branch 'omnibase_wbc' into 'erbium-devel'
