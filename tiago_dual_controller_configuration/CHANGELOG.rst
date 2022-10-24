@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.5 (2022-10-24)
+------------------
 * Merge branch 'feat/robust-odometry-integration' into 'erbium-devel'
   disabled odom tf publication
   See merge request robots/tiago_dual_robot!61
