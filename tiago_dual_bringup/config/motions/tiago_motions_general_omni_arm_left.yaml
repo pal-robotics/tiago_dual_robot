@@ -26,6 +26,17 @@ play_motion:
         name: Home Left
         usage: demo
         description: Go home, only left arm
+    unfold_arm_left:
+      joints: [torso_lift_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+      points:
+      - positions: [0.30, 0.21, -0.74, 2.71, 1.03, -1.57, 1.37, 0.0]
+        time_from_start: 0.5
+      - positions: [0.30, 0.21, -0.2, 0.61, 1.15, -1.57, 0.2, 0.0]
+        time_from_start: 6.0
+      meta:
+        name: Unfold arm left
+        usage: demo
+        description: Unfold left arm
     wave:
       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
       points:
