@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/enable-odom-tf' into 'erbium-devel'
+  fix enable_odom_tf
+  See merge request robots/tiago_dual_robot!63
+* Update mobile_base_controller.yaml
+* Contributors: josegarcia
+
 0.4.5 (2022-10-24)
 ------------------
 * Merge branch 'feat/robust-odometry-integration' into 'erbium-devel'
