@@ -15,6 +15,7 @@
   <arg name="base_type" default="pmb2"/>
   <arg name="base_type_suffix" default=""/>
   <arg name="robot_namespace" default=""/>
+  <arg name="advanced_grasping" default="false"/> <!-- Requires extra software from PAL Robotics-->
    
   <!-- Load default controllers -->
   <include file="$(find tiago_dual_controller_configuration)/launch/tiago_dual_controllers.launch">
@@ -31,6 +32,7 @@
     <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
     <arg name="base_type_suffix"  value="$(arg base_type_suffix)"/>
     <arg name="base_type" value="$(arg base_type)"/>
+    <arg name="advanced_grasping" value="$(arg advanced_grasping)"/>
   </include>
 
   <!-- Robot state publisher -->
