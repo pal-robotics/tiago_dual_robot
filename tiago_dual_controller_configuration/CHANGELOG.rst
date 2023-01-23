@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.6 (2022-11-16)
 ------------------
 * Merge branch 'fix/enable-odom-tf' into 'erbium-devel'

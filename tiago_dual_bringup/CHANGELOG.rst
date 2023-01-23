@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'robot-state-publisher' into 'erbium-devel'
+  Update node to robot_state_publisher
+  See merge request robots/tiago_dual_robot!67
+* Update node to robot_state_publisher
+* Contributors: David ter Kuile, Jordan Palacios
+
 0.4.6 (2022-11-16)
 ------------------
 
