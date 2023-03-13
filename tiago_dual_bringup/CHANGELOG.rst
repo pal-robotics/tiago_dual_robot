@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.7 (2023-01-23)
 ------------------
 * Merge branch 'robot-state-publisher' into 'erbium-devel'

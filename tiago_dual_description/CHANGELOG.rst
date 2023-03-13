@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/ydlidar' into 'erbium-devel'
+  added support to ydlidar
+  See merge request robots/tiago_dual_robot!66
+* added support to ydlidar
+* Contributors: antoniobrandi
+
 0.4.7 (2023-01-23)
 ------------------
 
