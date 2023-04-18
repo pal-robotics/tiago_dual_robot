@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.9 (2023-04-18)
+------------------
 * Merge branch 'update-joystick' into 'erbium-devel'
   Update joystick device name
   See merge request robots/tiago_dual_robot!68
