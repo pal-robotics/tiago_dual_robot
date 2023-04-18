@@ -7,7 +7,7 @@
   <arg name="ft_sensor_right"  default="schunk-ft"/>
   <arg name="base_type_suffix" default=""/>
 
-
+  <arg name="input_device" default="/dev/joystick"/>
   <arg name="cmd_vel" default="input_joy/cmd_vel" />
     <!-- The joystick only controls the right end effector -->
 
@@ -26,6 +26,7 @@
 
   <node pkg="joy" type="joy_node" name="joystick">
     <param name="autorepeat_rate" value="10" />
+    <param name="dev" value="$(arg input_device)" />
   </node>
 
   <group ns="torso_controller">
