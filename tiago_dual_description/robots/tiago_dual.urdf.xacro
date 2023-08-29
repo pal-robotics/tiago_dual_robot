@@ -44,7 +44,6 @@
     <xacro:property name="no_safety_eps" value="$(arg no_safety_eps)" />
     <xacro:property name="fixed_torso" value="$(arg fixed_torso)" />
 
-
   <xacro:if value="${wrist_left_model not in ['wrist-2010', 'wrist-2017']}">
     <xacro:wrong_wrist_model/>
   </xacro:if>
