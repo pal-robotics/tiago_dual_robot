@@ -3,9 +3,9 @@
   <name>tiago_dual_controller_configuration</name>
   <version>0.4.9</version>
   <description>Configuration and launch files of TIAGo Dual 's controllers</description>
-  <maintainer email="victor.lopez@pal-robotics.com">Victor Lopez</maintainer>
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
   <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
-  <license>BSD</license>
+  <license>Apache License 2.0</license>
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>tiago_controller_configuration</exec_depend>
