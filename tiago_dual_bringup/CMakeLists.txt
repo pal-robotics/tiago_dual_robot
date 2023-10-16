@@ -1,10 +1,21 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(tiago_dual_bringup)
-find_package(catkin REQUIRED)
-catkin_package()
 
-foreach(dir config launch)
-    install(DIRECTORY ${dir}/
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
-endforeach(dir)
+find_package(ament_cmake_auto REQUIRED)
+ament_auto_find_build_dependencies()
+
+if(pal_module_cmake_FOUND)
+  pal_register_modules(
+    module/bringup.yaml
+    module/joystick.yaml
+  )
+endif()
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_auto_package(INSTALL_TO_SHARE)
+
 

@@ -1,3 +1,0 @@
-gripper_left_controller:
-  type: "effort_controllers/JointEffortController"
-  joint: gripper_left_vacuum_joint

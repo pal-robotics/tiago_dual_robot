@@ -3,17 +3,19 @@
   <name>tiago_dual_robot</name>
   <version>0.4.9</version>
   <description>Description and controller configuration of TIAGo</description>
-  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
   <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+  <maintainer email="david.terkuile@pal-robotics.com">David ter Kuile</maintainer>
 
   <license>Apache License 2.0</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
   <exec_depend>tiago_dual_description</exec_depend>
   <exec_depend>tiago_dual_controller_configuration</exec_depend>
   <exec_depend>tiago_dual_bringup</exec_depend>
 
   <export>
-     <metapackage/>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

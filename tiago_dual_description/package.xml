@@ -7,26 +7,26 @@
       etc.) of the TIAGO robot.  The files in this package are parsed and used by
       a variety of other components.  Most users will not interact directly
       with this package.</description>
-  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
   <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+  <maintainer email="david.terkuile@pal-robotics.com">David ter Kuile</maintainer>
   <license>Apache License 2.0</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
   <exec_depend>xacro</exec_depend>
   <exec_depend>pmb2_description</exec_depend>
-  <exec_depend condition="$PAL_DISTRO > 0">omni_base_description</exec_depend>
   <exec_depend>tiago_description</exec_depend>
   <exec_depend>hey5_description</exec_depend>
   <exec_depend>pal_gripper_description</exec_depend>
-  <exec_depend>pal_robotiq_85_description</exec_depend>
-  <exec_depend>pal_robotiq_140_description</exec_depend>
-  <exec_depend>pal_robotiq_epick_description</exec_depend>
-  <exec_depend>pal_wsg_gripper_description</exec_depend>
-  <exec_depend>tiago_dual_description_calibration</exec_depend>
-  <exec_depend>custom_dual_ee_description</exec_depend>
 
-  <test_depend>rostest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>launch_testing_ament_cmake</test_depend>
   <test_depend>urdf_test</test_depend>
 
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
