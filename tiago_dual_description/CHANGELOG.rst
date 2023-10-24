@@ -2,6 +2,29 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'urdf-utils' into 'erbium-devel'
+  Change to urdf utils
+  See merge request robots/tiago_dual_robot!79
+* Change to urdf utils
+* Merge branch 'change_license_to_apache' into 'erbium-devel'
+  change public license to Apache License 2.0
+  See merge request robots/tiago_dual_robot!77
+* change public license to Apache License 2.0
+* Merge branch 'fixed_torso_argument_2' into 'erbium-devel'
+  Fixed torso argument 2
+  See merge request robots/tiago_dual_robot!74
+* updated the torso to be at half it's range when fixed
+* Manual formating
+* Added if condition in torso xacro
+* Added parameter to main xacro
+* Merge branch 'davidterkuile-erbium-devel-patch-00829' into 'erbium-devel'
+  Update deprecated joint state publisher gui
+  See merge request robots/tiago_dual_robot!71
+* Update deprecated joint state publisher gui
+* Contributors: David ter Kuile, Jordan Palacios, Sai Kishor Kothakota, Victor Lutz, davidterkuile
+
 0.4.9 (2023-04-18)
 ------------------
 

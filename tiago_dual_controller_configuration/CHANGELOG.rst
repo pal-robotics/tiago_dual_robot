@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'change_license_to_apache' into 'erbium-devel'
+  change public license to Apache License 2.0
+  See merge request robots/tiago_dual_robot!77
+* change public license to Apache License 2.0
+* Contributors: Jordan Palacios, Sai Kishor Kothakota
+
 0.4.9 (2023-04-18)
 ------------------
 
