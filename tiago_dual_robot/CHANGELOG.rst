@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.10 (2023-10-24)
+-------------------
 * Merge branch 'change_license_to_apache' into 'erbium-devel'
   change public license to Apache License 2.0
   See merge request robots/tiago_dual_robot!77
