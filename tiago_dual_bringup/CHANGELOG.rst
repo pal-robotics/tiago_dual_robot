@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'add-moveit-capability-loader' into 'erbium-devel'
+  Add argument for launching move_group
+  See merge request robots/tiago_dual_robot!64
+* Set enable_moveit_camera arg in tiago_controllers.launch
+* set use_moveit_camera arg in tiago_controllers correct
+* Add advanced_grasping launch arguments
+* Add use-moveit-camera argument in launchfiles
+* Add unfold arm motion
+* Contributors: David ter Kuile, Sai Kishor Kothakota
+
 0.4.10 (2023-10-24)
 -------------------
 * Merge branch 'change_license_to_apache' into 'erbium-devel'

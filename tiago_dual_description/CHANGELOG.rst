@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.10 (2023-10-24)
 -------------------
 * Merge branch 'urdf-utils' into 'erbium-devel'
