@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.11 (2023-10-25)
+-------------------
 * Merge branch 'add-moveit-capability-loader' into 'erbium-devel'
   Add argument for launching move_group
   See merge request robots/tiago_dual_robot!64
