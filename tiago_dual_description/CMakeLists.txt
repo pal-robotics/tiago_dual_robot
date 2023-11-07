@@ -19,4 +19,7 @@ endif()
 ## Install ##
 #############
 
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+
 ament_auto_package(INSTALL_TO_SHARE)
