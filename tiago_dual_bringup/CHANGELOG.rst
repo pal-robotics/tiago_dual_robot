@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.11 (2023-10-25)
 -------------------
 * Merge branch 'add-moveit-capability-loader' into 'erbium-devel'
