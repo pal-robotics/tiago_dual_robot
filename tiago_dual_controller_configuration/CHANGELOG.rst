@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.12 (2023-11-08)
+-------------------
 * Merge branch 'smooth_position_control' into 'erbium-devel'
   Add parameters for direct_position_control
   See merge request robots/tiago_dual_robot!76
