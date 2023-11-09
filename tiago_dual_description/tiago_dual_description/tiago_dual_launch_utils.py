@@ -56,7 +56,6 @@ def get_tiago_dual_hw_suffix(
     right_suffix = get_tiago_hw_suffix(arm_right, end_effector_right, ft_sensor_right)
     left_suffix = get_tiago_hw_suffix(arm_left, end_effector_left, ft_sensor_left)
 
-    # TODO: Create a general function for this python expression to join strings
     suffix = "_".join([right_suffix, left_suffix])
 
     return suffix

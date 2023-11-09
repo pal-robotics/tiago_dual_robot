@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import os
-
+from typing import Dict
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
@@ -38,7 +38,7 @@ def declare_launch_arguments(launch_description: LaunchDescription):
 
     robot_name = DeclareLaunchArgument(
         'robot_name',
-        default_value='tiago_dual',
+        # default_value='tiago_dual',
         description='Name of the robot. ',
         choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
 

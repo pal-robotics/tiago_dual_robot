@@ -17,44 +17,96 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.actions import Node, DeclareLaunchArgument, OpaqueFunction
 from launch.conditions import LaunchConfigurationEquals
 from launch.substitutions import LaunchConfiguration
 
 from launch_pal.arg_utils import read_launch_argument
-from launch_pal.robot_utils import (get_arm,
-                                    get_end_effector,
-                                    get_ft_sensor,
-                                    get_robot_name)
-from launch_ros.actions import Node
 
-from tiago_description.tiago_launch_utils import get_tiago_hw_suffix
+from tiago_dual_description.tiago_dual_launch_utils import get_tiago_dual_hw_suffix
 
 
-def declare_args(context, *args, **kwargs):
+def generate_launch_description():
 
-    robot_name = read_launch_argument('robot_name', context)
+    # Create the launch description and populate
+    ld = LaunchDescription()
 
-    return [get_arm(robot_name),
-            get_end_effector(robot_name),
-            get_ft_sensor(robot_name)]
+    declare_launch_arguments(ld)
+    declare_actions(ld)
+
+    return ld
 
 
-def launch_setup(context, *args, **kwargs):
+def declare_launch_arguments(launch_description: LaunchDescription):
 
-    arm = read_launch_argument('arm', context)
-    end_effector = read_launch_argument('end_effector', context)
-    ft_sensor = read_launch_argument('ft_sensor', context)
+    robot_name = DeclareLaunchArgument(
+        'robot_name',
+        # default_value='tiago_dual',
+        description='Name of the robot. ',
+        choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
 
-    joy_teleop_path = os.path.join(
-        get_package_share_directory('tiago_bringup'), 'config', 'joy_teleop',
-        'joy_teleop' + get_tiago_hw_suffix(arm=arm,
-                                           end_effector=end_effector,
-                                           ft_sensor=ft_sensor + '.yaml'))
+    launch_description.add_action(robot_name)
 
-    declare_teleop_config = DeclareLaunchArgument(
-       'teleop_config', default_value=joy_teleop_path,
-       description='Joystick teleop configuration file')
+    arm_right = DeclareLaunchArgument(
+        'arm_type_right',
+        default_value='tiago-arm',
+        description='Which type of the right arm.',
+        choices=['no-arm', 'tiago-arm', 'sea'])
+
+    launch_description.add_action(arm_right)
+
+    arm_left = DeclareLaunchArgument(
+        'arm_type_left',
+        default_value='tiago-arm',
+        description='Which type of the left arm.',
+        choices=['no-arm', 'tiago-arm', 'sea'])
+
+    launch_description.add_action(arm_left)
+
+    end_effector_right = DeclareLaunchArgument(
+        'end_effector_right',
+        default_value='pal-gripper',
+        description='End effector model of the right arm.',
+        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
+
+    launch_description.add_action(end_effector_right)
+
+    end_effector_left = DeclareLaunchArgument(
+        'end_effector_left',
+        default_value='pal-gripper',
+        description='End effector model of the left arm.',
+        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
+
+    launch_description.add_action(end_effector_left)
+
+    ft_sensor_right = DeclareLaunchArgument(
+            'ft_sensor_right',
+            default_value='schunk-ft',
+            description='FT sensor model. ',
+            choices=['schunk-ft', 'no-ft-sensor'])
+
+    launch_description.add_action(ft_sensor_right)
+
+    ft_sensor_left = DeclareLaunchArgument(
+            'ft_sensor_left',
+            default_value='schunk-ft',
+            description='FT sensor model. ',
+            choices=['schunk-ft', 'no-ft-sensor'])
+
+    launch_description.add_action(ft_sensor_left)
+
+    cmd_val = DeclareLaunchArgument(
+        'cmd_vel', default_value='input_joy/cmd_vel',
+        description='Joystick cmd_vel topic')
+
+    launch_description.add_action(cmd_val)
+
+    launch_description.add_action(OpaqueFunction(function=create_joy_teleop_filename))
+
+    return
+
+
+def declare_actions(launch_description: LaunchDescription):
 
     joy_teleop_node = Node(
        package='joy_teleop',
@@ -62,15 +114,9 @@ def launch_setup(context, *args, **kwargs):
        parameters=[LaunchConfiguration('teleop_config')],
        remappings=[('cmd_vel', LaunchConfiguration('cmd_vel'))])
 
-    return [declare_teleop_config, joy_teleop_node]
+    launch_description.add_action(joy_teleop_node)
 
-
-def generate_launch_description():
-    pkg_dir = get_package_share_directory('tiago_bringup')
-
-    declare_cmd_vel = DeclareLaunchArgument(
-        'cmd_vel', default_value='input_joy/cmd_vel',
-        description='Joystick cmd_vel topic')
+    pkg_dir = get_package_share_directory('tiago_dual_bringup')
 
     joy_node = Node(
         package='joy',
@@ -78,11 +124,15 @@ def generate_launch_description():
         name='joystick',
         parameters=[os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_config.yaml')])
 
+    launch_description.add_action(joy_node)
+
     torso_incrementer_server = Node(
         package='joy_teleop',
         executable='incrementer_server',
         name='incrementer',
         namespace='torso_controller')
+
+    launch_description.add_action(torso_incrementer_server)
 
     head_incrementer_server = Node(
         package='joy_teleop',
@@ -90,27 +140,37 @@ def generate_launch_description():
         name='incrementer',
         namespace='head_controller')
 
+    launch_description.add_action(head_incrementer_server)
+
     gripper_incrementer_server = Node(
         package='joy_teleop',
         executable='incrementer_server',
         name='incrementer',
-        namespace='gripper_controller',
-        condition=LaunchConfigurationEquals('end_effector', 'pal-gripper'))
+        namespace='gripper_right_controller',
+        condition=LaunchConfigurationEquals('end_effector_right', 'pal-gripper'))
 
-    ld = LaunchDescription()
+    launch_description.add_action(gripper_incrementer_server)
 
-    # Declare arguments
-    # we use OpaqueFunction so the callbacks have access to the context
-    ld.add_action(get_robot_name('tiago'))
-    ld.add_action(OpaqueFunction(function=declare_args))
-    ld.add_action(declare_cmd_vel)
+    return
 
-    # Launch joy_teleop_node with the proper config
-    ld.add_action(OpaqueFunction(function=launch_setup))
-    ld.add_action(joy_node)
 
-    ld.add_action(torso_incrementer_server)
-    ld.add_action(head_incrementer_server)
-    ld.add_action(gripper_incrementer_server)
+def create_joy_teleop_filename(context):
+    hw_suffix = get_tiago_dual_hw_suffix(
+                arm_right=read_launch_argument('arm_type_right', context),
+                arm_left=read_launch_argument('arm_type_left', context),
+                end_effector_right=read_launch_argument('end_effector_right', context),
+                end_effector_left=read_launch_argument('end_effector_left', context),
+                ft_sensor_right=read_launch_argument('ft_sensor_right', context),
+                ft_sensor_left=read_launch_argument('ft_sensor_left', context),
+            )
 
-    return ld
+    joy_teleop_file = f"joy_teleop_{hw_suffix}.yaml"
+
+    joy_teleop_path = os.path.join(
+        get_package_share_directory('tiago_dual_bringup'), 'config', 'joy_teleop', joy_teleop_file)
+
+    joy_teleop_config = DeclareLaunchArgument(
+       'teleop_config', default_value=joy_teleop_path,
+       description='Joystick teleop configuration file')
+
+    return [joy_teleop_config]
