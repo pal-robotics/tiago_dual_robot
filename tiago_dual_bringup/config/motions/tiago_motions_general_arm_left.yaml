@@ -57,7 +57,7 @@ play_motion:
         - time_from_start: 10
           positions: [-1.1, 1.4679, 2.714, 1.9347, -1.5703, 1.3699, 0.0008, 0.15]
         - time_from_start: 12.5
-          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.37, 0, -1.1, 0.15]
+          positions: [-1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.37, 0, 0.15]
       meta:
         name: Wave
         usage: enternainment
