@@ -246,7 +246,7 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
                 'config', f'{arm_controller_name}.yaml'))
          ],
         forwarding=False,
-        condition=LaunchConfigurationNotEquals(arm, 'no-arm'))
+        condition=LaunchConfigurationNotEquals(arm_arg_name, 'no-arm'))
 
     end_effector_controller = GroupAction(
         [generate_load_controller_launch_description(
@@ -281,8 +281,8 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
         forwarding=False,
         condition=IfCondition(
             PythonExpression(
-                ["'", LaunchConfiguration(arm), "' != 'no-arm' and '",
-                 LaunchConfiguration(ft_sensor), "' != 'no-ft-sensor'"]
+                ["'", LaunchConfiguration(arm_arg_name), "' != 'no-arm' and '",
+                 LaunchConfiguration(ft_sensor_arg_name), "' != 'no-ft-sensor'"]
             )
         ))
 

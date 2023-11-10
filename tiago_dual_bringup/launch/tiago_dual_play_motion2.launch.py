@@ -38,7 +38,7 @@ def declare_launch_arguments(launch_description: LaunchDescription):
 
     robot_name = DeclareLaunchArgument(
         'robot_name',
-        # default_value='tiago_dual',
+        default_value='tiago_dual',
         description='Name of the robot. ',
         choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
 
@@ -77,18 +77,18 @@ def declare_launch_arguments(launch_description: LaunchDescription):
     launch_description.add_action(end_effector_left)
 
     ft_sensor_right = DeclareLaunchArgument(
-            'ft_sensor_right',
-            default_value='schunk-ft',
-            description='FT sensor model. ',
-            choices=['schunk-ft', 'no-ft-sensor'])
+        'ft_sensor_right',
+        default_value='schunk-ft',
+        description='FT sensor model. ',
+        choices=['schunk-ft', 'no-ft-sensor'])
 
     launch_description.add_action(ft_sensor_right)
 
     ft_sensor_left = DeclareLaunchArgument(
-            'ft_sensor_left',
-            default_value='schunk-ft',
-            description='FT sensor model. ',
-            choices=['schunk-ft', 'no-ft-sensor'])
+        'ft_sensor_left',
+        default_value='schunk-ft',
+        description='FT sensor model. ',
+        choices=['schunk-ft', 'no-ft-sensor'])
 
     launch_description.add_action(ft_sensor_left)
 
@@ -97,15 +97,18 @@ def declare_launch_arguments(launch_description: LaunchDescription):
 
 def declare_actions(launch_description: LaunchDescription):
 
+    # TODO: UPdate the param files for the motions so they can be read correctly
+
     play_motion2 = include_scoped_launch_py_description(
         pkg_name='play_motion2',
         paths=['launch', 'play_motion2.launch.py'],
         launch_configurations={
             "use_sim_time":  "True",
             "play_motion2_config": LaunchConfiguration('play_motion2_config')
-            })
-    
-    launch_description.add_action(OpaqueFunction(function=create_play_motion_filename))
+        })
+
+    launch_description.add_action(OpaqueFunction(
+        function=create_play_motion_filename))
     launch_description.add_action(play_motion2)
 
     return
@@ -113,13 +116,13 @@ def declare_actions(launch_description: LaunchDescription):
 
 def create_play_motion_filename(context):
     hw_suffix = get_tiago_dual_hw_suffix(
-            arm_right=read_launch_argument('arm_type_right', context),
-            arm_left=read_launch_argument('arm_type_left', context),
-            end_effector_right=read_launch_argument('end_effector_right', context),
-            end_effector_left=read_launch_argument('end_effector_left', context),
-            ft_sensor_right=read_launch_argument('ft_sensor_right', context),
-            ft_sensor_left=read_launch_argument('ft_sensor_left', context),
-        )
+        arm_right=read_launch_argument('arm_type_right', context),
+        arm_left=read_launch_argument('arm_type_left', context),
+        end_effector_right=read_launch_argument('end_effector_right', context),
+        end_effector_left=read_launch_argument('end_effector_left', context),
+        ft_sensor_right=read_launch_argument('ft_sensor_right', context),
+        ft_sensor_left=read_launch_argument('ft_sensor_left', context),
+    )
 
     motions_file = f"tiago_motions_{hw_suffix}.yaml"
 
