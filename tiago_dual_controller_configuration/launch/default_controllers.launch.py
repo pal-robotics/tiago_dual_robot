@@ -228,6 +228,8 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
             delimiter='_',
             skip_empty=True)
     else:
+        # TODO: Create general launch error when hardware config does not exist
+
         raise f"End effector {end_effector} not implemented"
 
     arm_controller_name = concatenate_strings(
