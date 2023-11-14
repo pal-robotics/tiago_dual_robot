@@ -36,6 +36,12 @@ def generate_launch_description():
 
 def declare_launch_arguments(launch_description: LaunchDescription):
 
+    sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time', default_value='False',
+        description='Use sim time. ')
+
+    launch_description.add_action(sim_time_arg)
+
     robot_name = DeclareLaunchArgument(
         'robot_name',
         default_value='tiago_dual',
@@ -103,7 +109,7 @@ def declare_actions(launch_description: LaunchDescription):
         pkg_name='play_motion2',
         paths=['launch', 'play_motion2.launch.py'],
         launch_configurations={
-            "use_sim_time":  "True",
+            "use_sim_time":  LaunchConfiguration('use_sim_time'),
             "play_motion2_config": LaunchConfiguration('play_motion2_config')
         })
 

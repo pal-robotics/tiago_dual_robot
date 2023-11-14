@@ -43,6 +43,12 @@ def declare_launch_arguments() -> Dict:
 
     arg_dict = {}
 
+    sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time', default_value='False',
+        description='Use sim time. ')
+
+    arg_dict[sim_time_arg.name] = sim_time_arg
+
     robot_name = DeclareLaunchArgument(
         'robot_name',
         default_value='tiago_dual',
@@ -84,18 +90,18 @@ def declare_launch_arguments() -> Dict:
     arg_dict[end_effector_left.name] = end_effector_left
 
     ft_sensor_right = DeclareLaunchArgument(
-            'ft_sensor_right',
-            default_value='schunk-ft',
-            description='FT sensor model. ',
-            choices=['schunk-ft', 'no-ft-sensor'])
+        'ft_sensor_right',
+        default_value='schunk-ft',
+        description='FT sensor model. ',
+        choices=['schunk-ft', 'no-ft-sensor'])
 
     arg_dict[ft_sensor_right.name] = ft_sensor_right
 
     ft_sensor_left = DeclareLaunchArgument(
-            'ft_sensor_left',
-            default_value='schunk-ft',
-            description='FT sensor model. ',
-            choices=['schunk-ft', 'no-ft-sensor'])
+        'ft_sensor_left',
+        default_value='schunk-ft',
+        description='FT sensor model. ',
+        choices=['schunk-ft', 'no-ft-sensor'])
 
     arg_dict[ft_sensor_left.name] = ft_sensor_left
 
@@ -108,7 +114,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
         pkg_name='tiago_dual_controller_configuration',
         paths=['launch', 'default_controllers.launch.py'])
 
-    # launch_description.add_action(default_controllers)
+    launch_description.add_action(default_controllers)
 
     play_motion2 = include_scoped_launch_py_description(
         pkg_name='tiago_dual_bringup',
@@ -139,8 +145,12 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
 
     robot_state_publisher = include_scoped_launch_py_description(
         pkg_name='tiago_dual_description',
-        paths=['launch', 'robot_state_publisher.launch.py'])
+        paths=['launch', 'robot_state_publisher.launch.py'],
+        launch_args=[launch_args['use_sim_time']],
+        launch_configurations={'use_sim_time': 'True'})
 
-    # launch_description.add_action(robot_state_publisher)
+    # launch_configurations={'use_sim_time': LaunchConfiguration('use_sim_time')})
+
+    launch_description.add_action(robot_state_publisher)
 
     return

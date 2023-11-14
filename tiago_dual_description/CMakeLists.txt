@@ -22,4 +22,4 @@ endif()
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
 
-ament_auto_package(INSTALL_TO_SHARE)
+ament_auto_package(INSTALL_TO_SHARE launch config robots meshes urdf ros2_control)

@@ -12,15 +12,151 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from typing import Dict
+
 from launch import LaunchDescription
-from launch_pal.include_utils import include_launch_py_description
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
+from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
 
-    robot_state_publisher = include_launch_py_description(
-        'tiago_description', ['launch', 'robot_state_publisher.launch.py'])
+    # Create the launch description and populate
+    ld = LaunchDescription()
+
+    launch_args = declare_launch_arguments()
+
+    for arg in launch_args.values():
+        ld.add_action(arg)
+
+    declare_actions(ld, launch_args)
+
+    return ld
+
+
+def declare_launch_arguments() -> Dict:
+    arg_dict = {}
+
+    use_sim_time = DeclareLaunchArgument(
+        'use_sim_time', default_value='false',
+        description='Use simulation time')
+
+    arg_dict[use_sim_time.name] = use_sim_time
+
+    robot_name = DeclareLaunchArgument(
+        'robot_name',
+        default_value='tiago_dual',
+        description='Name of the robot. ',
+        choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
+
+    arg_dict[robot_name.name] = robot_name
+
+    arm_right = DeclareLaunchArgument(
+        'arm_type_right',
+        default_value='tiago-arm',
+        description='Which type of the right arm.',
+        choices=['no-arm', 'tiago-arm', 'sea'])
+
+    arg_dict[arm_right.name] = arm_right
+
+    arm_left = DeclareLaunchArgument(
+        'arm_type_left',
+        default_value='tiago-arm',
+        description='Which type of the left arm.',
+        choices=['no-arm', 'tiago-arm', 'sea'])
+
+    arg_dict[arm_left.name] = arm_left
+
+    end_effector_right = DeclareLaunchArgument(
+        'end_effector_right',
+        default_value='pal-gripper',
+        description='End effector model of the right arm.',
+        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
+
+    arg_dict[end_effector_right.name] = end_effector_right
+
+    end_effector_left = DeclareLaunchArgument(
+        'end_effector_left',
+        default_value='pal-gripper',
+        description='End effector model of the left arm.',
+        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
+
+    arg_dict[end_effector_left.name] = end_effector_left
+
+    ft_sensor_right = DeclareLaunchArgument(
+        'ft_sensor_right',
+        default_value='schunk-ft',
+        description='FT sensor model. ',
+        choices=['schunk-ft', 'no-ft-sensor'])
+
+    arg_dict[ft_sensor_right.name] = ft_sensor_right
+
+    ft_sensor_left = DeclareLaunchArgument(
+        'ft_sensor_left',
+        default_value='schunk-ft',
+        description='FT sensor model. ',
+        choices=['schunk-ft', 'no-ft-sensor'])
+
+    arg_dict[ft_sensor_left.name] = ft_sensor_left
+
+    wrist_model_right = DeclareLaunchArgument(
+        'wrist_model_right',
+        default_value='wrist-2010',
+        description='Wrist model. ',
+        choices=['wrist-2010', 'wrist-2017'])
+
+    arg_dict[wrist_model_right.name] = wrist_model_right
+
+    wrist_model_left = DeclareLaunchArgument(
+        'wrist_model_left',
+        default_value='wrist-2010',
+        description='Wrist model. ',
+        choices=['wrist-2010', 'wrist-2017'])
+
+    arg_dict[wrist_model_left.name] = wrist_model_left
+
+    camera_model = DeclareLaunchArgument(
+        'camera_model',
+        default_value='orbbec-astra',
+        description='Head camera model. ',
+        choices=['no-camera', 'orbbec-astra', 'orbbec-astra-pro', 'asus-xtion'])
+
+    arg_dict[camera_model.name] = camera_model
+
+    laser_model = DeclareLaunchArgument(
+        'laser_model',
+        default_value='sick-571',
+        description='Base laser model. ',
+        choices=['no-laser', 'sick-571', 'sick-561', 'sick-551', 'hokuyo'])
+
+    arg_dict[laser_model.name] = laser_model
+
+    return arg_dict
+
+
+def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
+
+    robot_state_publisher = include_scoped_launch_py_description(
+        pkg_name='tiago_dual_description',
+        paths=['launch', 'robot_state_publisher.launch.py'],
+        launch_configurations={"robot_name": LaunchConfiguration("robot_name"),
+                               "arm_type_right": LaunchConfiguration("arm_type_right"),
+                               "arm_type_left": LaunchConfiguration("arm_type_left"),
+                               "end_effector_right": LaunchConfiguration("end_effector_right"),
+                               "end_effector_left": LaunchConfiguration("end_effector_left"),
+                               "ft_sensor_right": LaunchConfiguration("ft_sensor_right"),
+                               "ft_sensor_left": LaunchConfiguration("ft_sensor_left"),
+                               "wrist_model_right": LaunchConfiguration("wrist_model_right"),
+                               "wrist_model_left": LaunchConfiguration("wrist_model_left"),
+                               "use_sim_time": LaunchConfiguration("use_sim_time"),
+                               "laser_model": LaunchConfiguration("laser_model"),
+                               "camera_model": LaunchConfiguration("camera_model"),
+                               })
+
+    launch_description.add_action(robot_state_publisher)
 
     start_joint_pub_gui = Node(
         package='joint_state_publisher_gui',
@@ -28,17 +164,59 @@ def generate_launch_description():
         name='joint_state_publisher_gui',
         output='screen')
 
+    launch_description.add_action(start_joint_pub_gui)
+
+    rviz_config_file = PathJoinSubstitution(
+        [FindPackageShare('tiago_dual_description'), 'config', 'show.rviz'])
+
     start_rviz_cmd = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        #       arguments=['-d', rviz_config_file],
+        arguments=['-d', rviz_config_file],
         output='screen')
 
-    ld = LaunchDescription()
+    launch_description.add_action(start_rviz_cmd)
 
-    ld.add_action(robot_state_publisher)
-    ld.add_action(start_joint_pub_gui)
-    ld.add_action(start_rviz_cmd)
+    return
 
-    return ld
+
+# def generate_launch_description():
+
+#     robot_state_publisher = include_scoped_launch_py_description(
+#         pkg_name='tiago_dual_description',
+#         paths=['launch', 'robot_state_publisher.launch.py'],
+#         launch_configurations={
+#             'arm_right': LaunchConfiguration('arm_type_right'),
+#             'arm_left': LaunchConfiguration('arm_type_left'),
+#             'camera_model': LaunchConfiguration('camera_model'),
+#             'end_effector_right': LaunchConfiguration('end_effector_right'),
+#             'end_effector_left': LaunchConfiguration('end_effector_left'),
+#             'ft_sensor_right': LaunchConfiguration('ft_sensor_right'),
+#             'ft_sensor_left': LaunchConfiguration('ft_sensor_left'),
+#             'laser_model': LaunchConfiguration('laser_model'),
+#             'wrist_model_right': LaunchConfiguration('wrist_model_right'),
+#             'wrist_model_left': LaunchConfiguration('wrist_model_left'),
+#             'use_sim': LaunchConfiguration('use_sim_time'),
+#         })
+
+#     start_joint_pub_gui = Node(
+#         package='joint_state_publisher_gui',
+#         executable='joint_state_publisher_gui',
+#         name='joint_state_publisher_gui',
+#         output='screen')
+
+#     start_rviz_cmd = Node(
+#         package='rviz2',
+#         executable='rviz2',
+#         name='rviz2',
+#         #       arguments=['-d', rviz_config_file],
+#         output='screen')
+
+#     ld = LaunchDescription()
+
+#     ld.add_action(robot_state_publisher)
+#     ld.add_action(start_joint_pub_gui)
+#     ld.add_action(start_rviz_cmd)
+
+#     return ld

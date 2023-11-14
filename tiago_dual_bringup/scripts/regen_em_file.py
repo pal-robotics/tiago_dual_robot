@@ -3,6 +3,7 @@ import em
 import sys
 import os
 
+# TODO: Make this script runnable as a node
 
 em_file_path = sys.argv[1]
 
