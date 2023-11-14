@@ -35,7 +35,7 @@
                iyy="0.40577300000" iyz="-0.00078200000"
                izz="0.07699800000"/>
     </inertial>
-    <!-- <visual>
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
       <geometry>
         <mesh filename="package://tiago_dual_description/meshes/torso/torso_fix.stl" scale="1 1 1"/>
@@ -53,7 +53,7 @@
       <geometry>
         <box size="0.25 0.265 0.052"/>
       </geometry>
-    </collision> -->
+    </collision>
   </link>
 
   <joint name="${name}_fixed_joint" type="fixed">
@@ -107,7 +107,7 @@
                izz="0.176168"/>
     </inertial>
     <!-- Lifting body -->
-    <!-- <xacro:if value="${has_screen}">
+    <xacro:if value="${has_screen}">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0" />
          <geometry>
@@ -122,32 +122,32 @@
         </geometry>
         <material name="LightGrey"/>
       </collision>
-    </xacro:if> -->
-    <!-- <xacro:unless value="${has_screen}"> -->
-    <!-- <visual>
+    </xacro:if>
+    <xacro:unless value="${has_screen}">
+    <visual>
       <origin rpy="0 0 0" xyz="0 0 0" />
         <geometry>
         <mesh filename="package://tiago_dual_description/meshes/torso/torso_lift_dual_arm.stl" scale="1 1 1"/>
       </geometry>
       <material name="White"/>
-    </visual> -->
-    <!-- <collision>
+    </visual>
+    <collision>
       <origin rpy="0 0 0" xyz="0 0 0" />
         <geometry>
         <mesh filename="package://tiago_description/meshes/torso/torso_lift_collision_core.dae" scale="1 1 1"/>
       </geometry>
       <material name="LightGrey"/>
-    </collision> -->
+    </collision>
       <!-- left shoulder collision-->
-      <!-- <collision>
+      <collision>
         <origin rpy="0 0 0" xyz="-0.131 0.17 -0.02556" />
          <geometry>
           <mesh filename="package://tiago_description/meshes/torso/torso_lift_collision_shoulder.dae" scale="1 1 1"/>
         </geometry>
         <material name="LightGrey"/>
-      </collision> -->
+      </collision>
       <!-- right shoulder collision-->
-      <!-- <collision>
+      <collision>
         <origin rpy="0 0 0" xyz="-0.131 -0.19 -0.02556" />
          <geometry>
           <mesh filename="package://tiago_description/meshes/torso/torso_lift_collision_shoulder.dae" scale="1 1 1"/>
@@ -160,8 +160,8 @@
           <mesh filename="package://tiago_description/meshes/torso/torso_lift_collision_neck.dae" scale="1 1 1"/>
         </geometry>
         <material name="LightGrey"/>
-      </collision> -->
-    <!-- </xacro:unless> -->
+      </collision>
+    </xacro:unless>
   </link>
 
     <joint name="${name}_lift_joint" type="prismatic">

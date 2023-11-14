@@ -20,6 +20,15 @@ from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
+from launch_param_builder import load_xacro
+from launch.substitutions import Command
+from launch_ros.parameter_descriptions import ParameterValue
+from launch.frontend.parse_substitution import parse_substitution
+
+
+import os
+from pathlib import Path
 
 
 def generate_launch_description():
@@ -134,6 +143,29 @@ def declare_launch_arguments() -> Dict:
 
     arg_dict[laser_model.name] = laser_model
 
+    has_screen = DeclareLaunchArgument(
+        'has_screen',
+        default_value='False',
+        description='Define if the robot has a screen. ',
+        choices=['True', 'False'])
+
+    arg_dict[has_screen.name] = has_screen
+
+    base_type = DeclareLaunchArgument(
+        'base_type',
+        default_value='pmb2',
+        description='Define base type of the robot. ',
+        choices=['pmb2', 'omin_base'])
+
+    arg_dict[base_type.name] = base_type
+
+    namespace = DeclareLaunchArgument(
+        'namespace',
+        default_value='',
+        description='Define namespace of the robot. ')
+
+    arg_dict[namespace.name] = namespace
+
     return arg_dict
 
 
@@ -151,9 +183,12 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
                                "ft_sensor_left": LaunchConfiguration("ft_sensor_left"),
                                "wrist_model_right": LaunchConfiguration("wrist_model_right"),
                                "wrist_model_left": LaunchConfiguration("wrist_model_left"),
-                               "use_sim_time": LaunchConfiguration("use_sim_time"),
                                "laser_model": LaunchConfiguration("laser_model"),
                                "camera_model": LaunchConfiguration("camera_model"),
+                               "base_type": LaunchConfiguration("base_type"),
+                               "has_screen": LaunchConfiguration("has_screen"),
+                               "namespace": LaunchConfiguration("namespace"),
+                               "use_sim_time": LaunchConfiguration("use_sim_time"),
                                })
 
     launch_description.add_action(robot_state_publisher)
@@ -179,44 +214,3 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
     launch_description.add_action(start_rviz_cmd)
 
     return
-
-
-# def generate_launch_description():
-
-#     robot_state_publisher = include_scoped_launch_py_description(
-#         pkg_name='tiago_dual_description',
-#         paths=['launch', 'robot_state_publisher.launch.py'],
-#         launch_configurations={
-#             'arm_right': LaunchConfiguration('arm_type_right'),
-#             'arm_left': LaunchConfiguration('arm_type_left'),
-#             'camera_model': LaunchConfiguration('camera_model'),
-#             'end_effector_right': LaunchConfiguration('end_effector_right'),
-#             'end_effector_left': LaunchConfiguration('end_effector_left'),
-#             'ft_sensor_right': LaunchConfiguration('ft_sensor_right'),
-#             'ft_sensor_left': LaunchConfiguration('ft_sensor_left'),
-#             'laser_model': LaunchConfiguration('laser_model'),
-#             'wrist_model_right': LaunchConfiguration('wrist_model_right'),
-#             'wrist_model_left': LaunchConfiguration('wrist_model_left'),
-#             'use_sim': LaunchConfiguration('use_sim_time'),
-#         })
-
-#     start_joint_pub_gui = Node(
-#         package='joint_state_publisher_gui',
-#         executable='joint_state_publisher_gui',
-#         name='joint_state_publisher_gui',
-#         output='screen')
-
-#     start_rviz_cmd = Node(
-#         package='rviz2',
-#         executable='rviz2',
-#         name='rviz2',
-#         #       arguments=['-d', rviz_config_file],
-#         output='screen')
-
-#     ld = LaunchDescription()
-
-#     ld.add_action(robot_state_publisher)
-#     ld.add_action(start_joint_pub_gui)
-#     ld.add_action(start_rviz_cmd)
-
-#     return ld
