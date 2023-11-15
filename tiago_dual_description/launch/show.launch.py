@@ -20,15 +20,6 @@ from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from ament_index_python.packages import get_package_share_directory
-from launch_param_builder import load_xacro
-from launch.substitutions import Command
-from launch_ros.parameter_descriptions import ParameterValue
-from launch.frontend.parse_substitution import parse_substitution
-
-
-import os
-from pathlib import Path
 
 
 def generate_launch_description():
@@ -145,9 +136,9 @@ def declare_launch_arguments() -> Dict:
 
     has_screen = DeclareLaunchArgument(
         'has_screen',
-        default_value='False',
+        default_value='false',
         description='Define if the robot has a screen. ',
-        choices=['True', 'False'])
+        choices=['true', 'false'])
 
     arg_dict[has_screen.name] = has_screen
 
@@ -209,8 +200,9 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
         executable='rviz2',
         name='rviz2',
         arguments=['-d', rviz_config_file],
-        output='screen')
-
+        output='screen',
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')
+                     }])
     launch_description.add_action(start_rviz_cmd)
 
     return
