@@ -23,6 +23,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_pal.arg_utils import read_launch_argument
 from tiago_dual_description.tiago_dual_launch_utils import get_tiago_dual_hw_suffix
+from launch_pal.param_utils import merge_param_files
 
 
 def generate_launch_description():
@@ -103,7 +104,7 @@ def declare_launch_arguments(launch_description: LaunchDescription):
 
 def declare_actions(launch_description: LaunchDescription):
 
-    # TODO: UPdate the param files for the motions so they can be read correctly
+    # TODO: Update the param files for the motions so they can be read correctly
 
     play_motion2 = include_scoped_launch_py_description(
         pkg_name='play_motion2',
@@ -121,6 +122,7 @@ def declare_actions(launch_description: LaunchDescription):
 
 
 def create_play_motion_filename(context):
+
     hw_suffix = get_tiago_dual_hw_suffix(
         arm_right=read_launch_argument('arm_type_right', context),
         arm_left=read_launch_argument('arm_type_left', context),
@@ -130,9 +132,24 @@ def create_play_motion_filename(context):
         ft_sensor_left=read_launch_argument('ft_sensor_left', context),
     )
 
-    motions_file = f"tiago_motions_{hw_suffix}.yaml"
+    gripper_specific_file = f"tiago_motions_{hw_suffix}.yaml"
 
-    play_motion2_config = PathJoinSubstitution([get_package_share_directory('tiago_dual_bringup'),
-                                                'config', 'motions', motions_file])
+    gripper_specific_yaml = PathJoinSubstitution(
+        [get_package_share_directory('tiago_dual_bringup'),
+         'config', 'motions', gripper_specific_file])
 
-    return [SetLaunchConfiguration("play_motion2_config", play_motion2_config)]
+    base_motions_file = 'tiago_motions_general.yaml'
+
+    if read_launch_argument('arm_type_right', context) == 'no-arm':
+        base_motions_file = 'tiago_motions_general_arm_left.yaml'
+
+    if read_launch_argument('arm_type_left', context) == 'no-arm':
+        base_motions_file = 'tiago_motions_general_arm_right.yaml'
+
+    base_motions_yaml = PathJoinSubstitution([get_package_share_directory(
+        'tiago_dual_bringup'), 'config', 'motions', base_motions_file])
+
+    combined_yaml = merge_param_files(
+        [base_motions_yaml.perform(context), gripper_specific_yaml.perform(context)])
+
+    return [SetLaunchConfiguration("play_motion2_config", combined_yaml)]

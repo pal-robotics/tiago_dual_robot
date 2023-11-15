@@ -30,7 +30,11 @@ def get_tiago_hw_suffix(
         suffix = arm
         return suffix
 
-    components = [end_effector]
+    components = []
+    if end_effector in ['no-end-effector']:
+        components.append('no-ee')
+    else:
+        components.append(end_effector)
 
     if ft_sensor not in ['no-ft-sensor']:
         components.append(ft_sensor)
@@ -53,8 +57,10 @@ def get_tiago_dual_hw_suffix(
     The arguments are read as string
     """
 
-    right_suffix = get_tiago_hw_suffix(arm_right, end_effector_right, ft_sensor_right)
-    left_suffix = get_tiago_hw_suffix(arm_left, end_effector_left, ft_sensor_left)
+    right_suffix = get_tiago_hw_suffix(
+        arm_right, end_effector_right, ft_sensor_right)
+    left_suffix = get_tiago_hw_suffix(
+        arm_left, end_effector_left, ft_sensor_left)
 
     suffix = "_".join([right_suffix, left_suffix])
 
