@@ -15,9 +15,12 @@
 from typing import Dict
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, LogInfo
+from launch.frontend.parse_substitution import parse_substitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_pal.include_utils import include_scoped_launch_py_description
+from launch_ros.substitutions import FindPackageShare
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -44,7 +47,7 @@ def declare_launch_arguments() -> Dict:
     arg_dict = {}
 
     sim_time_arg = DeclareLaunchArgument(
-        'use_sim_time', default_value='False',
+        'use_sim_time', default_value='false',
         description='Use sim time. ')
 
     arg_dict[sim_time_arg.name] = sim_time_arg
@@ -105,6 +108,61 @@ def declare_launch_arguments() -> Dict:
 
     arg_dict[ft_sensor_left.name] = ft_sensor_left
 
+    wrist_model_right = DeclareLaunchArgument(
+        'wrist_model_right',
+        default_value='wrist-2010',
+        description='Wrist model. ',
+        choices=['wrist-2010', 'wrist-2017'])
+
+    arg_dict[wrist_model_right.name] = wrist_model_right
+
+    wrist_model_left = DeclareLaunchArgument(
+        'wrist_model_left',
+        default_value='wrist-2010',
+        description='Wrist model. ',
+        choices=['wrist-2010', 'wrist-2017'])
+
+    arg_dict[wrist_model_left.name] = wrist_model_left
+
+    camera_model = DeclareLaunchArgument(
+        'camera_model',
+        default_value='orbbec-astra',
+        description='Head camera model. ',
+        choices=['no-camera', 'orbbec-astra', 'orbbec-astra-pro', 'asus-xtion'])
+
+    arg_dict[camera_model.name] = camera_model
+
+    laser_model = DeclareLaunchArgument(
+        'laser_model',
+        default_value='sick-571',
+        description='Base laser model. ',
+        choices=['no-laser', 'sick-571', 'sick-561', 'sick-551', 'hokuyo'])
+
+    arg_dict[laser_model.name] = laser_model
+
+    has_screen = DeclareLaunchArgument(
+        'has_screen',
+        default_value='false',
+        description='Define if the robot has a screen. ',
+        choices=['true', 'false'])
+
+    arg_dict[has_screen.name] = has_screen
+
+    base_type = DeclareLaunchArgument(
+        'base_type',
+        default_value='pmb2',
+        description='Define base type of the robot. ',
+        choices=['pmb2', 'omni_base'])
+
+    arg_dict[base_type.name] = base_type
+
+    namespace = DeclareLaunchArgument(
+        'namespace',
+        default_value='',
+        description='Define namespace of the robot. ')
+
+    arg_dict[namespace.name] = namespace
+
     return arg_dict
 
 
@@ -119,20 +177,14 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
     play_motion2 = include_scoped_launch_py_description(
         pkg_name='tiago_dual_bringup',
         paths=['launch', 'tiago_dual_play_motion2.launch.py'],
-        launch_args=[launch_args["robot_name"],
-                     launch_args["arm_type_right"],
-                     launch_args["arm_type_left"],
-                     launch_args["end_effector_right"],
-                     launch_args["end_effector_left"],
-                     launch_args["ft_sensor_right"],
-                     launch_args["ft_sensor_left"]],
         launch_configurations={"robot_name": LaunchConfiguration("robot_name"),
                                "arm_type_right": LaunchConfiguration("arm_type_right"),
                                "arm_type_left": LaunchConfiguration("arm_type_left"),
                                "end_effector_right": LaunchConfiguration("end_effector_right"),
                                "end_effector_left": LaunchConfiguration("end_effector_left"),
                                "ft_sensor_right": LaunchConfiguration("ft_sensor_right"),
-                               "ft_sensor_left": LaunchConfiguration("ft_sensor_left")})
+                               "ft_sensor_left": LaunchConfiguration("ft_sensor_left"),
+                               "use_sim_time": LaunchConfiguration("use_sim_time")})
 
     launch_description.add_action(play_motion2)
 
@@ -146,10 +198,22 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
     robot_state_publisher = include_scoped_launch_py_description(
         pkg_name='tiago_dual_description',
         paths=['launch', 'robot_state_publisher.launch.py'],
-        launch_args=[launch_args['use_sim_time']],
-        launch_configurations={'use_sim_time': 'True'})
-
-    # launch_configurations={'use_sim_time': LaunchConfiguration('use_sim_time')})
+        launch_configurations={"robot_name": LaunchConfiguration("robot_name"),
+                               "arm_type_right": LaunchConfiguration("arm_type_right"),
+                               "arm_type_left": LaunchConfiguration("arm_type_left"),
+                               "end_effector_right": LaunchConfiguration("end_effector_right"),
+                               "end_effector_left": LaunchConfiguration("end_effector_left"),
+                               "ft_sensor_right": LaunchConfiguration("ft_sensor_right"),
+                               "ft_sensor_left": LaunchConfiguration("ft_sensor_left"),
+                               "wrist_model_right": LaunchConfiguration("wrist_model_right"),
+                               "wrist_model_left": LaunchConfiguration("wrist_model_left"),
+                               "laser_model": LaunchConfiguration("laser_model"),
+                               "camera_model": LaunchConfiguration("camera_model"),
+                               "base_type": LaunchConfiguration("base_type"),
+                               "has_screen": LaunchConfiguration("has_screen"),
+                               "namespace": LaunchConfiguration("namespace"),
+                               "use_sim_time": LaunchConfiguration("use_sim_time"),
+                               })
 
     launch_description.add_action(robot_state_publisher)
 
