@@ -19,7 +19,8 @@ from typing import Dict
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetLaunchConfiguration
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetLaunchConfiguration, LogInfo
+from launch.frontend.parse_substitution import parse_substitution
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_param_builder import load_xacro
@@ -140,9 +141,9 @@ def declare_launch_arguments() -> Dict:
 
     has_screen = DeclareLaunchArgument(
         'has_screen',
-        default_value='False',
+        default_value='false',
         description='Define if the robot has a screen. ',
-        choices=['True', 'False'])
+        choices=['true', 'false'])
 
     arg_dict[has_screen.name] = has_screen
 
@@ -150,7 +151,7 @@ def declare_launch_arguments() -> Dict:
         'base_type',
         default_value='pmb2',
         description='Define base type of the robot. ',
-        choices=['pmb2', 'omin_base'])
+        choices=['pmb2', 'omni_base'])
 
     arg_dict[base_type.name] = base_type
 
