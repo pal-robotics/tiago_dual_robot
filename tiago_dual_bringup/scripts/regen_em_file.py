@@ -42,7 +42,7 @@ for left_end_effector in end_effectors:
                         left_suffix = ""
                         right_suffix = ""
                         if not has_arm_left:
-                            left_suffix = "_no-arm-left"
+                            left_suffix = "_no-arm"
                         else:
                             if left_ft_sensor is None:
                                 left_suffix += "_{}".format(left_end_effector)
@@ -50,7 +50,7 @@ for left_end_effector in end_effectors:
                                 left_suffix += "_{}_{}".format(
                                     left_end_effector, left_ft_sensor)
                         if not has_arm_right:
-                            right_suffix = "_no-arm-right"
+                            right_suffix = "_no-arm"
                         else:
                             if right_ft_sensor is None:
                                 right_suffix += "_{}".format(
