@@ -133,7 +133,6 @@
   <xacro:include filename="$(find tiago_dual_description)/ros2_control/ros2_control.urdf.xacro" />
   <xacro:tiago_dual_ros2_control
     use_sim="$(arg use_sim)" />
-<xacro:property name="M_PI" value="3.1415926535897931" />
   <!-- Now we can start using the macros included above to define the actual robot -->
   <xacro:if value="${base_type == 'pmb2'}">
     <xacro:base_sensors name="base" laser_model="$(arg laser_model)" sonars="true" microphone="true"/>
