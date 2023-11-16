@@ -193,7 +193,6 @@
 
   <!-- head -->
   <group if="$(arg head)">
-
     <include file="$(find pal_local_joint_control)/launch/$(arg local_joint_control).launch" >
       <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
       <arg name="ns" value="$(arg ns)"/>
@@ -205,8 +204,22 @@
       <arg name="ns" value="$(arg ns)"/>
       <arg name="joint_name" value="head_2_joint"/>
     </include>
-
   </group>
+
+  <group unless="$(arg head)">
+    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="head_1_joint"/>
+    </include> 
+
+    <include file="$(find pal_local_joint_control)/launch/no_control.launch" >
+      <arg name="controller_pkg_name" value="$(arg controller_pkg_name)"/>
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="joint_name" value="head_2_joint"/>
+    </include>
+  </group>
+
 
   <group if="$(arg control_torso)">
     <!-- torso -->
