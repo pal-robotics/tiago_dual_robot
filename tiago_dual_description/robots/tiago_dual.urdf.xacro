@@ -102,7 +102,7 @@
 
   <!-- The following included files set up definitions of parts of the robot body -->
   <!--File includes-->
-  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.xacro" />
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
 
   <!-- Base -->
   <xacro:include filename="$(find ${base_type}_description)/urdf/base/base_sensors.urdf.xacro" />
