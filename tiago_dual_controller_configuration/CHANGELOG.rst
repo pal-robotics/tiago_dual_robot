@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'no-control-for-head' into 'erbium-devel'
+  no control option in the direct_position control for the head
+  See merge request robots/tiago_dual_robot!80
+* no control option in the direct_position control for the head
+* Contributors: Sai Kishor Kothakota, ileniaperrella
+
 0.4.12 (2023-11-08)
 -------------------
 * Merge branch 'smooth_position_control' into 'erbium-devel'
