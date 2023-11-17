@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.13 (2023-11-17)
+-------------------
 * Fix malformed wave motions for left arm
 * Contributors: davidterkuile
 
