@@ -7,6 +7,8 @@
   <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
   <maintainer email="david.terkuile@pal-robotics.com">David ter Kuile</maintainer>
 
+  <url type="website">https://github.com/pal-robotics/tiago_dual_simulation</url>
+
   <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
