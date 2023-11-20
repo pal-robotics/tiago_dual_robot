@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'load-motions' into 'erbium-devel'
+  Add script to load motions according to end effector
+  See merge request robots/tiago_dual_robot!70
+* Fix dependencies
+* Add script to load motions according to end effector
+* Contributors: Josef Svec, Sai Kishor Kothakota, davidfernandez
+
 0.4.13 (2023-11-17)
 -------------------
 * Fix malformed wave motions for left arm
