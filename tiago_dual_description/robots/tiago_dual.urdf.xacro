@@ -78,7 +78,7 @@
   <xacro:if value="${ft_sensor_right not in ['no-ft-sensor', 'schunk-ft']}">
     <xacro:wrong_ft_sensor_right/>
   </xacro:if>
-  <xacro:if value="${laser_model not in ['no-laser' 'sick-551', 'sick-561', 'sick-571', 'hokuyo', 'ydlidar-tg30', 'ydlidar-tg15']}">
+  <xacro:if value="${laser_model not in ['no-laser', 'sick-551', 'sick-561', 'sick-571', 'hokuyo', 'ydlidar-tg30', 'ydlidar-tg15']}">
     <xacro:wrong_laser_model/>
   </xacro:if>
   <xacro:if value="${camera_model not in ['no-camera', 'orbbec-astra', 'orbbec-astra-pro', 'asus-xtion']}">
