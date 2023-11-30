@@ -13,35 +13,41 @@
 # limitations under the License.
 
 import os
-from typing import Dict
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
 from launch_pal.include_utils import include_scoped_launch_py_description
+from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class ArgumentDeclaration(LaunchArgumentsBase):
+    use_sim_time: DeclareLaunchArgument = DeclareLaunchArgument(
+        name='use_sim_time',
+        default_value='False',
+        description='Use simulation time')
 
 
 def generate_launch_description():
 
     # Create the launch description and populate
     ld = LaunchDescription()
+    robot_name = "tiago_dual"
+    has_robot_config = True
+    custom_args = ArgumentDeclaration()
+    launch_args = launch_arg_factory(custom_args,
+                                     has_robot_config=has_robot_config, robot_name=robot_name)
 
-    launch_args = declare_launch_arguments()
-
-    for arg in launch_args.values():
-        ld.add_action(arg)
+    launch_args.add_to_launch_description(ld)
 
     declare_actions(ld, launch_args)
 
     return ld
 
 
-def declare_launch_arguments() -> Dict:
-
-    arg_dict = {}
-    return arg_dict
-
-
-def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
 
     pkg = get_package_share_directory('tiago_dual_bringup')
 
@@ -53,13 +59,13 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
 
     twist_mux = include_scoped_launch_py_description(
         pkg_name='twist_mux', paths=['launch', 'twist_mux_launch.py'],
-        launch_configurations={
-                    'cmd_vel_out': 'mobile_base_controller/cmd_vel_unstamped',
-                    'config_locks': config_locks_file,
-                    'config_topics': config_topics_file,
-                    'config_joy': joystick_file,
-
-                    }
+        launch_arguments={
+            'cmd_vel_out': 'mobile_base_controller/cmd_vel_unstamped',
+            'config_locks': config_locks_file,
+            'config_topics': config_topics_file,
+            'config_joy': joystick_file,
+            'use_sim_time': launch_args.use_sim_time
+        }
     )
 
     launch_description.add_action(twist_mux)

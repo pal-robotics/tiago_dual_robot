@@ -23,90 +23,39 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_pal.arg_utils import read_launch_argument
 from launch_pal.param_utils import merge_param_files
 from controller_manager.launch_utils import generate_load_controller_launch_description
+from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class ArgumentDeclaration(LaunchArgumentsBase):
+    # No extra arguments required
+    pass
 
 
 def generate_launch_description():
 
     # Create the launch description and populate
     ld = LaunchDescription()
+    robot_name = "tiago_dual"
+    has_robot_config = True
+    custom_args = ArgumentDeclaration()
+    launch_args = launch_arg_factory(custom_args,
+                                     has_robot_config=has_robot_config, robot_name=robot_name)
 
-    launch_args = declare_launch_arguments()
-
-    for arg in launch_args.values():
-        ld.add_action(arg)
+    launch_args.add_to_launch_description(ld)
 
     declare_actions(ld, launch_args)
 
     return ld
 
 
-def declare_launch_arguments() -> Dict:
-
-    arg_dict = {}
-
-    robot_name = DeclareLaunchArgument(
-        'robot_name',
-        default_value='tiago_dual',
-        description='Name of the robot. ',
-        choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
-
-    arg_dict[robot_name.name] = robot_name
-
-    arm_right = DeclareLaunchArgument(
-        'arm_type_right',
-        default_value='tiago-arm',
-        description='Which type of the right arm.',
-        choices=['no-arm', 'tiago-arm', 'sea'])
-
-    arg_dict[arm_right.name] = arm_right
-
-    arm_left = DeclareLaunchArgument(
-        'arm_type_left',
-        default_value='tiago-arm',
-        description='Which type of the left arm.',
-        choices=['no-arm', 'tiago-arm', 'sea'])
-
-    arg_dict[arm_left.name] = arm_left
-
-    end_effector_right = DeclareLaunchArgument(
-        'end_effector_right',
-        default_value='pal-gripper',
-        description='End effector model of the right arm.',
-        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
-
-    arg_dict[end_effector_right.name] = end_effector_right
-
-    end_effector_left = DeclareLaunchArgument(
-        'end_effector_left',
-        default_value='pal-gripper',
-        description='End effector model of the left arm.',
-        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
-
-    arg_dict[end_effector_left.name] = end_effector_left
-
-    ft_sensor_right = DeclareLaunchArgument(
-        'ft_sensor_right',
-        default_value='schunk-ft',
-        description='FT sensor model. ',
-        choices=['schunk-ft', 'no-ft-sensor'])
-
-    arg_dict[ft_sensor_right.name] = ft_sensor_right
-
-    ft_sensor_left = DeclareLaunchArgument(
-        'ft_sensor_left',
-        default_value='schunk-ft',
-        description='FT sensor model. ',
-        choices=['schunk-ft', 'no-ft-sensor'])
-
-    arg_dict[ft_sensor_left.name] = ft_sensor_left
-
-    return arg_dict
-
-
-def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
 
     pkg_share_folder = get_package_share_directory(
         'tiago_dual_controller_configuration')
+
+    # Mobile base controller
     default_config = os.path.join(
         pkg_share_folder,
         'config', 'mobile_base_controller.yaml')
@@ -128,6 +77,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
 
     launch_description.add_action(mobile_base_controller)
 
+    # Joint state broadcaster
     joint_state_broadcaster = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='joint_state_broadcaster',
@@ -140,6 +90,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
 
     launch_description.add_action(joint_state_broadcaster)
 
+    # Torso controller
     torso_controller = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='torso_controller',
@@ -152,6 +103,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
 
     launch_description.add_action(torso_controller)
 
+    # Head controller
     head_controller = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='head_controller',
@@ -164,11 +116,11 @@ def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
 
     launch_description.add_action(head_controller)
 
-    # Add right end_effector controller
+    # Add controller of right arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
         function=configure_side_controllers, args=['right']))
 
-    # Add left end_effector controller
+    # Add controller of left arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
         function=configure_side_controllers, args=['left']))
 
@@ -206,6 +158,7 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
     pkg_name = ''
     config_file_name = ''
 
+    # Setup end-effector configuration
     if end_effector == 'pal-gripper':
         controller_name = concatenate_strings(
             strings=['gripper', end_effector_side, 'controller'],
@@ -232,6 +185,7 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
 
         raise f"End effector {end_effector} not implemented"
 
+    # Setup arm controller
     arm_controller_name = concatenate_strings(
         strings=['arm', end_effector_side, 'controller'],
         delimiter='_',
@@ -248,6 +202,7 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
         forwarding=False,
         condition=LaunchConfigurationNotEquals(arm_arg_name, 'no-arm'))
 
+    # Setup end-effector controller
     end_effector_controller = GroupAction(
         [generate_load_controller_launch_description(
             controller_name=controller_name,
@@ -265,6 +220,7 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
             )
         ))
 
+    # Setup ft-sensor controller
     ft_sensor_controller_name = concatenate_strings(
         strings=['ft_sensor', end_effector_side, 'controller'],
         delimiter='_',

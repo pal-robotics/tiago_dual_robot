@@ -19,153 +19,45 @@ from typing import Dict
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetLaunchConfiguration, LogInfo
-from launch.frontend.parse_substitution import parse_substitution
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetLaunchConfiguration
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_param_builder import load_xacro
 from launch_pal.arg_utils import read_launch_argument
+from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class ArgumentDeclaration(LaunchArgumentsBase):
+    use_sim_time: DeclareLaunchArgument = DeclareLaunchArgument(
+        name='use_sim_time',
+        default_value='False',
+        description='Use simulation time')
+    namespace: DeclareLaunchArgument = DeclareLaunchArgument(
+        name='namespace',
+        default_value='',
+        description='Define namespace of the robot. ')
 
 
 def generate_launch_description():
 
     # Create the launch description and populate
     ld = LaunchDescription()
+    robot_name = "tiago_dual"
+    has_robot_config = True
+    custom_args = ArgumentDeclaration()
+    launch_args = launch_arg_factory(custom_args,
+                                     has_robot_config=has_robot_config, robot_name=robot_name)
 
-    launch_args = declare_launch_arguments()
-
-    for arg in launch_args.values():
-        ld.add_action(arg)
+    launch_args.add_to_launch_description(ld)
 
     declare_actions(ld, launch_args)
 
     return ld
 
 
-def declare_launch_arguments() -> Dict:
-    arg_dict = {}
-
-    use_sim_time = DeclareLaunchArgument(
-        'use_sim_time', default_value='false',
-        description='Use simulation time')
-
-    arg_dict[use_sim_time.name] = use_sim_time
-
-    robot_name = DeclareLaunchArgument(
-        'robot_name',
-        default_value='tiago_dual',
-        description='Name of the robot. ',
-        choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
-
-    arg_dict[robot_name.name] = robot_name
-
-    arm_right = DeclareLaunchArgument(
-        'arm_type_right',
-        default_value='tiago-arm',
-        description='Which type of the right arm.',
-        choices=['no-arm', 'tiago-arm', 'sea'])
-
-    arg_dict[arm_right.name] = arm_right
-
-    arm_left = DeclareLaunchArgument(
-        'arm_type_left',
-        default_value='tiago-arm',
-        description='Which type of the left arm.',
-        choices=['no-arm', 'tiago-arm', 'sea'])
-
-    arg_dict[arm_left.name] = arm_left
-
-    end_effector_right = DeclareLaunchArgument(
-        'end_effector_right',
-        default_value='pal-gripper',
-        description='End effector model of the right arm.',
-        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
-
-    arg_dict[end_effector_right.name] = end_effector_right
-
-    end_effector_left = DeclareLaunchArgument(
-        'end_effector_left',
-        default_value='pal-gripper',
-        description='End effector model of the left arm.',
-        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
-
-    arg_dict[end_effector_left.name] = end_effector_left
-
-    ft_sensor_right = DeclareLaunchArgument(
-        'ft_sensor_right',
-        default_value='schunk-ft',
-        description='FT sensor model. ',
-        choices=['schunk-ft', 'no-ft-sensor'])
-
-    arg_dict[ft_sensor_right.name] = ft_sensor_right
-
-    ft_sensor_left = DeclareLaunchArgument(
-        'ft_sensor_left',
-        default_value='schunk-ft',
-        description='FT sensor model. ',
-        choices=['schunk-ft', 'no-ft-sensor'])
-
-    arg_dict[ft_sensor_left.name] = ft_sensor_left
-
-    wrist_model_right = DeclareLaunchArgument(
-        'wrist_model_right',
-        default_value='wrist-2010',
-        description='Wrist model. ',
-        choices=['wrist-2010', 'wrist-2017'])
-
-    arg_dict[wrist_model_right.name] = wrist_model_right
-
-    wrist_model_left = DeclareLaunchArgument(
-        'wrist_model_left',
-        default_value='wrist-2010',
-        description='Wrist model. ',
-        choices=['wrist-2010', 'wrist-2017'])
-
-    arg_dict[wrist_model_left.name] = wrist_model_left
-
-    camera_model = DeclareLaunchArgument(
-        'camera_model',
-        default_value='orbbec-astra',
-        description='Head camera model. ',
-        choices=['no-camera', 'orbbec-astra', 'orbbec-astra-pro', 'asus-xtion'])
-
-    arg_dict[camera_model.name] = camera_model
-
-    laser_model = DeclareLaunchArgument(
-        'laser_model',
-        default_value='sick-571',
-        description='Base laser model. ',
-        choices=['no-laser', 'sick-571', 'sick-561', 'sick-551', 'hokuyo'])
-
-    arg_dict[laser_model.name] = laser_model
-
-    has_screen = DeclareLaunchArgument(
-        'has_screen',
-        default_value='false',
-        description='Define if the robot has a screen. ',
-        choices=['true', 'false'])
-
-    arg_dict[has_screen.name] = has_screen
-
-    base_type = DeclareLaunchArgument(
-        'base_type',
-        default_value='pmb2',
-        description='Define base type of the robot. ',
-        choices=['pmb2', 'omni_base'])
-
-    arg_dict[base_type.name] = base_type
-
-    namespace = DeclareLaunchArgument(
-        'namespace',
-        default_value='',
-        description='Define namespace of the robot. ')
-
-    arg_dict[namespace.name] = namespace
-
-    return arg_dict
-
-
-def declare_actions(launch_description: LaunchDescription, launch_args: Dict):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
 
     launch_description.add_action(OpaqueFunction(
         function=create_robot_description_param))

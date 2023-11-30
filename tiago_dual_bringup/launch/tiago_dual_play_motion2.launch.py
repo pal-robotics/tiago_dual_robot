@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-from typing import Dict
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
@@ -24,93 +22,44 @@ from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_pal.arg_utils import read_launch_argument
 from tiago_dual_description.tiago_dual_launch_utils import get_tiago_dual_hw_suffix
 from launch_pal.param_utils import merge_param_files
+from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class ArgumentDeclaration(LaunchArgumentsBase):
+    use_sim_time:  DeclareLaunchArgument = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='False',
+        description='Use sim time.')
 
 
 def generate_launch_description():
 
+    # Create the launch description and populate
     ld = LaunchDescription()
+    robot_name = "tiago_dual"
+    has_robot_config = True
+    custom_args = ArgumentDeclaration()
+    launch_args = launch_arg_factory(custom_args,
+                                     has_robot_config=has_robot_config, robot_name=robot_name)
 
-    declare_launch_arguments(ld)
-    declare_actions(ld)
+    launch_args.add_to_launch_description(ld)
+
+    declare_actions(ld, launch_args)
+
     return ld
 
 
-def declare_launch_arguments(launch_description: LaunchDescription):
-
-    sim_time_arg = DeclareLaunchArgument(
-        'use_sim_time', default_value='False',
-        description='Use sim time. ')
-
-    launch_description.add_action(sim_time_arg)
-
-    robot_name = DeclareLaunchArgument(
-        'robot_name',
-        default_value='tiago_dual',
-        description='Name of the robot. ',
-        choices=['pmb2', 'tiago', 'pmb3', 'tiago_dual'])
-
-    launch_description.add_action(robot_name)
-
-    arm_right = DeclareLaunchArgument(
-        'arm_type_right',
-        default_value='tiago-arm',
-        description='Which type of the right arm.',
-        choices=['no-arm', 'tiago-arm', 'sea'])
-
-    launch_description.add_action(arm_right)
-
-    arm_left = DeclareLaunchArgument(
-        'arm_type_left',
-        default_value='tiago-arm',
-        description='Which type of the left arm.',
-        choices=['no-arm', 'tiago-arm', 'sea'])
-
-    launch_description.add_action(arm_left)
-
-    end_effector_right = DeclareLaunchArgument(
-        'end_effector_right',
-        default_value='pal-gripper',
-        description='End effector model of the right arm.',
-        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
-
-    launch_description.add_action(end_effector_right)
-
-    end_effector_left = DeclareLaunchArgument(
-        'end_effector_left',
-        default_value='pal-gripper',
-        description='End effector model of the left arm.',
-        choices=['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector'])
-
-    launch_description.add_action(end_effector_left)
-
-    ft_sensor_right = DeclareLaunchArgument(
-        'ft_sensor_right',
-        default_value='schunk-ft',
-        description='FT sensor model. ',
-        choices=['schunk-ft', 'no-ft-sensor'])
-
-    launch_description.add_action(ft_sensor_right)
-
-    ft_sensor_left = DeclareLaunchArgument(
-        'ft_sensor_left',
-        default_value='schunk-ft',
-        description='FT sensor model. ',
-        choices=['schunk-ft', 'no-ft-sensor'])
-
-    launch_description.add_action(ft_sensor_left)
-
-    return
-
-
-def declare_actions(launch_description: LaunchDescription):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
 
     # TODO: Update the param files for the motions so they can be read correctly
 
     play_motion2 = include_scoped_launch_py_description(
         pkg_name='play_motion2',
         paths=['launch', 'play_motion2.launch.py'],
-        launch_configurations={
-            "use_sim_time":  LaunchConfiguration('use_sim_time'),
+        launch_arguments={
+            "use_sim_time":  launch_args.use_sim_time,
             "play_motion2_config": LaunchConfiguration('play_motion2_config')
         })
 
