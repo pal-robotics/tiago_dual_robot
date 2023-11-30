@@ -25,7 +25,6 @@ def get_tiago_hw_suffix(
     For instance, the suffix for: arm=tiago-arm, end_effector='pal-gripper', ft_sensor='schunk-ft'
     would be 'pal-gripper_schunk-ft'
     """
-
     if arm in ['no-arm']:
         suffix = arm
         return suffix
@@ -56,7 +55,6 @@ def get_tiago_dual_hw_suffix(
 
     The arguments are read as string
     """
-
     right_suffix = get_tiago_hw_suffix(
         arm_right, end_effector_right, ft_sensor_right)
     left_suffix = get_tiago_hw_suffix(

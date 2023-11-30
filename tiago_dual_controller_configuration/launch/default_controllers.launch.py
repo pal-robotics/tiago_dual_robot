@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import Dict, List
+from typing import List
 import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, GroupAction
+from launch.actions import OpaqueFunction, GroupAction
 from launch.conditions import IfCondition, LaunchConfigurationNotEquals
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_pal.arg_utils import read_launch_argument
@@ -148,8 +148,6 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
         skip_empty=True)
 
     end_effector = read_launch_argument(end_effector_arg_name, context)
-    arm = read_launch_argument(arm_arg_name, context)
-    ft_sensor = read_launch_argument(ft_sensor_arg_name, context)
 
     # TODO: Ensure that the grippers have the same kind of package structures
     # not like the hey5 right now
