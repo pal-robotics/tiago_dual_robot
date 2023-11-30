@@ -7,5 +7,4 @@ default_controllers:
            end_effector_left:=@end_effector_left@
            ft_sensor_right:=@ft_sensor_right@
            ft_sensor_left:=@ft_sensor_left@   
-  
-
+  finishes: True
