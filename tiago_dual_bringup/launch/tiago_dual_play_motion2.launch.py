@@ -17,17 +17,25 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, SetLaunchConfiguration, OpaqueFunction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
-
+from dataclasses import dataclass
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_pal.arg_utils import read_launch_argument
 from tiago_dual_description.tiago_dual_launch_utils import get_tiago_dual_hw_suffix
 from launch_pal.param_utils import merge_param_files
-from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
-from dataclasses import dataclass
+from launch_pal.arg_utils import LaunchArgumentsBase
+from launch_pal.robot_arguments import TiagoDualArgs
 
 
 @dataclass(frozen=True)
-class ArgumentDeclaration(LaunchArgumentsBase):
+class LaunchArguments(LaunchArgumentsBase):
+
+    arm_type_right: DeclareLaunchArgument = TiagoDualArgs.arm_type_right
+    arm_type_left: DeclareLaunchArgument = TiagoDualArgs.arm_type_left
+    end_effector_right: DeclareLaunchArgument = TiagoDualArgs.end_effector_right
+    end_effector_left: DeclareLaunchArgument = TiagoDualArgs.end_effector_left
+    ft_sensor_right: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_right
+    ft_sensor_left: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_left
+
     use_sim_time:  DeclareLaunchArgument = DeclareLaunchArgument(
         'use_sim_time',
         default_value='False',
@@ -38,20 +46,16 @@ def generate_launch_description():
 
     # Create the launch description and populate
     ld = LaunchDescription()
-    robot_name = "tiago_dual"
-    has_robot_config = True
-    custom_args = ArgumentDeclaration()
-    launch_args = launch_arg_factory(custom_args,
-                                     has_robot_config=has_robot_config, robot_name=robot_name)
+    launch_arguments = LaunchArguments()
 
-    launch_args.add_to_launch_description(ld)
+    launch_arguments.add_to_launch_description(ld)
 
-    declare_actions(ld, launch_args)
+    declare_actions(ld, launch_arguments)
 
     return ld
 
 
-def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
     # TODO: Update the param files for the motions so they can be read correctly
 

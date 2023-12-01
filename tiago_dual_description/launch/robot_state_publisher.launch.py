@@ -23,12 +23,13 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_param_builder import load_xacro
 from launch_pal.arg_utils import read_launch_argument
-from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
+from launch_pal.arg_utils import LaunchArgumentsBase
 from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class ArgumentDeclaration(LaunchArgumentsBase):
+class LaunchArguments(LaunchArgumentsBase):
+
     use_sim_time: DeclareLaunchArgument = DeclareLaunchArgument(
         name='use_sim_time',
         default_value='False',
@@ -43,20 +44,16 @@ def generate_launch_description():
 
     # Create the launch description and populate
     ld = LaunchDescription()
-    robot_name = "tiago_dual"
-    has_robot_config = True
-    custom_args = ArgumentDeclaration()
-    launch_args = launch_arg_factory(custom_args,
-                                     has_robot_config=has_robot_config, robot_name=robot_name)
+    launch_arguments = LaunchArguments()
 
-    launch_args.add_to_launch_description(ld)
+    launch_arguments.add_to_launch_description(ld)
 
-    declare_actions(ld, launch_args)
+    declare_actions(ld, launch_arguments)
 
     return ld
 
 
-def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
     launch_description.add_action(OpaqueFunction(
         function=create_robot_description_param))

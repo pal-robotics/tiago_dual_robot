@@ -14,7 +14,7 @@
 
 from typing import List
 import os
-
+from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import OpaqueFunction, GroupAction
@@ -23,13 +23,11 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_pal.arg_utils import read_launch_argument
 from launch_pal.param_utils import merge_param_files
 from controller_manager.launch_utils import generate_load_controller_launch_description
-from launch_pal.arg_utils import LaunchArgumentsBase, launch_arg_factory
-from dataclasses import dataclass
+from launch_pal.arg_utils import LaunchArgumentsBase
 
 
 @dataclass(frozen=True)
-class ArgumentDeclaration(LaunchArgumentsBase):
-    # No extra arguments required
+class LaunchArguments(LaunchArgumentsBase):
     pass
 
 
@@ -37,20 +35,16 @@ def generate_launch_description():
 
     # Create the launch description and populate
     ld = LaunchDescription()
-    robot_name = "tiago_dual"
-    has_robot_config = True
-    custom_args = ArgumentDeclaration()
-    launch_args = launch_arg_factory(custom_args,
-                                     has_robot_config=has_robot_config, robot_name=robot_name)
+    launch_arguments = LaunchArguments()
 
-    launch_args.add_to_launch_description(ld)
+    launch_arguments.add_to_launch_description(ld)
 
-    declare_actions(ld, launch_args)
+    declare_actions(ld, launch_arguments)
 
     return ld
 
 
-def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArgumentsBase):
+def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
     pkg_share_folder = get_package_share_directory(
         'tiago_dual_controller_configuration')
