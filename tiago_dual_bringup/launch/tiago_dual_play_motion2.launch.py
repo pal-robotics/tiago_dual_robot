@@ -57,14 +57,13 @@ def generate_launch_description():
 
 def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
-    # TODO: Update the param files for the motions so they can be read correctly
-
     play_motion2 = include_scoped_launch_py_description(
         pkg_name='play_motion2',
         paths=['launch', 'play_motion2.launch.py'],
         launch_arguments={
             "use_sim_time":  launch_args.use_sim_time,
-            "play_motion2_config": LaunchConfiguration('play_motion2_config')
+            "motions_file": LaunchConfiguration('motions_file'),
+            'approach_planner_config': LaunchConfiguration('approach_planner_config')
         })
 
     launch_description.add_action(OpaqueFunction(
@@ -105,4 +104,10 @@ def create_play_motion_filename(context):
     combined_yaml = merge_param_files(
         [base_motions_yaml.perform(context), gripper_specific_yaml.perform(context)])
 
-    return [SetLaunchConfiguration("play_motion2_config", combined_yaml)]
+    approach_planner_file = f"approach_planner{hw_suffix}.yaml"
+    approach_planner_config = PathJoinSubstitution([
+        get_package_share_directory('tiago_bringup'),
+        'config', 'approach_planner', approach_planner_file])
+
+    return [SetLaunchConfiguration("motions_file", combined_yaml),
+            SetLaunchConfiguration("approach_planner_config", approach_planner_config)]
