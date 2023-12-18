@@ -7,7 +7,7 @@ ament_auto_find_build_dependencies()
 
 if(pal_module_cmake_FOUND)
   pal_register_modules(
-    module/20_robot_state_publisher.yaml
+    module/30_robot_state_publisher.yaml
   )
 endif()
 
