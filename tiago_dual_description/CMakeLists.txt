@@ -26,15 +26,25 @@ if(BUILD_TESTING)
             foreach(end_effector_right pal-gripper pal-hey5 custom no-end-effector)
                 foreach(ft_sensor_left no-ft-sensor schunk-ft)
                     foreach(ft_sensor_right no-ft-sensor schunk-ft)
+
+                        set(left_side "${arm_type_left}_${end_effector_left}_${ft_sensor_left}")
+                        set(right_side "${arm_type_right}_${end_effector_right}_${ft_sensor_right}")
+
                         add_launch_test(
                           test/test_description.launch.py
-                          TARGET "tiago_dual_description_${arm_type_left}_${end_effector_left}_${ft_sensor_left}_${arm_type_right}_${end_effector_right}_${ft_sensor_right}"
-                          ARGS "arm_type_left:=${arm_type_left}" "arm_type_right:=${arm_type_right}" "end_effector_left:=${end_effector_left}" "end_effector_right:=${end_effector_right}" "ft_sensor_left:=${ft_sensor_left}" "ft_sensor_right:=${ft_sensor_right}"
+                          TARGET "tiago_dual_description_${left_side}_${right_side}"
+                          ARGS
+                          "arm_type_left:=${arm_type_left}"
+                          "arm_type_right:=${arm_type_right}"
+                          "end_effector_left:=${end_effector_left}"
+                          "end_effector_right:=${end_effector_right}"
+                          "ft_sensor_left:=${ft_sensor_left}"
+                          "ft_sensor_right:=${ft_sensor_right}"
                         )
-                    endforeach(ft_sensor_right)
-                endforeach(ft_sensor_left)
-            endforeach(end_effector_right)
-        endforeach(end_effector_left)
+                    endforeach()
+                endforeach()
+            endforeach()
+        endforeach()
 
 
         foreach(laser_model no-laser hokuyo sick-551 sick-561 sick-571)
@@ -43,17 +53,17 @@ if(BUILD_TESTING)
             TARGET "tiago_dual_description_${arm_type_left}_${arm_type_right}_${laser_model}"
             ARGS "arm_type_left:=${arm_type_left}" "arm_type_right:=${arm_type_right}" "laser_model:=${laser_model}"
           )
-        endforeach(laser_model)
+        endforeach()
         foreach(camera_model no-camera orbbec-astra orbbec-astra-pro asus-xtion)
           add_launch_test(
             test/test_description.launch.py
             TARGET "tiago_dual_description_${arm_type_left}_${arm_type_right}_${camera_model}"
             ARGS "arm_type_left:=${arm_type_left}" "arm_type_right:=${arm_type_right}" "camera_model:=${camera_model}"
           )
-        endforeach(camera_model)
+        endforeach()
 
-      endforeach(arm_type_right)
-    endforeach(arm_type_left)
+      endforeach()
+    endforeach()
 endif()
 
 #############
