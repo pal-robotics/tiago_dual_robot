@@ -104,9 +104,9 @@ def create_play_motion_filename(context):
     combined_yaml = merge_param_files(
         [base_motions_yaml.perform(context), gripper_specific_yaml.perform(context)])
 
-    approach_planner_file = f"approach_planner{hw_suffix}.yaml"
+    approach_planner_file = f"approach_planner_{hw_suffix}.yaml"
     approach_planner_config = PathJoinSubstitution([
-        get_package_share_directory('tiago_bringup'),
+        get_package_share_directory('tiago_dual_bringup'),
         'config', 'approach_planner', approach_planner_file])
 
     return [SetLaunchConfiguration("motions_file", combined_yaml),
