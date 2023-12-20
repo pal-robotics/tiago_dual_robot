@@ -154,7 +154,7 @@
 	  <xacro:if value="${has_ft_sensor_left}">
 	      <xacro:ft_sensor name="wrist_left" parent="arm_left_tool_link" />
 	  </xacro:if>
-  <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1" is_dual="true"/>
+  <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1" tiago_dual="true"/>
   </xacro:if>
 
   <!-- Right -->
@@ -165,7 +165,7 @@
 	  <xacro:if value="${has_ft_sensor_right}">
 	      <xacro:ft_sensor name="wrist_right" parent="arm_right_tool_link" />
 	  </xacro:if>
-	  <xacro:tiago_end_effector name="${end_effector_right_name}" parent="${end_effector_right_link}" type="${end_effector_right}" reflect="1" is_dual="true"/>
+	  <xacro:tiago_end_effector name="${end_effector_right_name}" parent="${end_effector_right_link}" type="${end_effector_right}" reflect="1" tiago_dual="true"/>
   </xacro:if>
 
 
