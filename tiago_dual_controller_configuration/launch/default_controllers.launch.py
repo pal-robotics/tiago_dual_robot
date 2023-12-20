@@ -1,4 +1,4 @@
-# Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+# Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ from launch_pal.arg_utils import read_launch_argument
 from launch_pal.param_utils import merge_param_files
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch_pal.arg_utils import LaunchArgumentsBase
+from launch_pal.include_utils import include_scoped_launch_py_description
 
 
 @dataclass(frozen=True)
@@ -121,7 +122,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
     return
 
 
-def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
+def configure_side_controllers(context, end_effector_side='right', *args, **kwargs):
 
     pkg_share_folder = get_package_share_directory(
         'tiago_dual_controller_configuration')
@@ -141,42 +142,6 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
         delimiter='_',
         skip_empty=True)
 
-    end_effector = read_launch_argument(end_effector_arg_name, context)
-
-    # TODO: Ensure that the grippers have the same kind of package structures
-    # not like the hey5 right now
-
-    controller_name = ''
-    pkg_name = ''
-    config_file_name = ''
-
-    # Setup end-effector configuration
-    if end_effector == 'pal-gripper':
-        controller_name = concatenate_strings(
-            strings=['gripper', end_effector_side, 'controller'],
-            delimiter='_',
-            skip_empty=True)
-
-        pkg_name = 'pal_gripper_controller_configuration'
-        config_file_name = f'{controller_name}.yaml'
-
-    elif end_effector == 'pal-hey5':
-        controller_name = concatenate_strings(
-            strings=['hand', end_effector_side, 'controller'],
-            delimiter='_',
-            skip_empty=True)
-
-        pkg_name = 'tiago_dual_controller_configuration'
-        config_file_name = concatenate_strings(
-            strings=['pal-hey5', end_effector_side,
-                     'joint_trajectory_controllers.yaml'],
-            delimiter='_',
-            skip_empty=True)
-    else:
-        # TODO: Create general launch error when hardware config does not exist
-
-        raise f"End effector {end_effector} not implemented"
-
     # Setup arm controller
     arm_controller_name = concatenate_strings(
         strings=['arm', end_effector_side, 'controller'],
@@ -194,17 +159,13 @@ def configure_side_controllers(context, end_effector_side='', *args, **kwargs):
         forwarding=False,
         condition=LaunchConfigurationNotEquals(arm_arg_name, 'no-arm'))
 
-    # Setup end-effector controller
-    end_effector_controller = GroupAction(
-        [generate_load_controller_launch_description(
-            controller_name=controller_name,
-            controller_type='joint_trajectory_controller/JointTrajectoryController',
-            controller_params_file=os.path.join(
-                get_package_share_directory(
-                    pkg_name),
-                'config', config_file_name))
-         ],
-        forwarding=False,
+    end_effector = read_launch_argument(end_effector_arg_name, context)
+    end_effector_underscore = end_effector.replace('-', '_')
+
+    end_effector_controller = include_scoped_launch_py_description(
+        pkg_name=f'{end_effector_underscore}_controller_configuration',
+        paths=['launch', f'{end_effector_underscore}_controller.launch.py'],
+        launch_arguments={"side": end_effector_side},
         condition=IfCondition(
             PythonExpression(
                 ["'", LaunchConfiguration(arm_arg_name), "' != 'no-arm' and '",
