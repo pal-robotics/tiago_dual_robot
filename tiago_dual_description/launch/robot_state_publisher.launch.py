@@ -25,10 +25,24 @@ from launch_param_builder import load_xacro
 from launch_pal.arg_utils import read_launch_argument
 from launch_pal.arg_utils import LaunchArgumentsBase
 from dataclasses import dataclass
+from launch_pal.robot_arguments import TiagoDualArgs
 
 
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
+
+    base_type: DeclareLaunchArgument = TiagoDualArgs.base_type
+    arm_type_right: DeclareLaunchArgument = TiagoDualArgs.arm_type_right
+    arm_type_left: DeclareLaunchArgument = TiagoDualArgs.arm_type_left
+    end_effector_right: DeclareLaunchArgument = TiagoDualArgs.end_effector_right
+    end_effector_left: DeclareLaunchArgument = TiagoDualArgs.end_effector_left
+    ft_sensor_right: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_right
+    ft_sensor_left: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_left
+    wrist_model_right: DeclareLaunchArgument = TiagoDualArgs.wrist_model_right
+    wrist_model_left: DeclareLaunchArgument = TiagoDualArgs.wrist_model_left
+    camera_model: DeclareLaunchArgument = TiagoDualArgs.camera_model
+    laser_model: DeclareLaunchArgument = TiagoDualArgs.laser_model
+    has_screen: DeclareLaunchArgument = TiagoDualArgs.has_screen
 
     use_sim_time: DeclareLaunchArgument = DeclareLaunchArgument(
         name='use_sim_time',
