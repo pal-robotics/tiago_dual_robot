@@ -53,6 +53,9 @@
       <xacro:if value="${end_effector_left == 'pal-hey5' or end_effector_right == 'pal-hey5'}">
         <xacro:include filename="$(find pal_hey5_description)/urdf/pal_hey5.ros2_control.xacro" />
       </xacro:if>
+      <xacro:if value="${end_effector_left in ['robotiq-2f-85', 'robotiq-2f-140'] or end_effector_right in ['robotiq-2f-85', 'robotiq-2f-140']}">
+        <xacro:include filename="$(find pal_robotiq_description)/urdf/robotiq.ros2_control.xacro" />
+      </xacro:if>
     </xacro:if>
     <xacro:include filename="$(find pmb2_description)/urdf/sensors/sensors.ros2_control.xacro"/>
 
@@ -110,6 +113,14 @@
           <!-- pal-hey5 -->
           <xacro:ros2_control_hey5 name="hand_left"/>
         </xacro:if>
+        <xacro:if value="${end_effector_left == 'robotiq-2f-85'}">
+          <!-- robotiq-2f-85 -->
+          <xacro:ros2_control_robotiq_85_gripper name="gripper_left" reduction="1.0" />
+        </xacro:if>
+        <xacro:if value="${end_effector_left == 'robotiq-2f-140'}">
+          <!-- robotiq-2f-85 -->
+          <xacro:ros2_control_robotiq_140_gripper name="gripper_left" reduction="1.0" />
+        </xacro:if>
       </xacro:if>
 
       <xacro:if value="${has_arm_right}">
@@ -134,7 +145,16 @@
         <xacro:if value="${end_effector_right == 'pal-hey5'}">
           <!-- pal-hey5 -->
           <xacro:ros2_control_hey5 name="hand_right"/>
+        <xacro:if value="${end_effector_right == 'robotiq-2f-85'}">
+          <!-- robotiq-2f-85 -->
+          <xacro:ros2_control_robotiq_85_gripper name="gripper_right" reduction="1.0" />
         </xacro:if>
+        <xacro:if value="${end_effector_right == 'robotiq-2f-140'}">
+          <!-- robotiq-2f-85 -->
+          <xacro:ros2_control_robotiq_140_gripper name="gripper_right" reduction="1.0" />
+        </xacro:if>
+        </xacro:if>
+
       </xacro:if>
 
       <!-- Force Torque sensor -->

@@ -66,10 +66,10 @@
   <xacro:if value="${wrist_model_right not in ['wrist-2010', 'wrist-2017']}">
     <xacro:wrong_wrist_model/>
   </xacro:if>
-  <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector']}">
+  <xacro:if value="${end_effector_left not in ['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector', 'robotiq-2f-85', 'robotiq-2f-140']}">
     <xacro:wrong_end_effector_left/>
   </xacro:if>
-  <xacro:if value="${end_effector_right not in ['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector']}">
+  <xacro:if value="${end_effector_right not in ['pal-gripper', 'pal-hey5', 'custom', 'no-end-effector', 'robotiq-2f-85', 'robotiq-2f-140']}">
     <xacro:wrong_end_effector_right/>
   </xacro:if>
   <xacro:if value="${ft_sensor_left not in ['no-ft-sensor', 'schunk-ft']}">
