@@ -11,6 +11,14 @@ play_motion2:
           name: Close left
           usage: picking
           description: Close Left gripper
+      open_left:
+        joints: [gripper_left_left_finger_joint, gripper_left_right_finger_joint]
+        times_from_start: [0.5]
+        positions: [0.044, 0.044]
+        meta:
+          name: Open left
+          usage: picking
+          description: Open left gripper
       close_right:
         joints: [gripper_right_left_finger_joint, gripper_right_right_finger_joint]
         times_from_start: [0.5]

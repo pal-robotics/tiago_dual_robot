@@ -32,6 +32,14 @@ print(controllers)
           name: Close left
           usage: picking
           description: Close Left gripper
+      open_left:
+        joints: [gripper_left_left_finger_joint, gripper_left_right_finger_joint]
+        times_from_start: [0.5]
+        positions: [0.044, 0.044]
+        meta:
+          name: Open left
+          usage: picking
+          description: Open left gripper
 @[elif end_effector_left == "pal-hey5"]@
       close_left:
         joints: [hand_left_thumb_joint, hand_left_index_joint, hand_left_mrl_joint]
