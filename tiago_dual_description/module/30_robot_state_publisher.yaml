@@ -1,0 +1,15 @@
+robot_state_publisher:
+  launch: "tiago_dual_description robot_state_publisher.launch.py
+           robot_name:=@robot_type@
+           arm_type_right:=@arm_type_right@
+           arm_type_left:=@arm_type_left@
+           end_effector_right:=@end_effector_right@
+           end_effector_left:=@end_effector_left@
+           ft_sensor_right:=@ft_sensor_right@
+           ft_sensor_left:=@ft_sensor_left@
+           wrist_model_right:=@wrist_model_right@
+           wrist_model_left:=@wrist_model_left@
+           camera_model:=@camera_model@
+           laser_model:=@laser_model@
+           base_type:=@base_type@"
+

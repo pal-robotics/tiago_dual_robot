@@ -1,0 +1,9 @@
+play_motion2:
+  launch: "tiago_dual_bringup tiago_dual_play_motion2.launch.py
+           robot_name:=@robot_type@
+           arm_type_right:=@arm_type_right@
+           arm_type_left:=@arm_type_left@
+           end_effector_right:=@end_effector_right@
+           end_effector_left:=@end_effector_left@
+           ft_sensor_right:=@ft_sensor_right@
+           ft_sensor_left:=@ft_sensor_left@     

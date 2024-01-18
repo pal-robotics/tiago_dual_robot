@@ -1,0 +1,271 @@
+play_motion2:
+  ros__parameters:
+    motions:
+      home:
+        joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+        times_from_start: [0.0, 3.0, 4.5]
+        positions: [-1.1, -0.48, 2.714, 1.7095, -1.2012, 1.3898, 0.0, -1.1, -0.48, 2.714, 1.7095, -1.2012, 1.3898, 0.0, 0.25,
+                    -1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.3898, 0.0, -1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.3898, 0.0, 0.25,
+                    -1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.3898, 0.0, -1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.3898, 0.0, 0.15]
+        meta:
+          name: Home
+          usage: demo
+          description: Go home
+  #     home_right:
+  #       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1, -0.48, 2.714, 1.7095, -1.2012, 1.37, 0, 0.25]
+  #         - time_from_start: 3
+  #           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.37, 0, 0.25]
+  #         - time_from_start: 4.5
+  #           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.37, 0, 0.15]
+  #       meta:
+  #         name: Home Right
+  #         usage: demo
+  #         description: Go home, only right arm
+  #     home_left:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1, -0.48, 2.714, 1.7095, -1.2012, 1.37, 0, 0.25]
+  #         - time_from_start: 3
+  #           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.2012, 1.37, 0, 0.25]
+  #         - time_from_start: 4.5
+  #           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.37, 0, 0.15]
+  #       meta:
+  #         name: Home Left
+  #         usage: demo
+  #         description: Go home, only left arm
+  #     unfold_arm_left:
+  #       joints: [torso_lift_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+  #       points:
+  #       - positions: [0.30, 0.21, -0.74, 2.71, 1.03, -1.57, 1.37, 0.0]
+  #         time_from_start: 0.5
+  #       - positions: [0.30, 0.21, -0.2, 0.61, 1.15, -1.57, 0.2, 0.0]
+  #         time_from_start: 6.0
+  #       meta:
+  #         name: Unfold arm left
+  #         usage: demo
+  #         description: Unfold left arm
+  #     unfold_arm_right:
+  #       joints: [torso_lift_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+  #       points:
+  #       - positions: [0.30, 0.21, -0.74, 2.71, 1.03, -1.57, 1.37, 0.0]
+  #         time_from_start: 0.5
+  #       - positions: [0.30, 0.21, -0.2, 0.61, 1.15, -1.57, 0.2, 0.0]
+  #         time_from_start: 6.0
+  #       meta:
+  #         name: Unfold arm right
+  #         usage: demo
+  #         description: Unfold right arm
+  #     wave:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1, 1.4679, 2.714, 1.9347, -1.5703, 1.3699, 0.0008, -1.1, 1.4679, 1.2, 1.9348, -1.571, 1, -1.61, 0.15]
+  #         - time_from_start: 2
+  #           positions: [-1.1, 1.4668, 2.714, 1.9331, -1.5703, 1.3698, 0.0009, -0.0002, 1, 0, 1.7, -1.5699, 0.5, -1.61, 0.15]
+  #         - time_from_start: 3.2
+  #           positions: [-1.1, 1.4658, 2.714, 1.9315, -1.5703, 1.3698, 0.0009, 0, 0.5, -0.0002, 2.2105, -1.5698, 0.3, -1.61, 0.15]
+  #         - time_from_start: 4.4
+  #           positions: [-1.1, 1.4648, 2.714, 1.9299, -1.5703, 1.3698, 0.0009, 0, 0.6, -0.0002, 1.7, -1.5698, -0.3, -1.61, 0.15]
+  #         - time_from_start: 5.6
+  #           positions: [-1.0999, 1.4637, 2.714, 1.9282, -1.5702, 1.3698, 0.001, 0, 0.5, -0.0002, 2.26, -1.5698, 0.3, -1.61, 0.15]
+  #         - time_from_start: 6.8
+  #           positions: [-1.1, 1.4648, 2.714, 1.9299, -1.5703, 1.3698, 0.0009, 0, 0.6, -0.0002, 1.7, -1.5698, -0.3, -1.61, 0.15]
+  #         - time_from_start: 8
+  #           positions: [-1.0999, 1.4637, 2.714, 1.9282, -1.5702, 1.3698, 0.001, 0, 0.5, -0.0002, 2.26, -1.5698, 0.3, -1.61, 0.15]
+  #         - time_from_start: 10
+  #           positions: [-1.1, 1.4679, 2.714, 1.9347, -1.5703, 1.3699, 0.0008, -1.1, 1.4679, 1.2, 1.9348, -1.571, 1, -1.61, 0.15]
+  #         - time_from_start: 12.5
+  #           positions: [-1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.37, 0, -1.1, 1.4679, 2.714, 1.7095, -1.5708, 1.37, 0, 0.15]
+  #       meta:
+  #         name: Wave
+  #         usage: enternainment
+  #         description: Wave to the crowd
+  #     offer_right:
+  #       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [1.47, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 0.15]
+  #       meta:
+  #         name: Offer Right
+  #         usage: demo
+  #         description: Offer Right hand
+  #     offer_left:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [1.47, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 0.15]
+  #       meta:
+  #         name: Offer Left
+  #         usage: demo
+  #         description: Offer Left hand
+  #     offer:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [1.47, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 1.47, 0.5776, 0.0601, 1.0064, -1.7003, 0, 0, 0.15]
+  #       meta:
+  #         name: Offer Both
+  #         usage: demo
+  #         description: Offer both hands
+  #     reach_floor_left:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.37, 0, 0.15]
+  #         - time_from_start: 2.5
+  #           positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.15]
+  #         - time_from_start: 4
+  #           positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.11]
+  #       meta:
+  #         name: Reach Floor Left
+  #         usage: demo
+  #         description: Reach floor
+  #     reach_max_left:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.23]
+  #         - time_from_start: 2.5
+  #           positions: [0.9008, -1.08, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.35]
+  #       meta:
+  #         name: Reach Max Left
+  #         usage: demo
+  #         description: Reach max
+  #     reach_floor_right:
+  #       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.37, 0, 0.15]
+  #         - time_from_start: 2.5
+  #           positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.15]
+  #         - time_from_start: 4
+  #           positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.11]
+  #       meta:
+  #         name: Reach Floor Right
+  #         usage: demo
+  #         description: Reach floor
+  #     reach_max_right:
+  #       joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.23]
+  #         - time_from_start: 2.5
+  #           positions: [0.9008, -1.08, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.35]
+  #       meta:
+  #         name: Reach Max Right
+  #         usage: demo
+  #         description: Reach max
+  #     reach_floor:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.37, 0, 0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 1.37, 0, 0.15]
+  #         - time_from_start: 2.5
+  #           positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6945, 0, 0.15]
+  #         - time_from_start: 4
+  #           positions: [0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.7703, 1.2632, 1.4338, 0.329, -1.7004, 0.6944, 0, 0.11]
+  #       meta:
+  #         name: Reach Floor Both
+  #         usage: demo
+  #         description: 'Reach floor'
+  #     reach_max:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.23]
+  #         - time_from_start: 2.5
+  #           positions: [0.9008, -1.08, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.9008, -1.08, 1.1101, 0.2261, -1.7002, 0.6149, 0, 0.35]
+  #       meta:
+  #         name: Reach Max Both
+  #         usage: demo
+  #         description: 'Reach max'
+  #     vertical_reach:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [0.5093, -0.3532, 1.0323, 1.2011, -1.6999, 0.0306, 0, 0.1703, 1.4609, 1.3424, 1.7078, -1.7005, 0.6945, 0, 0.15]
+  #         - time_from_start: 2.5
+  #           positions: [0.9008, -1.08, 1.1102, 0.2265, -1.7005, 0.6165, 0, 0.77, 1.4121, 1.43, -0.0095, -1.3278, 0.531, 0, 0.35]
+  #         - time_from_start: 3
+  #           positions: [0.9008, -1.08, 1.1102, 0.2265, -1.7005, 0.6165, 0, 0.77, 1.4121, 1.43, -0.0095, -1.3278, 0.531, 0, 0.35]
+  #         - time_from_start: 5.5
+  #           positions: [0.9008, -1.08, 1.1102, 0.2265, -1.7005, 0.6164, 0, 0.77, 1.3816, 1.43, -0.01, -1.3303, 0.9131, 0, 0.155]
+  #       meta:
+  #         name: Vertical Reach
+  #         usage: demo
+  #         description: Reach Max and Min
+  #     horizontal_reach:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-0.5, 1.0027, 1.5016, 1.9977, -1.6999, -0.0018, 0, -0.5, 1.0028, 1.5016, 1.9978, -1.6999, -0.0015, 0, 0.2]
+  #         - time_from_start: 3
+  #           positions: [0, 0.0093, 1.4999, -0.0001, -1.6999, 0.0002, 0.0001, 0, 0.0094, 1.4999, 0.0009, -1.6999, 0.0003, 0.0001, 0.25]
+  #       meta:
+  #         name: Horizontal Reach
+  #         usage: demo
+  #         description: Reach Left and Right
+
+  # # Alive motions
+  #     alive_1:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1, 1.4636, 2.7142, 1.7041, -1.702, 1.37, 0.0007, -1.1001, 1.4638, 2.7142, 1.704, -1.702, 1.37, 0.0011, 0.15]
+  #         - time_from_start: 1
+  #           positions: [-1.1, 1.4647, 2.7141, 1.705, -1.702, 1.37, 0.0007, -0.9174, 1.4595, 2.4358, 1.6983, -1.702, 1.37, 0, 0.15]
+  #         - time_from_start: 2
+  #           positions: [-1.1, 1.4647, 2.7141, 1.705, -1.702, 1.37, 0.0007, -1.1001, 1.465, 2.7141, 1.7049, -1.702, 1.37, 0.0011, 0.15]
+  #     alive_2:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1, 1.4625, 2.7142, 1.7024, -1.7024, 1.37, 0.0007, -1.1001, 1.4629, 2.7142, 1.7023, -1.7024, 1.37, 0.0011, 0.15]
+  #         - time_from_start: 1
+  #           positions: [-0.9174, 1.4595, 2.4358, 1.6983, -1.7024, 1.37, 0, -1.1, 1.4647, 2.7141, 1.705, -1.7024, 1.37, 0.0007, 0.15]
+  #         - time_from_start: 2
+  #           positions: [-1.1001, 1.465, 2.7141, 1.7049, -1.7024, 1.37, 0.0011, -1.1, 1.4647, 2.7141, 1.705, -1.7024, 1.37, 0.0007, 0.15]
+  #     alive_3:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1001, 1.4629, 2.7142, 1.7024, -1.7028, 1.37, 0.0011, -1.1, 1.4626, 2.7142, 1.7025, -1.7028, 1.37, 0.0007, 0.15]
+  #         - time_from_start: 1
+  #           positions: [-0.9174, 1.4595, 2.4358, 1.6983, -1.7028, 1.37, 0, -0.9174, 1.4595, 2.4358, 1.6983, -1.7028, 1.37, 0, 0.15]
+  #         - time_from_start: 2
+  #           positions: [-1.1001, 1.465, 2.7141, 1.7049, -1.7028, 1.37, 0.0011, -1.1, 1.4647, 2.7141, 1.705, -1.7028, 1.37, 0.0007, 0.15]
+  #     alive_4:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1001, 1.4629, 2.7142, 1.7024, -1.7032, 1.37, 0.0011, -1.1, 1.4627, 2.7142, 1.7025, -1.7032, 1.37, 0.0007, 0.15]
+  #         - time_from_start: 1
+  #           positions: [-1.1, 1.4581, 2.7101, 1.3847, -1.7004, 1.37, 0, -1.1, 1.4582, 2.7101, 2.0108, -1.7003, 1.1668, 0, 0.20]
+  #         - time_from_start: 3
+  #           positions: [-1.1, 1.4581, 2.7101, 2.0108, -1.7004, 1.1668, 0, -1.1, 1.4582, 2.7101, 1.3847, -1.7003, 1.37, 0, 0.20]
+  #         - time_from_start: 4
+  #           positions: [-1.1001, 1.4629, 2.7142, 1.7024, -1.7032, 1.37, 0.0011, -1.1, 1.4627, 2.7142, 1.7025, -1.7032, 1.37, 0.0007, 0.15]
+  #     alive_5:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1001, 1.461, 2.7143, 1.7002, -1.7036, 1.37, 0.0011, -1.1, 1.4609, 2.7143, 1.7003, -1.7036, 1.37, 0.0007, 0.15]
+  #         - time_from_start: 1.5
+  #           positions: [-0.5521, 1.16, 2.5276, 2.063, -1.7004, 0.6079, 0, -0.55, 1.1603, 2.5306, 1.9978, -1.7004, 0.6083, 0, 0.1895]
+  #         - time_from_start: 3
+  #           positions: [-1.1001, 1.461, 2.7143, 1.7002, -1.7036, 1.37, 0.0011, -1.1, 1.4609, 2.7143, 1.7003, -1.7036, 1.37, 0.0007, 0.15]
+  #     alive:
+  #       joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_lift_joint]
+  #       points:
+  #         - time_from_start: 0
+  #           positions: [-1.1, 1.4656, 2.7141, 1.7068, -1.7016, 1.37, 0, -1.1, 1.4657, 2.7141, 1.7068, -1.7016, 1.37, 0, 0.1395]
+  #         - time_from_start: 1.5
+  #           positions: [-1.1, 1.1, 2.7141, 1.5, -1.7016, 1.37, 0, -1.1001, 1.1, 2.7141, 1.5192, -1.7016, 1.37, 0, 0.25]
+  #         - time_from_start: 1.75
+  #           positions: [-1.1, 1.1, 2.7141, 1.5, -1.7016, 1.37, 0, -1.1001, 1.1, 2.7141, 1.5, -1.7016, 1.37, 0, 0.25]
+  #         - time_from_start: 3
+  #           positions: [-1.1, 1.4658, 2.7141, 1.7067, -1.7016, 1.37, 0.0007, -1.1001, 1.466, 2.7141, 1.7066, -1.7016, 1.37, 0.0011, 0.15]

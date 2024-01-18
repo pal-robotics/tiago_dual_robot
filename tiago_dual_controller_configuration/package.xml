@@ -3,10 +3,12 @@
   <name>tiago_dual_controller_configuration</name>
   <version>0.4.9</version>
   <description>Configuration and launch files of TIAGo Dual 's controllers</description>
-  <author email="victor.lopez@pal-robotics.com">Victor Lopez</author>
   <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+  <author email="david.terkuile@pal-robotics.com">David ter Kuile</author>
   <maintainer email="david.terkuile@pal-robotics.com">David ter Kuile</maintainer>
   <license>Apache License 2.0</license>
+
+  <url type="website">https://github.com/pal-robotics/tiago_dual_simulation</url>
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
