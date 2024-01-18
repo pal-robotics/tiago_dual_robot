@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2024-01-18)
+------------------
 * Merge branch 'ros2-tiago-gazebo' into 'humble-devel'
   Ros2 tiago gazebo
   See merge request robots/tiago_dual_robot!81
