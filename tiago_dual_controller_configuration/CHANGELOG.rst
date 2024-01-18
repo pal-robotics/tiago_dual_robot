@@ -2,6 +2,36 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-tiago-gazebo' into 'humble-devel'
+  Ros2 tiago gazebo
+  See merge request robots/tiago_dual_robot!81
+* Add maintainer
+* Update authors
+* Remove unused param mobile_base_controller
+* Updat end-effector-controller
+* CMake version to 3.8
+* Bump module number for omni base
+* update to  new robot argument method
+* Fix tests and remove unused files
+* Update launch file layout and use new scoped_launch_file function
+* Merge branch 'fix/module' into 'ros2-tiago-gazebo'
+  Set 'finishes: True' for default_controllers module
+  See merge request robots/tiago_dual_robot!82
+* Set 'finishes: True' for default_controllers module
+* Add modules for module manager
+* Add website tag
+* Add motions files(still old param style) and controller yaml
+* Add general motions and removed schunk-wsg from the regen_em scripts
+* Add default controllers
+* Cmakelists.txt and package.xml only
+* Merge branch 'change_license_to_apache' into 'erbium-devel'
+  change public license to Apache License 2.0
+  See merge request robots/tiago_dual_robot!77
+* change public license to Apache License 2.0
+* Contributors: David ter Kuile, Jordan Palacios, Noel Jimenez, Sai Kishor Kothakota, davidterkuile
+
 0.4.9 (2023-04-18)
 ------------------
 

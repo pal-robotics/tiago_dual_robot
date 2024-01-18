@@ -2,6 +2,53 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-tiago-gazebo' into 'humble-devel'
+  Ros2 tiago gazebo
+  See merge request robots/tiago_dual_robot!81
+* Add missing robot args to state-publisher.launch
+* Add maintainer
+* Update authors
+* CMake version to 3.8
+* Rename end-effector xacro arg
+* Update cmake linting
+* Bump module number for omni base
+* update to  new robot argument method
+* Add tests
+* Fix tests and remove unused files
+* Update launch file layout and use new scoped_launch_file function
+* Add missing comma in urdf
+* Add modules for module manager
+* Add website tag
+* Update pal_urdf_utils filenames
+* Update arguments
+* Uncomment parts of the urdf
+* Add sim time to show.launch
+* Allow for tiago dual to launch with one arm
+* Update launch files, show.launch working
+* Basic launch structure ready. Gazebo does not launch properly
+* Update twist mux and joystick launch files
+* Add hardware_suffix functions
+* Add description
+* Cmakelists.txt and package.xml only
+* Merge branch 'change_license_to_apache' into 'erbium-devel'
+  change public license to Apache License 2.0
+  See merge request robots/tiago_dual_robot!77
+* change public license to Apache License 2.0
+* Merge branch 'fixed_torso_argument_2' into 'erbium-devel'
+  Fixed torso argument 2
+  See merge request robots/tiago_dual_robot!74
+* updated the torso to be at half it's range when fixed
+* Manual formating
+* Added if condition in torso xacro
+* Added parameter to main xacro
+* Merge branch 'davidterkuile-erbium-devel-patch-00829' into 'erbium-devel'
+  Update deprecated joint state publisher gui
+  See merge request robots/tiago_dual_robot!71
+* Update deprecated joint state publisher gui
+* Contributors: David ter Kuile, Jordan Palacios, Sai Kishor Kothakota, Victor Lutz, davidterkuile
+
 0.4.9 (2023-04-18)
 ------------------
 

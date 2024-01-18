@@ -2,6 +2,22 @@
 Changelog for package tiago_dual_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-tiago-gazebo' into 'humble-devel'
+  Ros2 tiago gazebo
+  See merge request robots/tiago_dual_robot!81
+* Add maintainer
+* Update authors
+* CMake version to 3.8
+* Add website tag
+* Cmakelists.txt and package.xml only
+* Merge branch 'change_license_to_apache' into 'erbium-devel'
+  change public license to Apache License 2.0
+  See merge request robots/tiago_dual_robot!77
+* change public license to Apache License 2.0
+* Contributors: David ter Kuile, Jordan Palacios, Sai Kishor Kothakota, davidterkuile
+
 0.4.9 (2023-04-18)
 ------------------
 

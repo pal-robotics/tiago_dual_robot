@@ -2,6 +2,39 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-tiago-gazebo' into 'humble-devel'
+  Ros2 tiago gazebo
+  See merge request robots/tiago_dual_robot!81
+* Add missing open left motion for pal gripper
+* Add maintainer
+* Update authors
+* Remove typos in appraoch planner loader
+* CMake version to 3.8
+* Add approach planner
+* update to  new robot argument method
+* Add copyright license
+* Update launch file layout and use new scoped_launch_file function
+* Add joy_teleop config
+* Add modules for module manager
+* Add website tag
+* Add regen_em script as node
+* Allow for tiago dual to launch with one arm
+* Update arg propagation
+* update motion names
+* Basic launch structure ready. Gazebo does not launch properly
+* Add motions files(still old param style) and controller yaml
+* Add general motions and removed schunk-wsg from the regen_em scripts
+* Update twist mux and joystick launch files
+* Add bringup and playmotion launch files
+* Cmakelists.txt and package.xml only
+* Merge branch 'change_license_to_apache' into 'erbium-devel'
+  change public license to Apache License 2.0
+  See merge request robots/tiago_dual_robot!77
+* change public license to Apache License 2.0
+* Contributors: David ter Kuile, Jordan Palacios, Sai Kishor Kothakota, davidterkuile
+
 0.4.9 (2023-04-18)
 ------------------
 * Merge branch 'update-joystick' into 'erbium-devel'
