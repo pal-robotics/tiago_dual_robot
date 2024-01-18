@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update pal-hey5 dependency
+* Contributors: David ter Kuile
+
 2.0.0 (2024-01-18)
 ------------------
 * Merge branch 'ros2-tiago-gazebo' into 'humble-devel'
