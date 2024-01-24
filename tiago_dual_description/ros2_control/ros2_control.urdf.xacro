@@ -145,6 +145,7 @@
         <xacro:if value="${end_effector_right == 'pal-hey5'}">
           <!-- pal-hey5 -->
           <xacro:ros2_control_hey5 name="hand_right"/>
+        </xacro:if>
         <xacro:if value="${end_effector_right == 'robotiq-2f-85'}">
           <!-- robotiq-2f-85 -->
           <xacro:ros2_control_robotiq_85_gripper name="gripper_right" reduction="1.0" />
@@ -153,7 +154,7 @@
           <!-- robotiq-2f-85 -->
           <xacro:ros2_control_robotiq_140_gripper name="gripper_right" reduction="1.0" />
         </xacro:if>
-        </xacro:if>
+
 
       </xacro:if>
 
