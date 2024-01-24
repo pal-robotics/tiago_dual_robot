@@ -159,12 +159,21 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
         forwarding=False,
         condition=LaunchConfigurationNotEquals(arm_arg_name, 'no-arm'))
 
+    end_effector_robotiq_list = ['robotiq-2f-85', 'robotiq-2f-140']
+
     end_effector = read_launch_argument(end_effector_arg_name, context)
     end_effector_underscore = end_effector.replace('-', '_')
 
+    if (end_effector in end_effector_robotiq_list):
+        pkg_name = 'pal_robotiq_controller_configuration'
+        launch_file = 'robotiq_gripper_controller.launch.py'
+    else:
+        pkg_name = f'{end_effector_underscore}_controller_configuration'
+        launch_file = f'{end_effector_underscore}_controller.launch.py'
+
     end_effector_controller = include_scoped_launch_py_description(
-        pkg_name=f'{end_effector_underscore}_controller_configuration',
-        paths=['launch', f'{end_effector_underscore}_controller.launch.py'],
+        pkg_name=pkg_name,
+        paths=['launch', launch_file],
         launch_arguments={"side": end_effector_side},
         condition=IfCondition(
             PythonExpression(
