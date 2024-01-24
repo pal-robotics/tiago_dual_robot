@@ -119,6 +119,7 @@
 
   <!-- Force Torque sensor -->
   <xacro:include filename="$(find tiago_description)/urdf/sensors/ftsensor.urdf.xacro" />
+  <xacro:include filename="$(find tiago_description)/urdf/sensors/ftsensor.gazebo.xacro" />
 
   <!-- Head -->
   <xacro:include filename="$(find tiago_description)/urdf/head/head.urdf.xacro" />
@@ -153,6 +154,7 @@
 	  </xacro:tiago_arm>
 	  <xacro:if value="${has_ft_sensor_left}">
 	      <xacro:ft_sensor name="wrist_left" parent="arm_left_tool_link" />
+        <xacro:force_torque_sensor_gazebo name="wrist_left_ft" update_rate="100"/>
 	  </xacro:if>
   <xacro:tiago_end_effector name="${end_effector_left_name}" parent="${end_effector_left_link}" type="${end_effector_left}" reflect="-1" tiago_dual="true"/>
   </xacro:if>
@@ -164,10 +166,10 @@
 	  </xacro:tiago_arm>
 	  <xacro:if value="${has_ft_sensor_right}">
 	      <xacro:ft_sensor name="wrist_right" parent="arm_right_tool_link" />
+        <xacro:force_torque_sensor_gazebo name="wrist_right_ft" update_rate="100"/>
 	  </xacro:if>
 	  <xacro:tiago_end_effector name="${end_effector_right_name}" parent="${end_effector_right_link}" type="${end_effector_right}" reflect="1" tiago_dual="true"/>
   </xacro:if>
-
 
   <!-- RGBD Laser Link -->
   <joint name="rgbd_laser_joint" type="fixed">
