@@ -1,6 +1,5 @@
 hand_right_controller:
   ros__parameters:
-    type: joint_trajectory_controller/JointTrajectoryController
     joints:
       - hand_right_thumb_joint
       - hand_right_index_joint
