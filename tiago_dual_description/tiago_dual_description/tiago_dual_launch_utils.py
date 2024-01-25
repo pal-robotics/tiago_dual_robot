@@ -60,6 +60,6 @@ def get_tiago_dual_hw_suffix(
     left_suffix = get_tiago_hw_suffix(
         arm_left, end_effector_left, ft_sensor_left)
 
-    suffix = "_".join([right_suffix, left_suffix])
+    suffix = '_'.join([left_suffix, right_suffix])
 
     return suffix
