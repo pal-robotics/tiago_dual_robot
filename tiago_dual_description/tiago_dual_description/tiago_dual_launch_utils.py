@@ -12,34 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-def get_tiago_hw_suffix(
-        arm: str = 'no-arm',
-        end_effector: str = 'no-end-effector',
-        ft_sensor: str = 'no-ft-sensor'):
-    """
-    Generate a substitution that creates a text suffix combining the specified tiago arguments.
-
-    The arguments are read as string
-
-    For instance, the suffix for: arm=tiago-arm, end_effector='pal-gripper', ft_sensor='schunk-ft'
-    would be 'pal-gripper_schunk-ft'
-    """
-    if arm in ['no-arm']:
-        suffix = arm
-        return suffix
-
-    components = []
-    if end_effector in ['no-end-effector']:
-        components.append('no-ee')
-    else:
-        components.append(end_effector)
-
-    if ft_sensor not in ['no-ft-sensor']:
-        components.append(ft_sensor)
-
-    suffix = '_'.join(components)
-    return suffix
+from tiago_description.tiago_launch_utils import get_tiago_hw_suffix
 
 
 def get_tiago_dual_hw_suffix(
@@ -60,6 +33,5 @@ def get_tiago_dual_hw_suffix(
     left_suffix = get_tiago_hw_suffix(
         arm_left, end_effector_left, ft_sensor_left)
 
-    suffix = '_'.join([left_suffix, right_suffix])
-
+    suffix = left_suffix + right_suffix
     return suffix

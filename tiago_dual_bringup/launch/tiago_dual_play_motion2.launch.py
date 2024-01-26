@@ -84,7 +84,7 @@ def create_play_motion_filename(context):
         ft_sensor_left=read_launch_argument('ft_sensor_left', context),
     )
 
-    gripper_specific_file = f"tiago_motions_{hw_suffix}.yaml"
+    gripper_specific_file = f"tiago_motions{hw_suffix}.yaml"
 
     gripper_specific_yaml = PathJoinSubstitution(
         [get_package_share_directory('tiago_dual_bringup'),
@@ -104,7 +104,7 @@ def create_play_motion_filename(context):
     combined_yaml = merge_param_files(
         [base_motions_yaml.perform(context), gripper_specific_yaml.perform(context)])
 
-    approach_planner_file = f"approach_planner_{hw_suffix}.yaml"
+    approach_planner_file = f"approach_planner{hw_suffix}.yaml"
     approach_planner_config = PathJoinSubstitution([
         get_package_share_directory('tiago_dual_bringup'),
         'config', 'approach_planner', approach_planner_file])
