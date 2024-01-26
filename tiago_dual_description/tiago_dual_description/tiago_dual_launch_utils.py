@@ -14,6 +14,7 @@
 
 from tiago_description.tiago_launch_utils import get_tiago_hw_suffix
 
+
 def get_tiago_dual_hw_suffix(
         arm_right: str = 'no-arm',
         arm_left: str = 'no-arm',
