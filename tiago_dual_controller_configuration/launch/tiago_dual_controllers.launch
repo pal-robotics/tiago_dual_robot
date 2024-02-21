@@ -50,6 +50,8 @@
       <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
       <arg name="arm_right_motor_model" value="$(arg arm_right_motor_model)"/>
       <arg name="arm_left_motor_model" value="$(arg arm_left_motor_model)"/>
+      <arg name="ft_sensor_left" value="$(arg ft_sensor_left)"/>
+      <arg name="ft_sensor_right" value="$(arg ft_sensor_right)"/>
     </include>
 
     <!-- Only loads the impedance controllers -->
