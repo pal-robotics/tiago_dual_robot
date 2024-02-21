@@ -21,7 +21,7 @@
          value="arm_left_velocity_controller" if="$(eval arg('arm_left') and not arg('arm_right'))"/>
 
     <!-- Controllers that come up started -->
-    <node name="joint_trajectory_controllers_velocity_controllers_spawner"
+    <node name="joint_trajectory_velocity_controllers_spawner"
           pkg="controller_manager" type="spawner" output="screen"
           args="--timeout 120 --stopped $(arg controller_list)" />
   </group>
