@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.2 (2024-02-28)
+------------------
 * Rename approach_planner config to motion_planner
 * Update approach_planner configuration
 * change sufix no-end-effector to no-ee

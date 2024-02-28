@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.2 (2024-02-28)
+------------------
 * change sufix no-end-effector to no-ee
 * use the same functionality to create the suffix for the config files
 * switching the suffix order
