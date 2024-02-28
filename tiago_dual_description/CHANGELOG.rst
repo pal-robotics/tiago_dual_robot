@@ -2,6 +2,17 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* change sufix no-end-effector to no-ee
+* use the same functionality to create the suffix for the config files
+* switching the suffix order
+* add ftsensor.gazebo file & specifics
+* fix xacro & dependencies errors
+* adding robotiq_grippers as possible end_effectors
+* Fix updated dependency on pal_hey5 ros2 control
+* Contributors: Aina Irisarri, David ter Kuile
+
 2.0.1 (2024-01-18)
 ------------------
 * Update pal-hey5 dependency

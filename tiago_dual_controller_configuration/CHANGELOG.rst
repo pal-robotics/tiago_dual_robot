@@ -2,6 +2,13 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add the posibility of using robotiq end effector with its controller
+* deleting unnecessary config files
+* Remove unused param controller type
+* Contributors: Aina Irisarri, David ter Kuile
+
 2.0.1 (2024-01-18)
 ------------------
 
