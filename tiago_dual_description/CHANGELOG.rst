@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'davidterkuile-erbium-devel-patch-98202' into 'erbium-devel'
+  Update tiago_dual_description/urdf/torso/torso_dual.urdf.xacro
+  See merge request robots/tiago_dual_robot!92
+* Slightly decrease size of updated collision link
+* Update tiago_dual_description/urdf/torso/torso_dual.urdf.xacro
+* Contributors: David ter Kuile, davidterkuile
+
 0.4.14 (2023-11-20)
 -------------------
 
