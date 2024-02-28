@@ -63,7 +63,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
         launch_arguments={
             "use_sim_time":  launch_args.use_sim_time,
             "motions_file": LaunchConfiguration('motions_file'),
-            'approach_planner_config': LaunchConfiguration('approach_planner_config')
+            'motion_planner_config': LaunchConfiguration('motion_planner_config')
         })
 
     launch_description.add_action(OpaqueFunction(
@@ -104,10 +104,10 @@ def create_play_motion_filename(context):
     combined_yaml = merge_param_files(
         [base_motions_yaml.perform(context), gripper_specific_yaml.perform(context)])
 
-    approach_planner_file = f"approach_planner{hw_suffix}.yaml"
-    approach_planner_config = PathJoinSubstitution([
+    motion_planner_file = f"motion_planner{hw_suffix}.yaml"
+    motion_planner_config = PathJoinSubstitution([
         get_package_share_directory('tiago_dual_bringup'),
-        'config', 'approach_planner', approach_planner_file])
+        'config', 'motion_planner', motion_planner_file])
 
     return [SetLaunchConfiguration("motions_file", combined_yaml),
-            SetLaunchConfiguration("approach_planner_config", approach_planner_config)]
+            SetLaunchConfiguration("motion_planner_config", motion_planner_config)]
