@@ -15,6 +15,8 @@
     <arg name="base_type_suffix" default=""/>
     <arg name="advanced_grasping" default="false"/> <!-- Requires extra software from PAL Robotics-->
     <arg name="enable_moveit_camera" value="$(eval arg('use_moveit_camera') or arg('advanced_grasping'))" />
+    <arg name="arm_right_motor_model" default="parker"/>
+    <arg name="arm_left_motor_model" default="parker"/>
 
     <!-- Using original tiago launch -->
     <include file="$(find tiago_controller_configuration)/launch/joint_state_controller.launch"/>
@@ -36,6 +38,8 @@
       <arg name="end_effector_right" value="$(arg end_effector_right)"/>
       <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>   
       <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
+      <arg name="arm_right_motor_model" value="$(arg arm_right_motor_model)"/>
+      <arg name="arm_left_motor_model" value="$(arg arm_left_motor_model)"/>
     </include>
 
     <!-- Only loads the impedance controllers -->
@@ -44,6 +48,8 @@
       <arg name="end_effector_right" value="$(arg end_effector_right)"/>
       <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>
       <arg name="wrist_right_model"  value="$(arg wrist_right_model)"/>
+      <arg name="arm_right_motor_model" value="$(arg arm_right_motor_model)"/>
+      <arg name="arm_left_motor_model" value="$(arg arm_left_motor_model)"/>
     </include>
 
     <include file="$(find tiago_dual_controller_configuration)/launch/end_effector_controllers.launch" if="$(eval arm_left)">
