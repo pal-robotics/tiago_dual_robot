@@ -17,14 +17,6 @@ arm_left_impedance_controller:
     arm_left_5_joint: {kp: 0.02, kd: 0.02}
     arm_left_6_joint: {kp: 0.2, kd: 0.02}
     arm_left_7_joint: {kp: 0.25, kd: 0.2}
-  motor_params:
-    arm_left_1_joint: {motor_torque_constant: 0.0, reduction_ratio: 100.0}
-    arm_left_2_joint: {motor_torque_constant: 0.136, reduction_ratio: -100.0}
-    arm_left_3_joint: {motor_torque_constant: -0.087, reduction_ratio: -100.0}
-    arm_left_4_joint: {motor_torque_constant: -0.087, reduction_ratio: -100.0}
-    arm_left_5_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
-    arm_left_6_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
-    arm_left_7_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
   constraints:
     goal_time: 0.6
     stopped_velocity_tolerance: 5.0
@@ -62,14 +54,6 @@ arm_right_impedance_controller:
     arm_right_5_joint: {kp: -0.02, kd: -0.02}
     arm_right_6_joint: {kp: 0.2, kd: 0.02}
     arm_right_7_joint: {kp: 0.2, kd: 0.2}
-  motor_params:
-    arm_right_1_joint: {motor_torque_constant: 0.0, reduction_ratio: 100.0}
-    arm_right_2_joint: {motor_torque_constant: 0.136, reduction_ratio: 100.0}
-    arm_right_3_joint: {motor_torque_constant: -0.087, reduction_ratio: 100.0}
-    arm_right_4_joint: {motor_torque_constant: -0.087, reduction_ratio: 100.0}
-    arm_right_5_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
-    arm_right_6_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
-    arm_right_7_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
   constraints:
     goal_time: 0.6
     stopped_velocity_tolerance: 5.0
