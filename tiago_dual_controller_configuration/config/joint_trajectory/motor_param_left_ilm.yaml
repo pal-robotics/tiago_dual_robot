@@ -1,0 +1,9 @@
+arm_left_impedance_controller:
+  motor_params:
+    arm_left_1_joint: {motor_torque_constant: 0.0, reduction_ratio: 100.0}
+    arm_left_2_joint: {motor_torque_constant: 0.12, reduction_ratio: -100.0}
+    arm_left_3_joint: {motor_torque_constant: -0.06, reduction_ratio: -100.0}
+    arm_left_4_joint: {motor_torque_constant: -0.06, reduction_ratio: -100.0}
+    arm_left_5_joint: {motor_torque_constant: 1.65, reduction_ratio: 336.0}
+    arm_left_6_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}
+    arm_left_7_joint: {motor_torque_constant: 0.0, reduction_ratio: 336.0}

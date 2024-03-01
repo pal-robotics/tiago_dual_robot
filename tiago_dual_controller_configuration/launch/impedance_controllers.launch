@@ -4,13 +4,16 @@
   <arg name="end_effector_right"  default="pal-hey5"/>
   <arg name="wrist_left_model"  default="wrist-2017"/>
   <arg name="wrist_right_model"  default="wrist-2017"/>
+  <arg name="arm_right_motor_model" default="parker"/>
+  <arg name="arm_left_motor_model" default="parker"/>
 
   <arg name="ee_suffix_left" value="$(eval (end_effector_left if end_effector_left else 'no-ee'))"/>
   <arg name="ee_suffix_right" value="$(eval (end_effector_right if end_effector_right else 'no-ee'))"/>
   <!-- Load controller for left wrist and right wrist if it is 2017 model -->
   <group if="$(eval wrist_left_model == 'wrist-2017' and wrist_right_model == 'wrist-2017')">
     <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/joint_impedance_trajectory_controllers.yaml" />
-
+    <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/motor_param_right_$(arg arm_right_motor_model).yaml" />
+    <rosparam command="load" file="$(find tiago_dual_controller_configuration)/config/joint_trajectory/motor_param_left_$(arg arm_left_motor_model).yaml" />
 
   <arg name="left_model_chains" value="['gripper_left_link']" if="$(eval ee_suffix_left == 'pal-gripper')"/>
   <arg name="right_model_chains" value="['gripper_right_link']" if="$(eval ee_suffix_right == 'pal-gripper')"/>
