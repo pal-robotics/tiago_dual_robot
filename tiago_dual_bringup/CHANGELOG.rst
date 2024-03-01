@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/ILM-motors' into 'erbium-devel'
+  Ilm motors
+  See merge request robots/tiago_dual_robot!93
+* add arm_motor_model argument to differetiate between motors
+* Add hold object home for left and right arm
+* Contributors: Aina Irisarri, David ter Kuile, davidterkuile
+
 0.4.15 (2024-02-28)
 -------------------
 

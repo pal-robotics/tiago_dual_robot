@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.15 (2024-02-28)
 -------------------
 * Merge branch 'davidterkuile-erbium-devel-patch-98202' into 'erbium-devel'

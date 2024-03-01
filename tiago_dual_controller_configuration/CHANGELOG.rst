@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/ILM-motors' into 'erbium-devel'
+  Ilm motors
+  See merge request robots/tiago_dual_robot!93
+* fix default argument value
+* differentiate the motor config files between motor models
+* add arm_motor_model argument to differetiate between motors
+* modify paths for arm config files
+* Increase success_angle_threshold to avoid point_head action to never finish
+* Contributors: Aina Irisarri, David ter Kuile, davidterkuile
+
 0.4.15 (2024-02-28)
 -------------------
 
