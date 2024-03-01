@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.16 (2024-03-01)
+-------------------
 * Merge branch 'fix/ILM-motors' into 'erbium-devel'
   Ilm motors
   See merge request robots/tiago_dual_robot!93
