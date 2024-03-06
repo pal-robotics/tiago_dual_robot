@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix jnt_reduction_2 for right wrist transmission
+* Contributors: Noel Jimenez
+
 2.0.2 (2024-02-28)
 ------------------
 * change sufix no-end-effector to no-ee
