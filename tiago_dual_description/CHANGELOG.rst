@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2024-03-06)
+------------------
 * Fix jnt_reduction_2 for right wrist transmission
 * Contributors: Noel Jimenez
 
