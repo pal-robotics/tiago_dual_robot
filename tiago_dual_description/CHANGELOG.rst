@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.18 (2024-03-11)
+-------------------
 * remove empty line
 * deg_to_rad not necessary
 * fix material package name
