@@ -11,7 +11,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!--File includes-->
-  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.xacro" />
   <xacro:include filename="$(find tiago_description)/urdf/torso/torso.transmission.xacro" />
 
   <!--Constant parameters-->
