@@ -36,6 +36,12 @@ play_motion2:
         - gripper_right_left_finger_joint
         - gripper_right_right_finger_joint
 @[end if]@
+@[if end_effector_left in ["robotiq-2f-85", "robotiq-2f-140"]]@
+        - gripper_left_finger_joint
+@[end if]@
+@[if end_effector_right in ["robotiq-2f-85", "robotiq-2f-140"]]@
+        - gripper_right_finger_joint
+@[end if]@
       joint_tolerance: 0.01
 
       # Parameters for non-planned approach
