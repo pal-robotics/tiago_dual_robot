@@ -99,7 +99,6 @@
   <xacro:include filename="$(arg description_calibration_dir)/calibration_constants.urdf.xacro" />
   <xacro:include filename="$(find tiago_description)/urdf/arm/arm.urdf.xacro" />
 
-
   <!-- End Effector -->
   <xacro:include filename="$(find tiago_description)/urdf/end_effector/end_effector.urdf.xacro" />
 
