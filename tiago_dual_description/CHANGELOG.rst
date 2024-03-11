@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* remove empty line
+* deg_to_rad not necessary
+* fix material package name
+* fix package depend. pal_urdf_utils
+* Contributors: Sai Kishor Kothakota, ileniaperrella
+
 0.4.17 (2024-03-06)
 -------------------
 

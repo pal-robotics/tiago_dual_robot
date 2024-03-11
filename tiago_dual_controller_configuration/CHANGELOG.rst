@@ -2,6 +2,21 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'velocity_interface' into 'erbium-devel'
+  Velocity interface
+  See merge request robots/tiago_dual_robot!89
+* empty space in package.xml
+* fix launch files
+* update pids values
+* Refactor to allow to change local joint control
+* Gains from tiago
+* load velocity interface controllers
+* Add forward vel controller
+* Add JTC in velocity interface
+* Contributors: Narcis Miguel, Sai Kishor Kothakota, ileniaperrella
+
 0.4.17 (2024-03-06)
 -------------------
 
