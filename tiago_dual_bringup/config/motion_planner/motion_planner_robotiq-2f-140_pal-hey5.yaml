@@ -16,6 +16,7 @@ play_motion2:
         - hand_right_thumb_joint
         - hand_right_mrl_joint
         - hand_right_index_joint
+        - gripper_left_finger_joint
       joint_tolerance: 0.01
 
       # Parameters for non-planned approach

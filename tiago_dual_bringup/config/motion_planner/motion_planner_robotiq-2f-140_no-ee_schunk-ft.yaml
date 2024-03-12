@@ -13,6 +13,7 @@ play_motion2:
       exclude_from_planning_joints:
         - head_1_joint
         - head_2_joint
+        - gripper_left_finger_joint
       joint_tolerance: 0.01
 
       # Parameters for non-planned approach
