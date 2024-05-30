@@ -129,7 +129,7 @@ play_motion:
         - time_from_start: 0
           positions: [-0.5, 1.0027, 1.5016, 1.9977, -1.6999, -0.0018, 0, 0.2]
         - time_from_start: 3
-          positions: [0, 0.0093, 1.4999, -0.0001, -1.6999, 0.0002, 0.0001, 0, 0.25]
+          positions: [0.0, 0.0093, 1.4999, -0.0001, -1.6999, 0.0002, 0.0001, 0.25]
       meta:
         name: Horizontal Reach
         usage: demo
