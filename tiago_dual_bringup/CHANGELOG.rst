@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/horitzontal_motion' into 'erbium-devel'
+  Fix/horitzontal motion
+  See merge request robots/tiago_dual_robot!107
+* fix motion
+* Contributors: Aina, davidterkuile
+
 0.4.18 (2024-03-11)
 -------------------
 
