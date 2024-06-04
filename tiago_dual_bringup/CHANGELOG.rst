@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.19 (2024-06-04)
+-------------------
 * Merge branch 'fix/horitzontal_motion' into 'erbium-devel'
   Fix/horitzontal motion
   See merge request robots/tiago_dual_robot!107

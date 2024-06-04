@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.19 (2024-06-04)
+-------------------
 * Merge branch 'ipe/gazebo-control-period' into 'erbium-devel'
   make possible to choose the control period for gazebo
   See merge request robots/tiago_dual_robot!108
