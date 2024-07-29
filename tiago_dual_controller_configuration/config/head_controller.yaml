@@ -8,6 +8,7 @@ head_controller:
     state_interfaces:
       - position
 
+    open_loop_control: true
     constraints:
       goal_time: 2.0
       stopped_velocity_tolerance: 5.0
