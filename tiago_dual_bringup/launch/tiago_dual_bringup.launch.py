@@ -68,6 +68,7 @@ def declare_actions(
             "end_effector_left": launch_args.end_effector_left,
             "ft_sensor_right": launch_args.ft_sensor_right,
             "ft_sensor_left": launch_args.ft_sensor_left,
+            "is_public_sim": launch_args.is_public_sim
         }
     )
 

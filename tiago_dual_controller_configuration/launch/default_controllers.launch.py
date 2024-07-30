@@ -38,7 +38,7 @@ class LaunchArguments(LaunchArgumentsBase):
     end_effector_left: DeclareLaunchArgument = TiagoDualArgs.end_effector_left
     ft_sensor_right: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_right
     ft_sensor_left: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_left
-    use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
+    is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
 
 
@@ -145,24 +145,19 @@ def create_base_configs(context, *args, **kwargs):
 
     base_launch_configs = []
     base_type = read_launch_argument("base_type", context)
+    is_public_sim = read_launch_argument("is_public_sim", context)
+
     base_share_pkg_folder = get_package_share_directory(base_type + "_controller_configuration")
     base_params = base_share_pkg_folder + "/config/mobile_base_controller.yaml"
+
+    if is_public_sim and (base_type == "pmb2"):
+        base_params = base_share_pkg_folder + "/config/mobile_base_controller_public_sim.yaml"
 
     calibration_config = "/etc/calibration/master_calibration.yaml"
     if os.path.exists(calibration_config):
         base_params = merge_param_files([base_params, calibration_config])
 
     base_launch_configs.append(SetLaunchConfiguration("base_params", base_params))
-
-    # Create controller type config
-    if base_type == "pmb2":
-        controller_type = "diff_drive_controller/DiffDriveController"
-    else:
-        controller_type = "omni_drive_controller/OmniDriveController"
-
-    base_launch_configs.append(
-        SetLaunchConfiguration("controller_type", controller_type)
-    )
 
     # Create controller type config
     if base_type == "pmb2":
