@@ -124,7 +124,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
                 controller_name='head_controller',
                 controller_type='joint_trajectory_controller/JointTrajectoryController',
                 controller_params_file=os.path.join(
-                    pkg_share_folder,
+                    get_package_share_directory('tiago_controller_configuration'),
                     'config', 'head_controller.yaml'))
         ],
     )
