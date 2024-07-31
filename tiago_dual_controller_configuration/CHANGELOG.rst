@@ -2,6 +2,12 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Linking head controller to tiago_controller_configuration
+* Fixing head controller
+* Contributors: vivianamorlando
+
 2.0.15 (2024-07-09)
 -------------------
 * Add warning for pal_module_cmake not found

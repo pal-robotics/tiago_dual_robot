@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.0.15 (2024-07-09)
 -------------------
 * Add warning for pal_module_cmake not found
