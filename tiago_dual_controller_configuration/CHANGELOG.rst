@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.16 (2024-07-31)
+-------------------
 * Linking head controller to tiago_controller_configuration
 * Fixing head controller
 * Contributors: vivianamorlando
