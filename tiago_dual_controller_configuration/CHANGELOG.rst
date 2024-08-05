@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* enable odom tf for pmb2 for public sim
+* Contributors: David ter Kuile
+
 2.0.16 (2024-07-31)
 -------------------
 * Linking head controller to tiago_controller_configuration
