@@ -125,6 +125,17 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
     )
     launch_description.add_action(head_controller)
 
+    # Gravity compensation controller
+    gravity_compensation_controller = GroupAction(
+        [
+            include_scoped_launch_py_description(
+                pkg_name="tiago_dual_controller_configuration",
+                paths=['launch', "gravity_compensation_controller.launch.py"])
+        ]
+    )
+
+    launch_description.add_action(gravity_compensation_controller)
+
     # Add controller of right arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
         function=configure_side_controllers, args=['right']))
