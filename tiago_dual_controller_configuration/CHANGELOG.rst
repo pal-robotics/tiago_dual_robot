@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.1.0 (2024-08-07)
+------------------
 * Use controller_type from the controllers config
 * Remove unnecessary config file
 * Contributors: Aina, Noel Jimenez
