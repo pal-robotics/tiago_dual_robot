@@ -2,6 +2,12 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Use controller_type from the controllers config
+* Remove unnecessary config file
+* Contributors: Aina, Noel Jimenez
+
 2.0.17 (2024-08-05)
 -------------------
 * enable odom tf for pmb2 for public sim
