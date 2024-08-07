@@ -36,13 +36,11 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
     controller_config = os.path.join(
         pkg_share_directory,
         'config', 'gravity_compensation_controller.yaml')
-    controller_type = "pal_controllers/GravityCompensationController"
     gravity_spawner_node = Node(
         package='controller_manager',
         executable='spawner',
         arguments=[
-            "gravity_compensation_controller", "--param-file", controller_config,
-            "--controller-type", controller_type, "--inactive"],
+            "gravity_compensation_controller", "--param-file", controller_config, "--inactive"],
     )
     launch_description.add_action(gravity_spawner_node)
 
