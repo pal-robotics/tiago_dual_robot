@@ -17,10 +17,9 @@ import os
 from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import OpaqueFunction, GroupAction, SetLaunchConfiguration
+from launch.actions import OpaqueFunction, GroupAction
 from launch.conditions import IfCondition, LaunchConfigurationNotEquals, UnlessCondition
 from launch.substitutions import LaunchConfiguration, PythonExpression
-from launch_pal.param_utils import merge_param_files
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch.actions import DeclareLaunchArgument
@@ -41,6 +40,7 @@ class LaunchArguments(LaunchArgumentsBase):
     ft_sensor_right: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_right
     ft_sensor_left: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_left
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
+    use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     namespace: DeclareLaunchArgument = CommonArgs.namespace
 
 
@@ -59,22 +59,12 @@ def generate_launch_description():
 
 def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
-    # Create the extra configs from the LAs
-    launch_description.add_action(OpaqueFunction(function=create_base_configs))
-
     pkg_share_folder = get_package_share_directory(
         'tiago_dual_controller_configuration')
 
-    # Base controller
-    base_controller = GroupAction(
-        [
-            generate_load_controller_launch_description(
-                controller_name="mobile_base_controller",
-                controller_params_file=LaunchConfiguration("base_params"),
-            )
-        ]
-    )
-    launch_description.add_action(base_controller)
+    # Mobile base controller
+    launch_description.add_action(
+        OpaqueFunction(function=launch_mobile_base_controller))
 
     # Joint state broadcaster
     joint_state_broadcaster = GroupAction(
@@ -152,25 +142,24 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
     return
 
 
-def create_base_configs(context, *args, **kwargs):
+def launch_mobile_base_controller(context, *args, **kwargs):
 
-    base_launch_configs = []
     base_type = read_launch_argument("base_type", context)
+    use_sim_time = read_launch_argument("use_sim_time", context)
     is_public_sim = read_launch_argument("is_public_sim", context)
 
-    base_share_pkg_folder = get_package_share_directory(base_type + "_controller_configuration")
-    base_params = base_share_pkg_folder + "/config/mobile_base_controller.yaml"
+    base_controller_package = base_type + "_controller_configuration"
 
-    if is_public_sim and (base_type == "pmb2"):
-        base_params = base_share_pkg_folder + "/config/mobile_base_controller_public_sim.yaml"
+    mobile_base_controller = include_scoped_launch_py_description(
+        pkg_name=base_controller_package,
+        paths=["launch", "mobile_base_controller.launch.py"],
+        launch_arguments={
+            "use_sim_time": use_sim_time,
+            "is_public_sim": is_public_sim,
+        }
+    )
 
-    calibration_config = "/etc/calibration/master_calibration.yaml"
-    if os.path.exists(calibration_config):
-        base_params = merge_param_files([base_params, calibration_config])
-
-    base_launch_configs.append(SetLaunchConfiguration("base_params", base_params))
-
-    return base_launch_configs
+    return [mobile_base_controller]
 
 
 def configure_side_controllers(context, end_effector_side='right', *args, **kwargs):
