@@ -14,8 +14,6 @@
 
 import os
 from dataclasses import dataclass
-from launch import LaunchDescription
-from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import OpaqueFunction, DeclareLaunchArgument, SetLaunchConfiguration
@@ -29,11 +27,9 @@ from launch_pal.param_utils import parse_parametric_yaml
 from tiago_dual_description.launch_arguments import TiagoDualArgs
 
 
-
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
 
-    arm_motor_model_right: DeclareLaunchArgument = TiagoDualArgs.arm_motor_model_right
     arm_motor_model_left: DeclareLaunchArgument = TiagoDualArgs.arm_motor_model_left
     end_effector_right: DeclareLaunchArgument = TiagoDualArgs.end_effector_right
     end_effector_left: DeclareLaunchArgument = TiagoDualArgs.end_effector_left
@@ -55,12 +51,11 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
 
     return
 
+
 def setup_gravity_controller_configuration(context: LaunchContext):
 
-    arm_motor_model_right = read_launch_argument('arm_motor_model_right', context)
+    # Assuming that the arm_motor_model_left is the same as the arm_motor_model_right
     arm_motor_model_left = read_launch_argument('arm_motor_model_left', context)
-    if arm_motor_model_right != arm_motor_model_left:
-        raise ValueError("Different arm motor models for left and right arms gravity compensation controller are not supported")
     end_effector_right = read_launch_argument('end_effector_right', context)
     end_effector_left = read_launch_argument('end_effector_left', context)
 

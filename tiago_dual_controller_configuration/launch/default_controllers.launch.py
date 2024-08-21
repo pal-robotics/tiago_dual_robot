@@ -133,8 +133,7 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
             include_scoped_launch_py_description(
                 pkg_name="tiago_dual_controller_configuration",
                 paths=['launch', "gravity_compensation_controller.launch.py"],
-                launch_arguments={"arm_motor_model_right": launch_args.arm_motor_model_right,
-                                  "arm_motor_model_left": launch_args.arm_motor_model_left,
+                launch_arguments={"arm_motor_model_left": launch_args.arm_motor_model_left,
                                   "end_effector_right": launch_args.end_effector_right,
                                   "end_effector_left": launch_args.end_effector_left},
             )
