@@ -219,7 +219,9 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
                 [
                     "'",
                     LaunchConfiguration(arm_arg_name),
-                    "' != 'no-arm' "
+                    "' != 'no-arm' and '",
+                    LaunchConfiguration(end_effector_arg_name),
+                    "' != 'no-end-effector'"
                 ]
             )
         ),
