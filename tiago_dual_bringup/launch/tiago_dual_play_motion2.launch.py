@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, SetLaunchConfiguration, OpaqueFunction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
@@ -73,37 +73,48 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
 
 def create_play_motion_filename(context):
 
+    pkg_name = 'tiago_dual_bringup'
+    pkg_share_dir = get_package_share_directory(pkg_name)
+    arm_right = read_launch_argument('arm_type_right', context)
+    arm_left = read_launch_argument('arm_type_left', context)
+    ee_right = read_launch_argument('end_effector_right', context)
+    ee_left = read_launch_argument('end_effector_left', context)
+
     hw_suffix = get_tiago_dual_hw_suffix(
-        arm_right=read_launch_argument('arm_type_right', context),
-        arm_left=read_launch_argument('arm_type_left', context),
-        end_effector_right=read_launch_argument('end_effector_right', context),
-        end_effector_left=read_launch_argument('end_effector_left', context)
+        arm_right=arm_right,
+        arm_left=arm_left,
+        end_effector_right=ee_right,
+        end_effector_left=ee_left
     )
 
-    gripper_specific_file = f"tiago_motions{hw_suffix}.yaml"
-
-    gripper_specific_yaml = PathJoinSubstitution(
-        [get_package_share_directory('tiago_dual_bringup'),
-         'config', 'motions', gripper_specific_file])
-
-    base_motions_file = 'tiago_motions_general.yaml'
-
-    if read_launch_argument('arm_type_right', context) == 'no-arm':
+    ee_motions = []
+    motions_folder = os.path.join(pkg_share_dir, 'config', 'motions')
+    base_motions_file = 'tiago_motions_no_arms.yaml'
+    # both arms
+    if arm_right != 'no-arm' and arm_left != 'no-arm':
+        base_motions_file = 'tiago_motions_general.yaml'
+    # right arm only
+    elif arm_right != 'no-arm' and arm_left == 'no-arm':
+        base_motions_file = 'tiago_motions_general_arm_right.yaml'
+    # left arm only
+    elif arm_right == 'no-arm' and arm_left != 'no-arm':
         base_motions_file = 'tiago_motions_general_arm_left.yaml'
 
-    if read_launch_argument('arm_type_left', context) == 'no-arm':
-        base_motions_file = 'tiago_motions_general_arm_right.yaml'
+    if ee_left != 'no-end-effector' and arm_left != 'no-arm':
+        ee_motions.append(f"tiago_motions_{ee_left}_left.yaml")
+    if ee_right != 'no-end-effector' and arm_right != 'no-arm':
+        ee_motions.append(f"tiago_motions_{ee_right}_right.yaml")
 
-    base_motions_yaml = PathJoinSubstitution([get_package_share_directory(
-        'tiago_dual_bringup'), 'config', 'motions', base_motions_file])
+    motion_files = [base_motions_file]
+    motion_files.extend(ee_motions)
 
-    combined_yaml = merge_param_files(
-        [base_motions_yaml.perform(context), gripper_specific_yaml.perform(context)])
+    motion_yamls = [os.path.join(motions_folder, f) for f in motion_files]
+
+    combined_yaml = merge_param_files(motion_yamls)
 
     motion_planner_file = f"motion_planner{hw_suffix}.yaml"
-    motion_planner_config = PathJoinSubstitution([
-        get_package_share_directory('tiago_dual_bringup'),
-        'config', 'motion_planner', motion_planner_file])
+    motion_planner_config = os.path.join(
+        pkg_share_dir, 'config', 'motion_planner', motion_planner_file)
 
     return [SetLaunchConfiguration("motions_file", combined_yaml),
             SetLaunchConfiguration("motion_planner_config", motion_planner_config)]
