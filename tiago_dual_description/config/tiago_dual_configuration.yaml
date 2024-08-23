@@ -10,6 +10,14 @@ arm_type_left:
   description: 'Arm type left'
   choices: ['tiago-arm', 'no-arm']
   default_value: 'tiago-arm'
+arm_motor_model_right:
+  description: 'Arm motor model right arm'
+  choices: ['parker', 'ilm']
+  default_value: 'parker'
+arm_motor_model_left:
+  description: 'Arm motor model left arm'
+  choices: ['parker', 'ilm']
+  default_value: 'parker'
 laser_model:
   description: 'Base laser model'
   choices: ['no-laser', 'sick-571', 'sick-561', 'sick-551', 'hokuyo']

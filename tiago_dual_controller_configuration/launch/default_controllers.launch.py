@@ -34,6 +34,8 @@ class LaunchArguments(LaunchArgumentsBase):
     base_type: DeclareLaunchArgument = TiagoDualArgs.base_type
     arm_type_right: DeclareLaunchArgument = TiagoDualArgs.arm_type_right
     arm_type_left: DeclareLaunchArgument = TiagoDualArgs.arm_type_left
+    arm_motor_model_right: DeclareLaunchArgument = TiagoDualArgs.arm_motor_model_right
+    arm_motor_model_left: DeclareLaunchArgument = TiagoDualArgs.arm_motor_model_left
     end_effector_right: DeclareLaunchArgument = TiagoDualArgs.end_effector_right
     end_effector_left: DeclareLaunchArgument = TiagoDualArgs.end_effector_left
     ft_sensor_right: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_right
@@ -130,7 +132,12 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
         [
             include_scoped_launch_py_description(
                 pkg_name="tiago_dual_controller_configuration",
-                paths=['launch', "gravity_compensation_controller.launch.py"])
+                paths=['launch', "gravity_compensation_controller.launch.py"],
+                launch_arguments={"arm_motor_model_right": launch_args.arm_motor_model_right,
+                                  "arm_motor_model_left": launch_args.arm_motor_model_left,
+                                  "end_effector_right": launch_args.end_effector_right,
+                                  "end_effector_left": launch_args.end_effector_left},
+            )
         ]
     )
 
