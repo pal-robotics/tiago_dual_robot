@@ -30,6 +30,7 @@ from tiago_dual_description.launch_arguments import TiagoDualArgs
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
 
+    arm_motor_model_right: DeclareLaunchArgument = TiagoDualArgs.arm_motor_model_right
     arm_motor_model_left: DeclareLaunchArgument = TiagoDualArgs.arm_motor_model_left
     end_effector_right: DeclareLaunchArgument = TiagoDualArgs.end_effector_right
     end_effector_left: DeclareLaunchArgument = TiagoDualArgs.end_effector_left
@@ -54,8 +55,12 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
 
 def setup_gravity_controller_configuration(context: LaunchContext):
 
-    # Assuming that the arm_motor_model_left is the same as the arm_motor_model_right
+    arm_motor_model_right = read_launch_argument('arm_motor_model_right', context)
     arm_motor_model_left = read_launch_argument('arm_motor_model_left', context)
+    if (arm_motor_model_left != arm_motor_model_right):
+        raise Warning(
+            "The motor model of the left and right arms are different.\
+                  Configuration of the motor should have been added to the specific of this robot")
     end_effector_right = read_launch_argument('end_effector_right', context)
     end_effector_left = read_launch_argument('end_effector_left', context)
 
