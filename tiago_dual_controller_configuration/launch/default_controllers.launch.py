@@ -18,7 +18,7 @@ from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import OpaqueFunction, GroupAction, SetLaunchConfiguration
-from launch.conditions import IfCondition, LaunchConfigurationNotEquals
+from launch.conditions import IfCondition, LaunchConfigurationNotEquals, UnlessCondition
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_pal.param_utils import merge_param_files
 from controller_manager.launch_utils import generate_load_controller_launch_description
@@ -128,17 +128,15 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
     launch_description.add_action(head_controller)
 
     # Gravity compensation controller
-    gravity_compensation_controller = GroupAction(
-        [
-            include_scoped_launch_py_description(
-                pkg_name="tiago_dual_controller_configuration",
-                paths=['launch', "gravity_compensation_controller.launch.py"],
-                launch_arguments={"arm_motor_model_right": launch_args.arm_motor_model_right,
-                                  "arm_motor_model_left": launch_args.arm_motor_model_left,
-                                  "end_effector_right": launch_args.end_effector_right,
-                                  "end_effector_left": launch_args.end_effector_left},
-            )
-        ]
+
+    gravity_compensation_controller = include_scoped_launch_py_description(
+        pkg_name="tiago_dual_controller_configuration",
+        paths=['launch', "gravity_compensation_controller.launch.py"],
+        launch_arguments={"arm_motor_model_right": launch_args.arm_motor_model_right,
+                          "arm_motor_model_left": launch_args.arm_motor_model_left,
+                          "end_effector_right": launch_args.end_effector_right,
+                          "end_effector_left": launch_args.end_effector_left},
+        condition=UnlessCondition(LaunchConfiguration("is_public_sim"))
     )
 
     launch_description.add_action(gravity_compensation_controller)
