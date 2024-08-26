@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.0 (2024-08-26)
+------------------
 * Add check if both arms has the same model type
 * Contributors: thomas.peyrucain
 

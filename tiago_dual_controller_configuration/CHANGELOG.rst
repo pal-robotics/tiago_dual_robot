@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.0 (2024-08-26)
+------------------
 * Add check if both arms has the same model type
 * Fix flake8
 * Add motors type and gripper for gravity compensation
