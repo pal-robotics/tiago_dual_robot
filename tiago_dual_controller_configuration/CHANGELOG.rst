@@ -2,6 +2,15 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add check if both arms has the same model type
+* Fix flake8
+* Add motors type and gripper for gravity compensation
+* load as default and inactive the gravity compensation
+* define yaml file for gravity compensation controller
+* Contributors: ileniaperrella, thomas.peyrucain
+
 2.1.0 (2024-08-07)
 ------------------
 * Use controller_type from the controllers config

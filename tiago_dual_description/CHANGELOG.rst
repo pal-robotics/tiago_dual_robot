@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add motors type and gripper for gravity compensation
+* Contributors: thomas.peyrucain
+
 2.1.0 (2024-08-07)
 ------------------
 
