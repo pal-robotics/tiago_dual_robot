@@ -4,6 +4,8 @@ default_controllers:
            robot_name:=@robot_type@
            arm_type_right:=@arm_type_right@
            arm_type_left:=@arm_type_left@
+           arm_motor_model_right:=@arm_motor_model_right@
+           arm_motor_model_left:=@arm_motor_model_left@
            end_effector_right:=@end_effector_right@
            end_effector_left:=@end_effector_left@
            ft_sensor_right:=@ft_sensor_right@
