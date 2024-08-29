@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Refactor mobile_base_controller launch file
+* Contributors: David ter Kuile
+
 2.2.0 (2024-08-26)
 ------------------
 * Add check if both arms has the same model type

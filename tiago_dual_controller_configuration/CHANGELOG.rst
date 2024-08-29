@@ -2,6 +2,12 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Refactor mobile_base_controller launch file
+* Don't load gravity compensation in public sim
+* Contributors: David ter Kuile
+
 2.2.0 (2024-08-26)
 ------------------
 * Add check if both arms has the same model type
