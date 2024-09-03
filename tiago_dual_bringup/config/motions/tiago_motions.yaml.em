@@ -1,4 +1,4 @@
-play_motion2:
+/play_motion2:
   ros__parameters:
 @[if has_arm_left or has_arm_right]@
     controllers: @{
