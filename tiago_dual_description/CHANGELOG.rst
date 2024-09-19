@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix the height between base_link and torso for the omni_base
+* Contributors: thomas.peyrucain
+
 2.3.0 (2024-08-29)
 ------------------
 
