@@ -21,6 +21,8 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 
+  ament_add_pytest_test(test_xacro test/test_xacro.py TIMEOUT 300)
+
   foreach(arm_type_left tiago-arm no-arm)
     foreach(arm_type_right tiago-arm no-arm)
 
