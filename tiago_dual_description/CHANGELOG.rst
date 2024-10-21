@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.5.0 (2024-10-21)
+------------------
 * Only run test_description test for the default config
 * Test xacro with urdf_test
 * Contributors: Mathias Lüdtke
