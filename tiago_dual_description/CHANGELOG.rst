@@ -2,6 +2,12 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Only run test_description test for the default config
+* Test xacro with urdf_test
+* Contributors: Mathias Lüdtke
+
 2.4.0 (2024-09-19)
 ------------------
 * Fix the height between base_link and torso for the omni_base
