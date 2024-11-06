@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.6.0 (2024-11-06)
+------------------
 * Fix missing condition in gripper controller
 * Reduce amount of motion files
 * Contributors: David ter Kuile

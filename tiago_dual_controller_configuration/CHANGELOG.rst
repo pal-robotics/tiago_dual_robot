@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.6.0 (2024-11-06)
+------------------
 * Set update_rate for joint_state_broadcaster
 * Fix missing condition in gripper controller
 * Contributors: David ter Kuile, Noel Jimenez
