@@ -83,6 +83,32 @@ def declare_actions(
 
     launch_description.add_action(joy_node)
 
+    # starting safe command node for joystick teleop
+    safe_command_head = Node(
+        package='collision_aware_joint_trajectory_wrapper',
+        executable='safe_command_node',
+        name='safe_command_node',
+        output='screen',
+        parameters=[{
+            'controller_name': 'head_controller'
+        }]
+    )
+
+    launch_description.add_action(safe_command_head)
+
+    safe_command_torso = Node(
+        package='collision_aware_joint_trajectory_wrapper',
+        executable='safe_command_node',
+        name='safe_command_node',
+        output='screen',
+        parameters=[{
+            'controller_name': 'torso_controller'
+        }]
+    )
+
+    launch_description.add_action(safe_command_torso)
+
+
     torso_incrementer_server = Node(
         package='joy_teleop',
         executable='incrementer_server',
