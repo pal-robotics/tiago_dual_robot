@@ -87,7 +87,9 @@ def declare_actions(
         package='joy_teleop',
         executable='incrementer_server',
         name='incrementer',
-        namespace='torso_controller')
+        namespace='torso_controller',
+        remappings=[('joint_trajectory', 'safe_command')])
+
 
     launch_description.add_action(torso_incrementer_server)
 
@@ -95,7 +97,9 @@ def declare_actions(
         package='joy_teleop',
         executable='incrementer_server',
         name='incrementer',
-        namespace='head_controller')
+        namespace='head_controller',
+        remappings=[('joint_trajectory', 'safe_command')])
+
 
     launch_description.add_action(head_incrementer_server)
 
