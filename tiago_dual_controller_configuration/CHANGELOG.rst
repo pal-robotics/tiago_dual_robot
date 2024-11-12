@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ipe/fix/gravity' into 'humble-devel'
+  reflect sign gravity compensation arm left
+  See merge request robots/tiago_dual_robot!132
+* reflect sign gravity compensation arm left
+* Contributors: ileniaperrella, thomaspeyrucain
+
 2.6.0 (2024-11-06)
 ------------------
 * Set update_rate for joint_state_broadcaster
