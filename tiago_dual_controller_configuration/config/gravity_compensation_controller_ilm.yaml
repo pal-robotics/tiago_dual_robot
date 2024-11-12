@@ -17,22 +17,22 @@ gravity_compensation_controller:
         kp: 6.0
         kd: 1.0
       arm_left_2_joint:
-        motor_torque_constant: 0.12
+        motor_torque_constant: -0.12
         reduction_ratio: 100.0
         kp: 6.0
         kd: 0.8
       arm_left_3_joint:
-        motor_torque_constant: -0.06
+        motor_torque_constant: 0.06
         reduction_ratio: 100.0
         kp: -6.0
         kd: -0.8
       arm_left_4_joint:
-        motor_torque_constant: -0.06
+        motor_torque_constant: 0.06
         reduction_ratio: 100.0
         kp: -6.0
         kd: -0.8
       arm_left_5_joint:
-        motor_torque_constant: -1.65
+        motor_torque_constant: 1.65
         reduction_ratio: 336.0
         kp: -0.02
         kd: -0.02
