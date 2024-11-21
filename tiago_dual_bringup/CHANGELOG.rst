@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.7.0 (2024-11-21)
+------------------
 * Merge branch 'vmo/joy_limits' into 'humble-devel'
   Vmo/joy limits
   See merge request robots/tiago_dual_robot!130
