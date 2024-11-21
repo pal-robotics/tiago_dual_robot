@@ -2,6 +2,13 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Apply elif condition
+* Fix enter between planning_groups & exclude_from_planning_joints
+* Remove unnecessary planning groups
+* Contributors: Aina
+
 2.7.0 (2024-11-21)
 ------------------
 * Merge branch 'vmo/joy_limits' into 'humble-devel'
