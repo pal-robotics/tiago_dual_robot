@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.8.0 (2024-11-21)
+------------------
 * Apply elif condition
 * Fix enter between planning_groups & exclude_from_planning_joints
 * Remove unnecessary planning groups
