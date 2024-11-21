@@ -48,7 +48,8 @@ def declare_actions(
     launch_description: LaunchDescription, launch_args: LaunchArguments
 ):
     # Create the extra configs from the base_type LA
-    launch_description.add_action(OpaqueFunction(function=create_joystick_file_config))
+    launch_description.add_action(OpaqueFunction(
+        function=create_joystick_file_config))
 
     pkg_dir = get_package_share_directory("tiago_dual_bringup")
 

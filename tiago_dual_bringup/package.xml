@@ -24,7 +24,8 @@
   <exec_depend>tiago_dual_description</exec_depend>
   <exec_depend>twist_mux</exec_depend>
   <exec_depend>twist_mux_msgs</exec_depend>
-
+  <exec_depend condition="$PAL_DISTRO > 0">collision_aware_joint_trajectory_wrapper</exec_depend>
+    
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
