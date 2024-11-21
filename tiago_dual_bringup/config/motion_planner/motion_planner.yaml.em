@@ -3,18 +3,15 @@
     motion_planner:
       disable_motion_planning: false
       planning_groups: # Sorted by order of preference
-@[if has_arm_left]@
+@[if has_arm_left and not has_arm_right]@
         - arm_left_torso
-        - arm_left
-@[end if]@
-@[if has_arm_right]@
+@[elif has_arm_right and not has_arm_left]@
         - arm_right_torso
-        - arm_right
-@[end if]@
-@[if has_arm_left and has_arm_right]@
+@[elif has_arm_left and has_arm_right]@
         - both_arms_torso
-@[end if]@
+@[else]@
         - torso
+@[end if]@
       exclude_from_planning_joints:
         - head_1_joint
         - head_2_joint

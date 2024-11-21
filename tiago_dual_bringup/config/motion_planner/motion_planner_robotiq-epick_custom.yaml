@@ -4,12 +4,7 @@
     motion_planner:
       disable_motion_planning: false
       planning_groups: # Sorted by order of preference
-        - arm_left_torso
-        - arm_left
-        - arm_right_torso
-        - arm_right
         - both_arms_torso
-        - torso
       exclude_from_planning_joints:
         - head_1_joint
         - head_2_joint
