@@ -2,6 +2,17 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'vmo/joy_limits' into 'humble-devel'
+  Vmo/joy limits
+  See merge request robots/tiago_dual_robot!130
+* Adding pal distro
+* Fix pipeline
+* Adding safe command to joy launch
+* adding remapping on the incrementer server
+* Contributors: thomaspeyrucain, vivianamorlando
+
 2.6.1 (2024-11-12)
 ------------------
 
