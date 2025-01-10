@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.8.1 (2025-01-10)
+------------------
 * Merge branch 'fix/aca/twist-mux-use-sim-time' into 'humble-devel'
   fix sim_time twist_mux
   See merge request robots/tiago_dual_robot!136
