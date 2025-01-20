@@ -17,6 +17,9 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <!-- INCLUDES -->
+  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
+
   <!-- PROPERTIES -->
   <xacro:property name="camera_position_x" value="0.0908" />
   <xacro:property name="camera_position_y" value="0.08" />
@@ -40,8 +43,5 @@
   <xacro:property name="arm_right_7_joint_offset" value="0.0" />
   <xacro:property name="head_1_joint_offset" value="0.0" />
   <xacro:property name="head_2_joint_offset" value="0.0" />
-
-  <!-- INCLUDES -->
-  <xacro:include filename="$(find pal_urdf_utils)/urdf/deg_to_rad.urdf.xacro" />
 
 </robot>
