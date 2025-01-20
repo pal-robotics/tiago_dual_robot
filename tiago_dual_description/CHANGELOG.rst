@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Load master calibration data
+* Contributors: David ter Kuile
+
 2.8.1 (2025-01-10)
 ------------------
 
