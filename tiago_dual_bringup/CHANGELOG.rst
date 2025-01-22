@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* lock robot if charging
+* Contributors: antoniobrandi
+
 2.9.0 (2025-01-20)
 ------------------
 
