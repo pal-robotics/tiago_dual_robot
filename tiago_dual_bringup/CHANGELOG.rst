@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.11.0 (2025-02-24)
+-------------------
 * update locks and topics to integrate assisted_teleop
 * Contributors: andreacapodacqua
 
