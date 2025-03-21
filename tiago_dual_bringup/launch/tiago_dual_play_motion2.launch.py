@@ -90,6 +90,8 @@ def create_play_motion_filename(context):
     ee_motions = []
     motions_folder = os.path.join(pkg_share_dir, 'config', 'motions')
     base_motions_file = 'tiago_motions_no_arms.yaml'
+    head_motions = ['tiago_motions_head.yaml']
+
     # both arms
     if arm_right != 'no-arm' and arm_left != 'no-arm':
         base_motions_file = 'tiago_motions_general.yaml'
@@ -106,6 +108,7 @@ def create_play_motion_filename(context):
         ee_motions.append(f"tiago_motions_{ee_right}_right.yaml")
 
     motion_files = [base_motions_file]
+    motion_files.extend(head_motions)
     motion_files.extend(ee_motions)
 
     motion_yamls = [os.path.join(motions_folder, f) for f in motion_files]
