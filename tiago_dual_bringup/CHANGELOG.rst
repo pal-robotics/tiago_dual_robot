@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.12.1 (2025-03-28)
+-------------------
 * Merge branch 'mvi/update-motions' into 'humble-devel'
   Adding Head motions for Tiago++
   See merge request robots/tiago_dual_robot!140
