@@ -2,6 +2,18 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'mvi/update-motions' into 'humble-devel'
+  Adding Head motions for Tiago++
+  See merge request robots/tiago_dual_robot!140
+* Slow down head_tour
+* update head_tour
+* head shake instead of nod
+* Load motions.yaml
+* update head motions
+* Contributors: matteovillani, thomaspeyrucain
+
 2.12.0 (2025-03-25)
 -------------------
 * removed marker_vel
