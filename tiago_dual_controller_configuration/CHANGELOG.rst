@@ -2,6 +2,12 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Standarized gravity comp launcher
+* Added command interface param needed for new version of gravity comp
+* Contributors: oscarmartinez
+
 2.12.1 (2025-03-28)
 -------------------
 
