@@ -18,8 +18,8 @@ from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import OpaqueFunction, GroupAction
-from launch.conditions import IfCondition, LaunchConfigurationNotEquals, UnlessCondition
-from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch.conditions import LaunchConfigurationNotEquals, UnlessCondition
+from launch.substitutions import LaunchConfiguration
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch.actions import DeclareLaunchArgument
@@ -117,27 +117,15 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
     )
     launch_description.add_action(head_controller)
 
-    # Gravity compensation controller
-
-    gravity_compensation_controller = include_scoped_launch_py_description(
-        pkg_name="tiago_dual_controller_configuration",
-        paths=['launch', "gravity_compensation_controller.launch.py"],
-        launch_arguments={"arm_motor_model_right": launch_args.arm_motor_model_right,
-                          "arm_motor_model_left": launch_args.arm_motor_model_left,
-                          "end_effector_right": launch_args.end_effector_right,
-                          "end_effector_left": launch_args.end_effector_left},
-        condition=UnlessCondition(LaunchConfiguration("is_public_sim"))
-    )
-
-    launch_description.add_action(gravity_compensation_controller)
-
     # Add controller of right arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
-        function=configure_side_controllers, args=['right']))
+        function=configure_side_controllers, args=['right']),
+        condition=LaunchConfigurationNotEquals('arm_type_right', 'no-arm'))
 
     # Add controller of left arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
-        function=configure_side_controllers, args=['left']))
+        function=configure_side_controllers, args=['left']),
+        condition=LaunchConfigurationNotEquals('arm_type_left', 'no-arm'))
 
     return
 
@@ -199,6 +187,13 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
         ],
         condition=LaunchConfigurationNotEquals(arm_arg_name, 'no-arm'))
 
+    # Gravity compenstion
+    gravity_compensation_controller = include_scoped_launch_py_description(
+        pkg_name='tiago_controller_configuration',
+        paths=['launch', 'gravity_compensation_controller.launch.py'],
+        launch_arguments={"side": end_effector_side},
+        condition=UnlessCondition(LaunchConfiguration("is_public_sim")))
+
     # Setup ee controller
     end_effector = read_launch_argument(end_effector_arg_name, context)
     end_effector_underscore = end_effector.replace('-', '_')
@@ -214,17 +209,7 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
         pkg_name=ee_pkg_name,
         paths=['launch', ee_launch_file],
         launch_arguments={"side": end_effector_side},
-        condition=IfCondition(
-            PythonExpression(
-                [
-                    "'",
-                    LaunchConfiguration(arm_arg_name),
-                    "' != 'no-arm' and '",
-                    LaunchConfiguration(end_effector_arg_name),
-                    "' != 'no-end-effector'"
-                ]
-            )
-        ),
+        condition=LaunchConfigurationNotEquals(end_effector_arg_name, 'no-end-effector')
     )
 
     # Setup ft-sensor controller
@@ -241,20 +226,11 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
                     pkg_share_folder,
                     'config', f'{ft_sensor_controller_name}.yaml'))
         ],
-        condition=IfCondition(
-            PythonExpression(
-                [
-                    "'",
-                    LaunchConfiguration(arm_arg_name),
-                    "' != 'no-arm' and '",
-                    LaunchConfiguration(ft_sensor_arg_name),
-                    "' != 'no-ft-sensor'"
-                ]
-            )
-        ),
+        condition=LaunchConfigurationNotEquals(ft_sensor_arg_name, 'no-ft-sensor')
     )
 
-    return [arm_controller, end_effector_controller, ft_sensor_controller]
+    return [arm_controller, gravity_compensation_controller,
+            end_effector_controller, ft_sensor_controller]
 
 
 def concatenate_strings(strings: List[str], delimiter: str = '', skip_empty: bool = False):
