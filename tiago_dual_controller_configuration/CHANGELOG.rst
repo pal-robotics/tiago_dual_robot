@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Move faulty condition
+* Contributors: David ter Kuile
+
 2.13.0 (2025-04-09)
 -------------------
 * Standarized gravity comp launcher
