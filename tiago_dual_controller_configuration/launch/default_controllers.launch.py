@@ -119,13 +119,15 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
 
     # Add controller of right arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
-        function=configure_side_controllers, args=['right']),
+        function=configure_side_controllers, args=['right'],
         condition=LaunchConfigurationNotEquals('arm_type_right', 'no-arm'))
+    )
 
     # Add controller of left arm, end-effector and ft-sensor
     launch_description.add_action(OpaqueFunction(
-        function=configure_side_controllers, args=['left']),
+        function=configure_side_controllers, args=['left'],
         condition=LaunchConfigurationNotEquals('arm_type_left', 'no-arm'))
+    )
 
     return
 
