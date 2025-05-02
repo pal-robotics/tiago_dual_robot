@@ -173,6 +173,11 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
         delimiter='_',
         skip_empty=True)
 
+    arm_motor_model_arg_name = concatenate_strings(
+        strings=['arm_motor_model', end_effector_side],
+        delimiter='_',
+        skip_empty=True)
+
     # Setup arm controller
     arm_controller_name = concatenate_strings(
         strings=['arm', end_effector_side, 'controller'],
@@ -190,10 +195,12 @@ def configure_side_controllers(context, end_effector_side='right', *args, **kwar
         condition=LaunchConfigurationNotEquals(arm_arg_name, 'no-arm'))
 
     # Gravity compenstion
+    arm_motor_model = read_launch_argument(arm_motor_model_arg_name, context)
     gravity_compensation_controller = include_scoped_launch_py_description(
         pkg_name='tiago_controller_configuration',
         paths=['launch', 'gravity_compensation_controller.launch.py'],
-        launch_arguments={"side": end_effector_side},
+        launch_arguments={"side": end_effector_side,
+                          "arm_motor_model": arm_motor_model},
         condition=UnlessCondition(LaunchConfiguration("is_public_sim")))
 
     # Setup ee controller
