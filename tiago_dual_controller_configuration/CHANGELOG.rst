@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Adding missing motor model arg
+* Contributors: oscarmartinez
+
 2.13.1 (2025-04-15)
 -------------------
 * Move faulty condition
