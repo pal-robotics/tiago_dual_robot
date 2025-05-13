@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.13.3 (2025-05-13)
+-------------------
 * Remove unused ros2_control imu
 * Contributors: Noel Jimenez
 
