@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Remove unused ros2_control imu
+* Contributors: Noel Jimenez
+
 2.13.2 (2025-05-05)
 -------------------
 * Adding missing motor model arg
