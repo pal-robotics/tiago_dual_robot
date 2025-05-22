@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.13.4 (2025-05-22)
+-------------------
 * Merge branch 'omm/gravity_fix' into 'humble-devel'
   Restoring side aware torque constant
   See merge request robots/tiago_dual_robot!147
