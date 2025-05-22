@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'omm/gravity_fix' into 'humble-devel'
+  Restoring side aware torque constant
+  See merge request robots/tiago_dual_robot!147
+* Restoring side aware torque constant
+* Contributors: oscarmartinez, thomaspeyrucain
+
 2.13.3 (2025-05-13)
 -------------------
 * Remove unused ros2_control imu
