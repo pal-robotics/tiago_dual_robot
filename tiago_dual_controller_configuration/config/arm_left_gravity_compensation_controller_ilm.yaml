@@ -12,7 +12,7 @@ ${ARM_SIDE_PREFIX}_gravity_compensation_controller:
     root_link: "base_link"
     tip_links: 
       - ${ARM_SIDE_PREFIX}_tool_link
-    torque_gain: ${}1.0
+    torque_gain: 1.0
     parameters:
       ${ARM_SIDE_PREFIX}_1_joint:
         command_interface: "${ARM_SIDE_PREFIX}_1_joint/effort"
