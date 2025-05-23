@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'tpe/fix_typo' into 'humble-devel'
+  Fix typo
+  See merge request robots/tiago_dual_robot!148
+* Fix typo
+* Contributors: thomaspeyrucain
+
 2.13.4 (2025-05-22)
 -------------------
 * Merge branch 'omm/gravity_fix' into 'humble-devel'
