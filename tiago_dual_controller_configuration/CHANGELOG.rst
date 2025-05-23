@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.13.5 (2025-05-23)
+-------------------
 * Merge branch 'tpe/fix_typo' into 'humble-devel'
   Fix typo
   See merge request robots/tiago_dual_robot!148
