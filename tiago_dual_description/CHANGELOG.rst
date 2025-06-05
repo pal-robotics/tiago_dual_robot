@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Change sensors paths according to pal_urdf_utils
+* Move ros2 ft sensor file to global one
+* Change path for ftsensor into a more detailed one
+* Move sensors to pal_urdf_utils package
+* Contributors: Aina
+
 2.13.5 (2025-05-23)
 -------------------
 
