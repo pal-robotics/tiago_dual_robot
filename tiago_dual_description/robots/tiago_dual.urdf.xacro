@@ -176,7 +176,7 @@
 
     <!-- FT sensor -->
     <xacro:if value="${has_ft_sensor_right or has_ft_sensor_left}">
-      <xacro:include filename="$(find tiago_description)/urdf/sensors/ftsensor.urdf.xacro" />
+      <xacro:include filename="$(find pal_urdf_utils)/urdf/ft_sensors/schunk.urdf.xacro" />
     </xacro:if>
 
     <!-- End Effector -->
