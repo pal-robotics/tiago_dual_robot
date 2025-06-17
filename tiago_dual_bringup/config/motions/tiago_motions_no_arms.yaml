@@ -1,4 +1,4 @@
-play_motion2:
+/**:
   ros__parameters:
     motions:
       home:
@@ -37,4 +37,4 @@ play_motion2:
         meta:
           name: Inspect Surroundings
           usage: demo
-          description: 'Inspect surroundings around the robot'       
+          description: 'Inspect surroundings around the robot'
