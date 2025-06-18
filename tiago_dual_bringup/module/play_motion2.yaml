@@ -7,4 +7,4 @@ play_motion2:
            end_effector_right:=@end_effector_right@
            end_effector_left:=@end_effector_left@
            ft_sensor_right:=@ft_sensor_right@
-           ft_sensor_left:=@ft_sensor_left@"     
+           ft_sensor_left:=@ft_sensor_left@"
