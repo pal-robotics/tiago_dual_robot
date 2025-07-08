@@ -23,6 +23,8 @@ from launch.substitutions import LaunchConfiguration
 from tiago_dual_description.launch_arguments import TiagoDualArgs
 from dataclasses import dataclass
 
+from launch_ros.actions import Node
+
 
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
@@ -72,6 +74,18 @@ def declare_actions(
     )
 
     launch_description.add_action(twist_mux)
+
+    twist_mux_analyzer = Node(
+        package='diagnostic_aggregator',
+        executable='add_analyzer',
+        namespace='twist_mux',
+        output='screen',
+        emulate_tty=True,
+        parameters=[
+            os.path.join(pkg_dir, 'config', 'twist_mux', 'twist_mux_analyzers.yaml')
+        ],
+    )
+    launch_description.add_action(twist_mux_analyzer)
 
     return
 
