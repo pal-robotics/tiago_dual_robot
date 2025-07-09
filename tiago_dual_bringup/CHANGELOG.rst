@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.15.1 (2025-07-09)
+-------------------
 * Add namespace to safe_command_node instances
 * Add safe_command to joystick analyzers
 * Contributors: Noel Jimenez
