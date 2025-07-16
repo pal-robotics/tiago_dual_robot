@@ -105,7 +105,11 @@ def declare_actions(
         output='screen',
         parameters=[{
             'controller_name': 'head_controller'
-        }]
+        }],
+        remappings=[
+            ('/head_controller/robot_description', '/robot_description'),
+            ('/head_controller/robot_description_semantic', '/robot_description_semantic'),
+        ]
     )
 
     launch_description.add_action(safe_command_head)
@@ -118,7 +122,11 @@ def declare_actions(
         output='screen',
         parameters=[{
             'controller_name': 'torso_controller'
-        }]
+        }],
+        remappings=[
+            ('/torso_controller/robot_description', '/robot_description'),
+            ('/torso_controller/robot_description_semantic', '/robot_description_semantic'),
+        ]
     )
 
     launch_description.add_action(safe_command_torso)
