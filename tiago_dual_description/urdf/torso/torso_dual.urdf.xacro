@@ -17,7 +17,7 @@
   <xacro:property name="torso_max_vel"  value="0.07" />
   <xacro:property name="torso_eps"      value="0.02" />
 
-  <xacro:macro name="tiago_dual_torso" params="name parent has_screen">
+  <xacro:macro name="tiago_dual_torso" params="name parent base_type has_screen has_velodyne">
 
   <!-- Bottom fixed part of column -->
   <link name="${name}_fixed_link">
@@ -28,26 +28,79 @@
                iyy="0.40577300000" iyz="-0.00078200000"
                izz="0.07699800000"/>
     </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0" />
-      <geometry>
-        <mesh filename="package://tiago_dual_description/meshes/torso/torso_fix.stl" scale="1 1 1"/>
-      </geometry>
-      <material name="LightGrey"/>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0.09 0.0 0.02" />
-      <geometry>
-        <box size="0.4 0.28 0.075"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.05" />
-      <geometry>
-        <box size="0.25 0.265 0.052"/>
-      </geometry>
-    </collision>
+    <xacro:if value="${has_velodyne}">
+      <xacro:if value="${base_type == 'pmb2'}">
+        <!-- TODO: Integrate the torso_fix_with_velodyne_pmb2.stl -->
+      </xacro:if>
+      <xacro:if value="${base_type == 'omni_base'}">
+        <visual>
+          <origin rpy="0 0 0" xyz="0 0 0" />
+          <geometry>
+            <mesh filename="package://tiago_dual_description/meshes/torso/torso_fix_with_velodyne.stl" scale="1 1 1"/>
+          </geometry>
+          <material name="White"/>
+        </visual>
+        <collision>
+          <origin rpy="0 0 0" xyz="0.129898 0.0 0.035888" />
+          <geometry>
+            <box size="0.482507 0.262781 0.07314"/>
+          </geometry>
+        </collision>
+        <collision>
+          <origin rpy="0 0 0" xyz="0.005267 0 0.041713" />
+          <geometry>
+            <box size="0.232581 0.262781 0.084366"/>
+          </geometry>
+        </collision>
+        <collision>
+          <origin rpy="0 0 0" xyz="0.277349 0.0 0.083478" />
+          <geometry>
+            <cylinder radius="0.07" length="0.10"/>
+          </geometry>
+        </collision>
+      </xacro:if>
+    </xacro:if>
+    <xacro:unless value="${has_velodyne}">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <geometry>
+          <mesh filename="package://tiago_dual_description/meshes/torso/torso_fix.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0.085 0.0 0.035" />
+        <geometry>
+          <box size="0.43 0.295 0.056"/>
+        </geometry>
+      </collision>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0.065" />
+        <geometry>
+          <box size="0.263 0.295 0.117"/>
+        </geometry>
+      </collision>
+    </xacro:unless>
   </link>
+
+  <xacro:if value="${has_velodyne}">
+    <xacro:if value="${base_type == 'pmb2'}">
+      <!-- TODO: Change it accordingly to the new model for pmb2 -->
+    </xacro:if>
+    <xacro:if value="${base_type == 'omni_base'}">
+      <link name="${name}_velodyne_link"/>
+      <joint name="${name}_velodyne_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0.277 0.0 0.0523" />
+        <parent link="${name}_fixed_link" />
+        <child link="${name}_velodyne_link" />
+        <axis xyz="0 0 0" />
+      </joint>
+      <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+      <xacro:VLP-16 parent="${name}_velodyne_link" name="velodyne" topic="velodyne_points" organize_cloud="true" hz="1" samples="440" gpu="false">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </xacro:VLP-16>
+    </xacro:if>
+  </xacro:if>
 
   <joint name="${name}_fixed_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.062 0.0 0.193" />

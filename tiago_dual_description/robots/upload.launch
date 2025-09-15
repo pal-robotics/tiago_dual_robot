@@ -11,6 +11,7 @@
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="has_screen"  default="False"/>
+  <arg name="has_velodyne"  default="False"/>
   <arg name="base_type"  default="pmb2"/>
   <arg name="no_safety_eps" default="False"/>
   <arg name="description_calibration_dir" value="$(optenv pal_eye_hand_calibration_tiago_dual_calibration_path)" />
@@ -33,6 +34,7 @@
     laser_model:=$(arg laser_model)
     camera_model:=$(arg camera_model)
     has_screen:=$(arg has_screen)
+    has_velodyne:=$(arg has_velodyne)
     base_type:=$(arg base_type)
     no_safety_eps:=$(arg no_safety_eps)
     description_calibration_dir:=$(arg description_calibration_dir)
