@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.20 (2025-09-15)
+-------------------
 * Merge branch 'tpe/add_velodyne' into 'erbium-devel'
   Tpe/add velodyne
   See merge request robots/tiago_dual_robot!155
