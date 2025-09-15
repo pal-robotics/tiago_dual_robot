@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'tpe/add_velodyne' into 'erbium-devel'
+  Tpe/add velodyne
+  See merge request robots/tiago_dual_robot!155
+* Add velodyne params + mesh
+* Contributors: davidterkuile, thomaspeyrucain
+
 0.4.19 (2024-06-04)
 -------------------
 * Merge branch 'ipe/gazebo-control-period' into 'erbium-devel'
