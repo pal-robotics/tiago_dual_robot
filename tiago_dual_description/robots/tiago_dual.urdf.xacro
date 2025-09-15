@@ -27,6 +27,7 @@
     <xacro:arg name="namespace" default=""/>
     <xacro:arg name="fixed_torso" default="false" />
     <xacro:arg name="no_safety_eps" default="false"/>
+    <xacro:arg name="has_velodyne" default="false" />
     <xacro:arg name="gazebo_control_period" default="0.001"/> <!-- 1000Hz or 100 Hz-->
     <xacro:property name="wrist_left_model" value="$(arg wrist_left_model)" />
     <xacro:property name="wrist_right_model" value="$(arg wrist_right_model)" />
@@ -43,6 +44,7 @@
     <xacro:property name="is_multiple" value="$(arg multiple)" />
     <xacro:property name="nsp" value="$(arg namespace)" />
     <xacro:property name="no_safety_eps" value="$(arg no_safety_eps)" />
+    <xacro:property name="has_velodyne" value="$(arg has_velodyne)" />
     <xacro:property name="fixed_torso" value="$(arg fixed_torso)" />
     <xacro:property name="gazebo_control_period" value="$(arg gazebo_control_period)" />
 
@@ -123,7 +125,7 @@
   <xacro:if value="${base_type == 'omni_base'}">
     <xacro:base_sensors name="base" front_laser_model="$(arg laser_model)" rear_laser_model="$(arg laser_model)"/>
   </xacro:if>
-  <xacro:tiago_dual_torso name="torso" parent="base_link" has_screen="$(arg has_screen)"/>
+  <xacro:tiago_dual_torso name="torso" parent="base_link" base_type="$(arg base_type)" has_screen="$(arg has_screen)" has_velodyne="$(arg has_velodyne)" />
   <xacro:head name="head" parent="torso_lift_link" camera_model="$(arg camera_model)"
 	  description_calibration_dir="$(arg description_calibration_dir)"
 	  extrinsic_calibration_dir="$(arg extrinsic_calibration_dir)"

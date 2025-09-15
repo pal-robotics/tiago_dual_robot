@@ -9,6 +9,7 @@
   <arg name="ft_sensor_left"  default="schunk-ft"/>
   <arg name="ft_sensor_right"  default="schunk-ft"/>
   <arg name="laser_model"  default="sick-571"/>
+  <arg name="has_velodyne"  default="False"/>
   <arg name="camera_model"  default="orbbec-astra"/>
   <arg name="use_moveit_camera"  default="false"/>
   <arg name="has_screen"  default="False"/>
@@ -28,6 +29,7 @@
     <arg name="ft_sensor_left"  value="$(arg ft_sensor_left)"/>
     <arg name="ft_sensor_right"  value="$(arg ft_sensor_right)"/>
     <arg name="laser_model"  value="$(arg laser_model)"/>
+    <arg name="has_velodyne" value="$(arg has_velodyne)"/>
     <arg name="camera_model"  value="$(arg camera_model)"/>
     <arg name="use_moveit_camera" value="$(arg use_moveit_camera)"/>
     <arg name="wrist_left_model"  value="$(arg wrist_left_model)"/>   

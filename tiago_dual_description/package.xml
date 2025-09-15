@@ -23,6 +23,8 @@
   <exec_depend>pal_robotiq_140_description</exec_depend>
   <exec_depend>pal_robotiq_epick_description</exec_depend>
   <exec_depend>pal_wsg_gripper_description</exec_depend>
+  <exec_depend>velodyne_description</exec_depend>
+  <exec_depend>velodyne_gazebo_plugins</exec_depend>
   <exec_depend>tiago_dual_description_calibration</exec_depend>
   <exec_depend>custom_dual_ee_description</exec_depend>
   <exec_depend>pal_urdf_utils</exec_depend>
