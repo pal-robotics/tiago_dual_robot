@@ -22,7 +22,7 @@ ${ARM_SIDE_PREFIX}_gravity_compensation_controller:
         kd: 1.0
       ${ARM_SIDE_PREFIX}_2_joint:
         command_interface: "${ARM_SIDE_PREFIX}_2_joint/effort"
-        motor_torque_constant: -0.136
+        motor_torque_constant: -0.15
         reduction_ratio: 100.0
         kp: 6.0
         kd: 0.8
