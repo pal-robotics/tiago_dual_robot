@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.15.3 (2025-10-01)
+-------------------
 * Fix link 2 gravity compensation
 * Remove joint 5 in the gravity compensation due to motor issue
 * Contributors: thomas.peyrucain, thomaspeyrucain
