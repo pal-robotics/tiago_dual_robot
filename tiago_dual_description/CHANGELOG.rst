@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.4.20 (2025-09-15)
 -------------------
 * Merge branch 'tpe/add_velodyne' into 'erbium-devel'
