@@ -2,8 +2,8 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.4.21 (2025-10-09)
+-------------------
 * Merge branch 'dtk/velodyne-fix' into 'erbium-devel'
   Remove has_velodyne from tiago dual controllers
   See merge request robots/tiago_dual_robot!156
