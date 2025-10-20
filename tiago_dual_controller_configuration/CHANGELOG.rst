@@ -2,6 +2,13 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Force to current conversion is now handled at actuator level
+  Set most motor constants and reducers to 1.0 so the effort to
+  current conversion can be handled at actuator level
+* Contributors: Jordan Palacios
+
 2.15.3 (2025-10-01)
 -------------------
 * Fix link 2 gravity compensation
