@@ -2,6 +2,14 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'tpe/add_open_loop' into 'humble-devel'
+  Add back openloop to controllers
+  See merge request robots/tiago_dual_robot!160
+* Add back openloop to controllers
+* Contributors: thomas.peyrucain, thomaspeyrucain
+
 2.17.0 (2025-10-24)
 -------------------
 
