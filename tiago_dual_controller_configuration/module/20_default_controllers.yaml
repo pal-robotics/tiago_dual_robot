@@ -11,3 +11,4 @@ default_controllers:
            ft_sensor_right:=@ft_sensor_right@
            ft_sensor_left:=@ft_sensor_left@"
   finishes: True
+  dependencies: ["Hardware/Controller Manager/Hardware Components Activity"]
