@@ -42,6 +42,7 @@ class LaunchArguments(LaunchArgumentsBase):
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
     gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
+    calibration_tool: DeclareLaunchArgument = TiagoDualArgs.calibration_tool
 
 
 def generate_launch_description():
@@ -74,7 +75,8 @@ def declare_actions(
             "ft_sensor_right": launch_args.ft_sensor_right,
             "ft_sensor_left": launch_args.ft_sensor_left,
             "use_sim_time": launch_args.use_sim_time,
-            "is_public_sim": launch_args.is_public_sim
+            "is_public_sim": launch_args.is_public_sim,
+            "calibration_tool": launch_args.calibration_tool
         }
     )
 
@@ -127,6 +129,7 @@ def declare_actions(
             "use_sim_time": launch_args.use_sim_time,
             "is_public_sim": launch_args.is_public_sim,
             'gazebo_version': launch_args.gazebo_version,
+            "calibration_tool": launch_args.calibration_tool
         }
     )
 
