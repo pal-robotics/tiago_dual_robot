@@ -18,12 +18,9 @@ from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetLaunchConfiguration
-from launch.conditions import LaunchConfigurationEquals
-from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
+from launch.conditions import LaunchConfigurationNotEquals
 from launch_ros.actions import Node
-
-from launch_pal.arg_utils import read_launch_argument
 
 from launch_pal.arg_utils import LaunchArgumentsBase
 from tiago_dual_description.launch_arguments import TiagoDualArgs
@@ -39,12 +36,6 @@ class LaunchArguments(LaunchArgumentsBase):
     ft_sensor_right: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_right
     ft_sensor_left: DeclareLaunchArgument = TiagoDualArgs.ft_sensor_left
     base_type: DeclareLaunchArgument = TiagoDualArgs.base_type
-
-    cmd_vel: DeclareLaunchArgument = DeclareLaunchArgument(
-        name="cmd_vel",
-        default_value="input_joy/cmd_vel",
-        description="Joystick cmd_vel topic",
-    )
 
 
 def generate_launch_description():
@@ -63,26 +54,36 @@ def generate_launch_description():
 def declare_actions(
     launch_description: LaunchDescription, launch_args: LaunchArguments
 ):
-    launch_description.add_action(OpaqueFunction(
-        function=create_joy_teleop_filename))
+    from launch_pal import get_pal_configuration
+    # PAL helper function to fetch the configuration for this package,
+    # which might be installed also from other packages
+    joy_teleop_config = get_pal_configuration(
+        pkg="joy_teleop",
+        node="joy_teleop",
+        ld=launch_description)
 
     joy_teleop_node = Node(
         package='joy_teleop',
         executable='joy_teleop',
-        parameters=[LaunchConfiguration('teleop_config')],
-        remappings=[('cmd_vel', LaunchConfiguration('cmd_vel'))])
+        parameters=joy_teleop_config['parameters'],
+        remappings=joy_teleop_config['remappings'],)
 
     launch_description.add_action(joy_teleop_node)
 
-    pkg_dir = get_package_share_directory('tiago_dual_bringup')
+    joy_config = get_pal_configuration(
+        pkg="joystick",
+        node="joystick",
+        ld=launch_description)
 
     joy_node = Node(
-        package='joy_linux',
-        executable='joy_linux_node',
+        package='pal_joy',
+        executable='game_controller_node',
         name='joystick',
-        parameters=[os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_config.yaml')])
+        parameters=joy_config['parameters'])
 
     launch_description.add_action(joy_node)
+
+    pkg_dir = get_package_share_directory('tiago_dual_bringup')
 
     joystick_analyzer = Node(
         package='diagnostic_aggregator',
@@ -149,30 +150,22 @@ def declare_actions(
 
     launch_description.add_action(head_incrementer_server)
 
-    gripper_incrementer_server = Node(
+    gripper_incrementer_server_right = Node(
         package='joy_teleop',
         executable='incrementer_server',
-        name='incrementer',
+        name='incrementer_right',
         namespace='gripper_right_controller',
-        condition=LaunchConfigurationEquals('end_effector_right', 'pal-gripper'))
+        condition=LaunchConfigurationNotEquals('end_effector_right', 'no-end-effector'))
 
-    launch_description.add_action(gripper_incrementer_server)
+    launch_description.add_action(gripper_incrementer_server_right)
+
+    gripper_incrementer_server_left = Node(
+        package='joy_teleop',
+        executable='incrementer_server',
+        name='incrementer_left',
+        namespace='gripper_left_controller',
+        condition=LaunchConfigurationNotEquals('end_effector_left', 'no-end-effector'))
+
+    launch_description.add_action(gripper_incrementer_server_left)
 
     return
-
-
-def create_joy_teleop_filename(context):
-
-    base_type = read_launch_argument("base_type", context)
-    pkg_dir = get_package_share_directory("tiago_dual_bringup")
-
-    joy_teleop_file = f"joy_teleop_{base_type}.yaml"
-
-    joy_teleop_path = os.path.join(
-        pkg_dir,
-        "config",
-        "joy_teleop",
-        joy_teleop_file,
-    )
-
-    return [SetLaunchConfiguration("teleop_config", joy_teleop_path)]
