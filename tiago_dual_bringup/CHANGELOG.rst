@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update joystick layout
+* Contributors: thomaspeyrucain
+
 2.19.1 (2026-01-08)
 -------------------
 

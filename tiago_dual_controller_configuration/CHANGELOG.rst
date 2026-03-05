@@ -2,6 +2,9 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.19.1 (2026-01-08)
 -------------------
 * Add "Hardware Components Activity" module dependency
