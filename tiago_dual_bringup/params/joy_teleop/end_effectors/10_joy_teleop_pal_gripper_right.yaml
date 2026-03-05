@@ -1,0 +1,14 @@
+/joy_teleop:
+  use_preset: "joy_teleop_parallel_gripper_right.yaml"
+  use_if:
+    end_effector_right: pal-gripper
+
+  ros__parameters:
+
+    close_gripper_right:
+      action_goal:
+        increment_by: [-0.01, -0.01]
+
+    open_gripper_right:
+      action_goal:
+        increment_by: [0.01, 0.01]
