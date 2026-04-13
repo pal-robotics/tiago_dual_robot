@@ -2,6 +2,11 @@
 Changelog for package tiago_dual_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fixing open loop param
+* Contributors: vivianamorlando
+
 2.19.1 (2026-01-08)
 -------------------
 * Add "Hardware Components Activity" module dependency
