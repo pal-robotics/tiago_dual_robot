@@ -50,6 +50,7 @@ class LaunchArguments(LaunchArgumentsBase):
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
     gazebo_version: DeclareLaunchArgument = CommonArgs.gazebo_version
+    calibration_tool: DeclareLaunchArgument = TiagoDualArgs.calibration_tool
 
 
 def generate_launch_description():
@@ -104,6 +105,7 @@ def create_robot_description_param(context, *args, **kwargs):
         'is_public_sim': read_launch_argument('is_public_sim', context),
         'namespace': read_launch_argument('namespace', context),
         'gazebo_version': read_launch_argument('gazebo_version', context),
+        'calibration_tool': read_launch_argument('calibration_tool', context),
     }
 
     calibration_dir = tempfile.TemporaryDirectory()

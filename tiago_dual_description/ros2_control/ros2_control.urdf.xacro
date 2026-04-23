@@ -48,7 +48,7 @@
       <xacro:include filename="$(find pal_robotiq_description)/urdf/robotiq.ros2_control.xacro" />
     </xacro:if>
 
-  </xacro:if>
+  </xacro:if> 
 
   <!-- MACRO DEFINITION-->
   <xacro:macro name="tiago_dual_ros2_control">

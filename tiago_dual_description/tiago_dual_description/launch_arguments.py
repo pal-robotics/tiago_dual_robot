@@ -31,8 +31,10 @@ class TiagoDualArgs:
     base_type: DLA = __arg_creator.get_argument("base_type")
     arm_type_right: DLA = __arg_creator.get_argument("arm_type_right")
     arm_type_left: DLA = __arg_creator.get_argument("arm_type_left")
-    arm_motor_model_right: DLA = __arg_creator.get_argument('arm_motor_model_right')
-    arm_motor_model_left: DLA = __arg_creator.get_argument('arm_motor_model_left')
+    arm_motor_model_right: DLA = __arg_creator.get_argument(
+        'arm_motor_model_right')
+    arm_motor_model_left: DLA = __arg_creator.get_argument(
+        'arm_motor_model_left')
     end_effector_right: DLA = __arg_creator.get_argument("end_effector_right")
     end_effector_left: DLA = __arg_creator.get_argument("end_effector_left")
     ft_sensor_right: DLA = __arg_creator.get_argument("ft_sensor_right")
@@ -43,3 +45,4 @@ class TiagoDualArgs:
     laser_model: DLA = __arg_creator.get_argument("laser_model")
     camera_model: DLA = __arg_creator.get_argument("camera_model")
     has_screen: DLA = __arg_creator.get_argument("has_screen")
+    calibration_tool: DLA = __arg_creator.get_argument("calibration_tool")

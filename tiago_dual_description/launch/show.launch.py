@@ -42,6 +42,7 @@ class LaunchArguments(LaunchArgumentsBase):
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
     namespace: DeclareLaunchArgument = CommonArgs.namespace
+    calibration_tool: DeclareLaunchArgument = TiagoDualArgs.calibration_tool
 
 
 def generate_launch_description():
@@ -76,7 +77,8 @@ def declare_actions(launch_description: LaunchDescription, launch_args: LaunchAr
                           "has_screen": launch_args.has_screen,
                           "namespace": launch_args.namespace,
                           "use_sim_time": launch_args.use_sim_time,
-                          "is_public_sim": launch_args.is_public_sim
+                          "is_public_sim": launch_args.is_public_sim,
+                          "calibration_tool": launch_args.calibration_tool
                           })
 
     launch_description.add_action(robot_state_publisher)
